@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <title>Fantasy League – Projected Standings & Playoffs</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -20,10 +16,7 @@
             padding: 32px 16px 40px;
         }
 
-        .page {
-            width: 100%;
-            max-width: 1200px;
-        }
+        .page { width: 100%; max-width: 1200px; }
 
         header {
             margin-bottom: 24px;
@@ -33,16 +26,9 @@
             align-items: center;
         }
 
-        header h1 {
-            font-size: 1.9rem;
-            letter-spacing: 0.03em;
-        }
+        header h1 { font-size: 1.9rem; letter-spacing: 0.03em; }
 
-        header .subtitle {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            margin-top: 4px;
-        }
+        header .subtitle { font-size: 0.95rem; color: #9ca3af; margin-top: 4px; }
 
         .badge {
             font-size: 0.85rem;
@@ -77,11 +63,7 @@
             margin-bottom: 10px;
         }
 
-        .card-header h2 {
-            font-size: 1.15rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
+        .card-header h2 { font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; }
 
         .pill {
             font-size: 0.75rem;
@@ -93,22 +75,11 @@
             text-transform: uppercase;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 4px; }
 
-        thead {
-            background: linear-gradient(to right, rgba(56,189,248,0.12), rgba(129,140,248,0.12));
-        }
+        thead { background: linear-gradient(to right, rgba(56,189,248,0.12), rgba(129,140,248,0.12)); }
 
-        th, td {
-            padding: 6px 7px;
-            text-align: left;
-            white-space: nowrap;
-        }
+        th, td { padding: 6px 7px; text-align: left; white-space: nowrap; }
 
         th {
             font-size: 0.78rem;
@@ -118,23 +89,11 @@
             border-bottom: 1px solid rgba(148,163,184,0.35);
         }
 
-        tbody tr:nth-child(odd) {
-            background: rgba(15,23,42,0.9);
-        }
+        tbody tr:nth-child(odd) { background: rgba(15,23,42,0.9); }
+        tbody tr:nth-child(even) { background: rgba(15,23,42,0.75); }
+        tbody tr td:first-child { color: #6b7280; font-size: 0.8rem; }
 
-        tbody tr:nth-child(even) {
-            background: rgba(15,23,42,0.75);
-        }
-
-        tbody tr td:first-child {
-            color: #6b7280;
-            font-size: 0.8rem;
-        }
-
-        .team-name {
-            font-weight: 500;
-            color: #e5e7eb;
-        }
+        .team-name { font-weight: 500; color: #e5e7eb; }
 
         .tag {
             font-size: 0.78rem;
@@ -143,20 +102,9 @@
             border: 1px solid rgba(148,163,184,0.4);
         }
 
-        .tag.div {
-            border-color: rgba(56,189,248,0.6);
-            color: #7dd3fc;
-        }
-
-        .tag.wild {
-            border-color: rgba(52,211,153,0.7);
-            color: #6ee7b7;
-        }
-
-        .tag.out {
-            border-color: rgba(148,163,184,0.5);
-            color: #9ca3af;
-        }
+        .tag.div { border-color: rgba(56,189,248,0.6); color: #7dd3fc; }
+        .tag.wild { border-color: rgba(52,211,153,0.7); color: #6ee7b7; }
+        .tag.out { border-color: rgba(148,163,184,0.5); color: #9ca3af; }
 
         .section-title {
             font-size: 0.9rem;
@@ -167,31 +115,32 @@
             margin-top: 12px;
         }
 
-        .note {
-            font-size: 0.78rem;
-            color: #9ca3af;
+        .note { font-size: 0.78rem; color: #9ca3af; margin-top: 10px; line-height: 1.4; }
+
+        .side-stack { display: grid; grid-template-rows: auto auto; gap: 14px; }
+
+        .tiebreak-list { font-size: 0.8rem; color: #d1d5db; margin-left: 14px; margin-top: 6px; line-height: 1.45; }
+        .tiebreak-list li { margin-bottom: 4px; }
+
+        details.tiebreaker-details {
             margin-top: 10px;
-            line-height: 1.4;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(15,23,42,0.8);
+            border: 1px solid rgba(148,163,184,0.5);
         }
 
-        /* RIGHT SIDE LAYOUT */
-        .side-stack {
-            display: grid;
-            grid-template-rows: auto auto;
-            gap: 14px;
+        details.tiebreaker-details summary {
+            cursor: pointer;
+            list-style: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: #e5e7eb;
         }
 
-        .tiebreak-list {
-            font-size: 0.8rem;
-            color: #d1d5db;
-            margin-left: 14px;
-            margin-top: 6px;
-            line-height: 1.45;
-        }
-
-        .tiebreak-list li {
-            margin-bottom: 4px;
-        }
+        details.tiebreaker-details summary::marker { display: none; }
+        details.tiebreaker-details summary::-webkit-details-marker { display: none; }
 
         .h2h-controls {
             display: flex;
@@ -217,24 +166,12 @@
             font-weight: 600;
         }
 
-        button:hover {
-            filter: brightness(1.05);
-        }
+        button:hover { filter: brightness(1.05); }
 
-        #h2h-result {
-            font-size: 0.82rem;
-            color: #e5e7eb;
-            min-height: 18px;
-        }
+        #h2h-result { font-size: 0.82rem; color: #e5e7eb; min-height: 18px; margin-top: 4px; }
 
-        #h2h-note {
-            font-size: 0.75rem;
-            color: #9ca3af;
-            margin-top: 4px;
-            line-height: 1.35;
-        }
+        #h2h-note { font-size: 0.75rem; color: #9ca3af; margin-top: 6px; line-height: 1.35; }
 
-        /* BRACKET SVG */
         .bracket-svg-wrapper {
             margin-top: 10px;
             border-radius: 14px;
@@ -243,22 +180,11 @@
             padding: 8px;
         }
 
-        .bracket-svg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .bracket-svg { width: 100%; height: auto; display: block; }
 
         @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
+            .grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; align-items: flex-start; gap: 4px; }
         }
     </style>
 </head>
@@ -267,9 +193,7 @@
     <header>
         <div>
             <h1>Fantasy League – Projected Week Standings</h1>
-            <div class="subtitle">
-                If all current projections hold for this week.
-            </div>
+            <div class="subtitle">If all current projections hold for this week.</div>
         </div>
         <span class="badge">Projected After This Week</span>
     </header>
@@ -294,33 +218,33 @@
                     <th>Status</th>
                 </tr>
                 </thead>
-                <tbody id="standings-body">
-                <!-- filled by JS -->
-                </tbody>
+                <tbody id="standings-body"></tbody>
             </table>
 
-            <p class="section-title">Tie-breaker Summary</p>
-            <ul class="tiebreak-list">
-                <li><strong>Division winners</strong> take the top two seeds:
-                    <em>James Teams Sucks</em> (Div 2 champ) and <em>Dart Party</em> (Div 1 champ). Both finish 7–4.
-                </li>
-                <li><strong>Crip Crip</strong> is also 7–4, but not a division winner, so they become the
-                    top wildcard at seed #3.
-                </li>
-                <li><strong>HerpesDonator</strong> and <strong>Duloc InjuredBread Men-12</strong> both finish 6–5.
-                    HerpesDonator is projected above Duloc because they are already ahead in the ESPN standings
-                    (your league uses head-to-head as the actual tiebreaker).</li>
-                <li><strong>Our Lard and Savior</strong>, <strong>Josh's Scary Team</strong>, and
-                    <strong>Indoctrinated Ravens</strong> all land at 5–6 and miss the cut.
-                    Their internal order follows the current site ranking, which again is based on your league's
-                    head-to-head/secondary rules.</li>
-            </ul>
-
-            <p class="note">
-                Real tiebreakers in your league are head-to-head, then whatever secondary rules your settings use.
-                This page keeps the same ordering ESPN currently shows inside each tied record group and simply
-                applies your “top team in each division, then next 3 best records” playoff rule.
-            </p>
+            <!-- COLLAPSIBLE TIE-BREAKER SUMMARY -->
+            <details class="tiebreaker-details">
+                <summary> Tie-breaker Summary (click to expand) </summary>
+                <ul class="tiebreak-list">
+                    <li><strong>Division winners</strong> take the top two seeds:
+                        <em>James Teams Sucks</em> (Div 2 champ) and <em>Dart Party</em> (Div 1 champ). Both finish 7–4.
+                    </li>
+                    <li><strong>Crip Crip</strong> is also 7–4, but not a division winner, so they become the top wildcard at seed #3.</li>
+                    <li><strong>HerpesDonator</strong> and <strong>Duloc InjuredBread Men- 12</strong> both finish 6–5.
+                        HerpesDonator is projected above Duloc because they are ahead in the ESPN standings
+                        (your league uses head-to-head as the actual tiebreaker).
+                    </li>
+                    <li><strong>Our Lard and Savior</strong>, <strong>Josh's Scary Team</strong>, and
+                        <strong>Indoctrinated Ravens</strong> all land at 5–6 and miss the cut.
+                        Their internal order follows the current site ranking, which again is based on your league's
+                        head-to-head/secondary rules.
+                    </li>
+                </ul>
+                <p class="note">
+                    Real tiebreakers in your league are head-to-head, then whatever secondary rules your settings use.
+                    This page keeps the same ordering ESPN currently shows inside each tied record group and simply
+                    applies your “top team in each division, then next 3 best records” playoff rule.
+                </p>
+            </details>
         </div>
 
         <!-- RIGHT: BRACKET + H2H -->
@@ -333,72 +257,40 @@
                 </div>
 
                 <div class="bracket-svg-wrapper">
-                    <!--
-                      SVG bracket laid out to match the simple fork style you drew.
-                      Top fork: 4 vs 5 (Match A) feeding into Winner A vs #1.
-                      Bottom fork: 2 vs 3 (Match B).
-                      Both winners meet in the Championship on the right.
-                    -->
                     <svg viewBox="0 0 620 240" class="bracket-svg">
                         <!-- Lines -->
-                        <!-- Play-in top fork -->
                         <line x1="20" y1="40" x2="150" y2="40" stroke="#38bdf8" stroke-width="2"/>
                         <line x1="20" y1="80" x2="150" y2="80" stroke="#38bdf8" stroke-width="2"/>
                         <line x1="150" y1="40" x2="150" y2="80" stroke="#38bdf8" stroke-width="2"/>
                         <line x1="150" y1="60" x2="260" y2="60" stroke="#38bdf8" stroke-width="2"/>
 
-                        <!-- From Match A winner up to Semi 1 (vs #1) -->
                         <line x1="260" y1="60" x2="260" y2="100" stroke="#38bdf8" stroke-width="2"/>
                         <line x1="260" y1="100" x2="380" y2="100" stroke="#38bdf8" stroke-width="2"/>
 
-                        <!-- 2 vs 3 bottom fork -->
                         <line x1="20" y1="160" x2="150" y2="160" stroke="#22c55e" stroke-width="2"/>
                         <line x1="20" y1="200" x2="150" y2="200" stroke="#22c55e" stroke-width="2"/>
                         <line x1="150" y1="160" x2="150" y2="200" stroke="#22c55e" stroke-width="2"/>
                         <line x1="150" y1="180" x2="260" y2="180" stroke="#22c55e" stroke-width="2"/>
 
-                        <!-- From Match B winner to Championship -->
                         <line x1="260" y1="180" x2="260" y2="140" stroke="#38bdf8" stroke-width="2"/>
                         <line x1="260" y1="140" x2="480" y2="140" stroke="#facc15" stroke-width="2"/>
 
-                        <!-- Connect Semi 1 winner to Championship -->
                         <line x1="380" y1="100" x2="380" y2="140" stroke="#facc15" stroke-width="2"/>
 
-                        <!-- Championship extension to the right -->
                         <line x1="480" y1="140" x2="580" y2="140" stroke="#facc15" stroke-width="3"/>
 
-                        <!-- Text labels -->
-                        <!-- Play-in teams -->
-                        <text x="24" y="32" fill="#e5e7eb" font-size="11">
-                            (4) HerpesDonator
-                        </text>
-                        <text x="24" y="72" fill="#e5e7eb" font-size="11">
-                            (5) Duloc InjuredBread Men-12
-                        </text>
-                        <text x="160" y="55" fill="#9ca3af" font-size="10">
-                            Winner Match A
-                        </text>
+                        <!-- Labels -->
+                        <text x="24" y="32" fill="#e5e7eb" font-size="11">(4) HerpesDonator</text>
+                        <text x="24" y="72" fill="#e5e7eb" font-size="11">(5) Duloc InjuredBread Men- 12</text>
+                        <text x="160" y="55" fill="#9ca3af" font-size="10">Winner Match A</text>
 
-                        <!-- #1 seed semi -->
-                        <text x="268" y="96" fill="#e5e7eb" font-size="11">
-                            vs (1) James Teams Sucks
-                        </text>
+                        <text x="268" y="96" fill="#e5e7eb" font-size="11">vs (1) James Teams Sucks</text>
 
-                        <!-- 2 vs 3 -->
-                        <text x="24" y="152" fill="#e5e7eb" font-size="11">
-                            (2) Dart Party
-                        </text>
-                        <text x="24" y="192" fill="#e5e7eb" font-size="11">
-                            (3) Crip Crip
-                        </text>
-                        <text x="160" y="175" fill="#9ca3af" font-size="10">
-                            Winner Match B
-                        </text>
+                        <text x="24" y="152" fill="#e5e7eb" font-size="11">(2) Dart Party</text>
+                        <text x="24" y="192" fill="#e5e7eb" font-size="11">(3) Crip Crip</text>
+                        <text x="160" y="175" fill="#9ca3af" font-size="10">Winner Match B</text>
 
-                        <!-- Final / champions -->
-                        <text x="486" y="134" fill="#facc15" font-size="12" font-weight="bold">
-                            Championship
-                        </text>
+                        <text x="486" y="134" fill="#facc15" font-size="12" font-weight="bold">Championship</text>
                         <text x="486" y="152" fill="#e5e7eb" font-size="11">
                             Winner Semi 1 vs Winner Match B
                         </text>
@@ -406,11 +298,8 @@
                 </div>
 
                 <p class="note">
-                    Visual flow:  
-                    <strong>Top fork</strong> – (4) HerpesDonator vs (5) Duloc InjuredBread Men-12 (Match A).  
-                    Winner plays <strong>(1) James Teams Sucks</strong>.  
-                    <strong>Bottom fork</strong> – (2) Dart Party vs (3) Crip Crip (Match B).  
-                    Winners of those two paths meet on the far-right Championship line.
+                    Top fork: (4) HerpesDonator vs (5) Duloc InjuredBread Men- 12 → winner plays (1) James Teams Sucks.  
+                    Bottom fork: (2) Dart Party vs (3) Crip Crip → winner goes straight to the final.
                 </p>
             </div>
 
@@ -421,20 +310,18 @@
                     <span class="pill">Interactive</span>
                 </div>
                 <p style="font-size:0.84rem;color:#d1d5db;margin-bottom:4px;">
-                    Pick two teams to see their head-to-head record (once you fill it in).
+                    Uses <code>schedule.json</code> to calculate records automatically.
                 </p>
                 <div class="h2h-controls">
                     <select id="teamA"></select>
                     <span style="align-self:center;font-size:0.8rem;color:#9ca3af;">vs</span>
                     <select id="teamB"></select>
-                    <button onclick="showHeadToHead()">Show H2H</button>
+                    <button type="button" onclick="showHeadToHead()">Show H2H</button>
                 </div>
                 <div id="h2h-result"></div>
                 <div id="h2h-note">
-                    To make this fully accurate, open the HTML file and edit the
-                    <code>headToHeadData</code> object in the script.  
-                    Use keys like <code>"Dart Party|Crip Crip": "1–0"</code> for each matchup.
-                    If a pair isn’t in the data, you’ll see a “no record stored yet” message.
+                    Make sure <code>schedule.json</code> is in the same folder as this HTML in your GitHub
+                    <code>/docs</code> directory. The lookup ignores games that don't have scores yet.
                 </div>
             </div>
         </div>
@@ -442,128 +329,43 @@
 </div>
 
 <script>
-    // === PROJECTED TEAM DATA ===
+    // PROJECTED STANDINGS FOR AFTER THIS WEEK (same as before)
     const teams = [
-        {
-            rank: 1,
-            seed: 1,
-            name: "James Teams Sucks",
-            division: 2,
-            record: "7–4",
-            pf: 1618.2,
-            pa: 1433.0,
-            status: "Division 2 Champ · #1 Seed",
-            tagType: "div"
-        },
-        {
-            rank: 2,
-            seed: 2,
-            name: "Dart Party",
-            division: 1,
-            record: "7–4",
-            pf: 1514.35,
-            pa: 1486.35,
-            status: "Division 1 Champ · #2 Seed",
-            tagType: "div"
-        },
-        {
-            rank: 3,
-            seed: 3,
-            name: "Crip Crip",
-            division: 1,
-            record: "7–4",
-            pf: 1626.45,
-            pa: 1491.05,
-            status: "Top Wildcard · #3 Seed",
-            tagType: "wild"
-        },
-        {
-            rank: 4,
-            seed: 4,
-            name: "HerpesDonator",
-            division: 2,
-            record: "6–5",
-            pf: 1607.8,
-            pa: 1538.55,
-            status: "Wildcard · #4 Seed",
-            tagType: "wild"
-        },
-        {
-            rank: 5,
-            seed: 5,
-            name: "Duloc InjuredBread Men-12",
-            division: 1,
-            record: "6–5",
-            pf: 1443.45,
-            pa: 1501.6,
-            status: "Wildcard · #5 Seed",
-            tagType: "wild"
-        },
-        {
-            rank: 6,
-            seed: "-",
-            name: "Our Lard and Savior",
-            division: 1,
-            record: "5–6",
-            pf: 1620.9,
-            pa: 1508.8,
-            status: "Outside Playoffs",
-            tagType: "out"
-        },
-        {
-            rank: 7,
-            seed: "-",
-            name: "Josh's Scary Team",
-            division: 1,
-            record: "5–6",
-            pf: 1572.0,
-            pa: 1594.2,
-            status: "Outside Playoffs",
-            tagType: "out"
-        },
-        {
-            rank: 8,
-            seed: "-",
-            name: "Indoctrinated Ravens",
-            division: 2,
-            record: "5–6",
-            pf: 1425.85,
-            pa: 1537.55,
-            status: "Outside Playoffs",
-            tagType: "out"
-        },
-        {
-            rank: 9,
-            seed: "-",
-            name: "Koolaid Jammer",
-            division: 2,
-            record: "4–7",
-            pf: 1455.55,
-            pa: 1530.95,
-            status: "Outside Playoffs",
-            tagType: "out"
-        },
-        {
-            rank: 10,
-            seed: "-",
-            name: "Don't Blink",
-            division: 2,
-            record: "3–8",
-            pf: 1336.65,
-            pa: 1599.15,
-            status: "Outside Playoffs",
-            tagType: "out"
-        }
+        { rank: 1, seed: 1, name: "James Teams Sucks", division: 2, record: "7–4", pf: 1618.2, pa: 1433.0,
+          status: "Division 2 Champ · #1 Seed", tagType: "div" },
+        { rank: 2, seed: 2, name: "Dart Party", division: 1, record: "7–4", pf: 1514.35, pa: 1486.35,
+          status: "Division 1 Champ · #2 Seed", tagType: "div" },
+        { rank: 3, seed: 3, name: "Crip Crip", division: 1, record: "7–4", pf: 1626.45, pa: 1491.05,
+          status: "Top Wildcard · #3 Seed", tagType: "wild" },
+        { rank: 4, seed: 4, name: "HerpesDonator", division: 2, record: "6–5", pf: 1607.8, pa: 1538.55,
+          status: "Wildcard · #4 Seed", tagType: "wild" },
+        { rank: 5, seed: 5, name: "Duloc InjuredBread Men- 12", division: 1, record: "6–5", pf: 1443.45, pa: 1501.6,
+          status: "Wildcard · #5 Seed", tagType: "wild" },
+        { rank: 6, seed: "-", name: "Our Lard and Savior", division: 1, record: "5–6", pf: 1620.9, pa: 1508.8,
+          status: "Outside Playoffs", tagType: "out" },
+        { rank: 7, seed: "-", name: "Josh's Scary Team", division: 1, record: "5–6", pf: 1572.0, pa: 1594.2,
+          status: "Outside Playoffs", tagType: "out" },
+        { rank: 8, seed: "-", name: "Indoctrinated Ravens", division: 2, record: "5–6", pf: 1425.85, pa: 1537.55,
+          status: "Outside Playoffs", tagType: "out" },
+        { rank: 9, seed: "-", name: "Koolaid Jammer", division: 2, record: "4–7", pf: 1455.55, pa: 1530.95,
+          status: "Outside Playoffs", tagType: "out" },
+        { rank: 10, seed: "-", name: "Don't Blink", division: 2, record: "3–8", pf: 1336.65, pa: 1599.15,
+          status: "Outside Playoffs", tagType: "out" }
     ];
 
-    // === HEAD-TO-HEAD DATA ===
-    // Fill this with your real H2H records.
-    // Key format: "Team A|Team B" (order doesn't matter when we look it up).
-    const headToHeadData = {
-        // Examples, replace with reality:
-        // "Dart Party|Crip Crip": "1–0",
-        // "Duloc InjuredBread Men-12|Dart Party": "0–1",
-    };
+    let scheduleData = [];
+
+    async function loadSchedule() {
+        try {
+            const res = await fetch('schedule.json');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            scheduleData = await res.json();
+        } catch (err) {
+            console.error('Error loading schedule.json:', err);
+            const el = document.getElementById('h2h-result');
+            el.textContent = 'Could not load schedule.json – check that it exists in the same folder.';
+        }
+    }
 
     function renderStandings() {
         const tbody = document.getElementById("standings-body");
@@ -571,41 +373,28 @@
         teams.forEach(team => {
             const tr = document.createElement("tr");
 
-            const rankTd = document.createElement("td");
-            rankTd.textContent = team.rank;
+            const cells = [
+                team.rank,
+                team.name,
+                team.seed,
+                team.division,
+                team.record,
+                team.pf.toFixed(2),
+                team.pa.toFixed(2)
+            ];
 
-            const nameTd = document.createElement("td");
-            nameTd.textContent = team.name;
-            nameTd.className = "team-name";
-
-            const seedTd = document.createElement("td");
-            seedTd.textContent = team.seed;
-
-            const divTd = document.createElement("td");
-            divTd.textContent = team.division;
-
-            const recTd = document.createElement("td");
-            recTd.textContent = team.record;
-
-            const pfTd = document.createElement("td");
-            pfTd.textContent = team.pf.toFixed(2);
-
-            const paTd = document.createElement("td");
-            paTd.textContent = team.pa.toFixed(2);
+            cells.forEach((val, idx) => {
+                const td = document.createElement("td");
+                td.textContent = val;
+                if (idx === 1) td.className = "team-name";
+                tr.appendChild(td);
+            });
 
             const statusTd = document.createElement("td");
             const span = document.createElement("span");
             span.className = "tag " + team.tagType;
             span.textContent = team.status;
             statusTd.appendChild(span);
-
-            tr.appendChild(rankTd);
-            tr.appendChild(nameTd);
-            tr.appendChild(seedTd);
-            tr.appendChild(divTd);
-            tr.appendChild(recTd);
-            tr.appendChild(pfTd);
-            tr.appendChild(paTd);
             tr.appendChild(statusTd);
 
             tbody.appendChild(tr);
@@ -628,8 +417,8 @@
         });
 
         if (teams.length >= 2) {
-            selectA.value = teams[0].name;
-            selectB.value = teams[1].name;
+            selectA.value = teams[2].name; // Crip Crip
+            selectB.value = teams[1].name; // Dart Party
         }
     }
 
@@ -642,26 +431,53 @@
         const teamB = document.getElementById("teamB").value;
         const resultDiv = document.getElementById("h2h-result");
 
+        if (!scheduleData || scheduleData.length === 0) {
+            resultDiv.textContent = "Schedule data not loaded yet. Make sure schedule.json exists and reload.";
+            return;
+        }
+
         if (teamA === teamB) {
             resultDiv.textContent = "Pick two different teams to see a matchup.";
             return;
         }
 
-        const key = canonicalKey(teamA, teamB);
-        const rec = headToHeadData[key];
+        const games = scheduleData.filter(g => {
+            const involves = (g.home === teamA && g.away === teamB) || (g.home === teamB && g.away === teamA);
+            const finished = g.homeScore !== null && g.awayScore !== null;
+            return involves && finished;
+        });
 
-        if (rec) {
-            resultDiv.textContent = `${teamA} vs ${teamB}: ${rec} (from headToHeadData)`;
-        } else {
-            resultDiv.textContent =
-                `No head-to-head record stored yet for ${teamA} vs ${teamB}. ` +
-                `Edit headToHeadData in the script to add it.`;
+        if (games.length === 0) {
+            resultDiv.textContent = `${teamA} and ${teamB} have no completed games in schedule.json.`;
+            return;
         }
+
+        let aWins = 0, aLosses = 0, aTies = 0;
+        const breakdown = [];
+
+        games.forEach(g => {
+            const aScore = (g.home === teamA) ? g.homeScore : g.awayScore;
+            const bScore = (g.home === teamB) ? g.homeScore : g.awayScore;
+
+            let outcome;
+            if (aScore > bScore) { aWins++; outcome = `${teamA} W`; }
+            else if (aScore < bScore) { aLosses++; outcome = `${teamA} L`; }
+            else { aTies++; outcome = "T"; }
+
+            breakdown.push(
+                `Week ${g.week}: ${g.away} ${g.awayScore.toFixed(2)} @ ${g.home} ${g.homeScore.toFixed(2)} – ${outcome}`
+            );
+        });
+
+        const recordStr = `${teamA} vs ${teamB}: ${aWins}-${aLosses}` + (aTies ? `-${aTies}` : "");
+        resultDiv.innerHTML = recordStr + "<br>" + breakdown.join("<br>");
     }
 
-    // Init
-    renderStandings();
-    populateDropdowns();
+    document.addEventListener('DOMContentLoaded', () => {
+        renderStandings();
+        populateDropdowns();
+        loadSchedule();
+    });
 </script>
 </body>
 </html>
