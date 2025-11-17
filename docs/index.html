@@ -17,7 +17,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 32px 16px;
+            padding: 32px 16px 40px;
         }
 
         .page {
@@ -34,29 +34,30 @@
         }
 
         header h1 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             letter-spacing: 0.03em;
         }
 
-        header span.badge {
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #22c55e, #38bdf8);
-            color: #0f172a;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
+        header .subtitle {
             font-size: 0.95rem;
             color: #9ca3af;
             margin-top: 4px;
         }
 
+        .badge {
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #22c55e, #38bdf8);
+            color: #0f172a;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
         .grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
             gap: 20px;
         }
 
@@ -65,7 +66,7 @@
             border-radius: 18px;
             border: 1px solid rgba(148,163,184,0.25);
             box-shadow: 0 18px 40px rgba(15,23,42,0.7);
-            padding: 18px 20px 20px;
+            padding: 18px 20px 18px;
             backdrop-filter: blur(14px);
         }
 
@@ -78,9 +79,8 @@
 
         .card-header h2 {
             font-size: 1.15rem;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #e5e7eb;
         }
 
         .pill {
@@ -97,15 +97,15 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         thead {
-            background: linear-gradient(to right, rgba(56,189,248,0.08), rgba(129,140,248,0.08));
+            background: linear-gradient(to right, rgba(56,189,248,0.12), rgba(129,140,248,0.12));
         }
 
         th, td {
-            padding: 7px 8px;
+            padding: 6px 7px;
             text-align: left;
             white-space: nowrap;
         }
@@ -119,11 +119,11 @@
         }
 
         tbody tr:nth-child(odd) {
-            background: rgba(15,23,42,0.7);
+            background: rgba(15,23,42,0.9);
         }
 
         tbody tr:nth-child(even) {
-            background: rgba(15,23,42,0.9);
+            background: rgba(15,23,42,0.75);
         }
 
         tbody tr td:first-child {
@@ -164,92 +164,139 @@
             letter-spacing: 0.13em;
             color: #9ca3af;
             margin-bottom: 6px;
-            margin-top: 8px;
-        }
-
-        .division-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 4px;
-        }
-
-        .division-name {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #9ca3af;
-            margin-bottom: 4px;
-        }
-
-        .small-table th, .small-table td {
-            padding: 5px 6px;
-            font-size: 0.8rem;
-        }
-
-        /* Bracket */
-
-        .bracket {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 6px;
-        }
-
-        .round-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #9ca3af;
-            margin-bottom: 6px;
-        }
-
-        .matchup {
-            background: rgba(15,23,42,0.95);
-            border-radius: 14px;
-            border: 1px solid rgba(148,163,184,0.35);
-            padding: 8px 9px;
-            margin-bottom: 6px;
-        }
-
-        .seed-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 3px;
-        }
-
-        .seed-label {
-            font-size: 0.8rem;
-            color: #9ca3af;
-        }
-
-        .match-team {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .meta {
-            font-size: 0.76rem;
-            color: #64748b;
-            margin-top: 2px;
-        }
-
-        .champ-card {
-            margin-top: 4px;
-            border-style: dashed;
-            border-color: rgba(251,191,36,0.7);
-            background: radial-gradient(circle at top, rgba(250,204,21,0.08), rgba(15,23,42,0.98));
-        }
-
-        .champ-card .match-team {
-            color: #facc15;
+            margin-top: 12px;
         }
 
         .note {
             font-size: 0.78rem;
             color: #9ca3af;
             margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        /* Bracket */
+
+        .bracket-wrapper {
+            margin-top: 6px;
+        }
+
+        .path-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) auto minmax(0, 1.6fr) auto;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .match-box {
+            background: rgba(15,23,42,0.96);
+            border-radius: 14px;
+            border: 1px solid rgba(148,163,184,0.4);
+            padding: 7px 9px;
+            font-size: 0.85rem;
+            line-height: 1.25;
+        }
+
+        .match-box.small {
+            font-size: 0.82rem;
+            opacity: 0.95;
+        }
+
+        .match-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #9ca3af;
+            margin-bottom: 2px;
+        }
+
+        .match-main {
+            font-weight: 500;
+        }
+
+        .arrow {
+            font-size: 1.3rem;
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        .championship-box {
+            margin-top: 4px;
+            background: radial-gradient(circle at top, rgba(250,204,21,0.08), rgba(15,23,42,0.98));
+            border-radius: 16px;
+            border: 1px dashed rgba(250,204,21,0.7);
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+
+        .championship-box .match-main {
+            color: #facc15;
+        }
+
+        .mini {
+            font-size: 0.76rem;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+
+        /* Right side extra cards */
+
+        .side-stack {
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 14px;
+        }
+
+        .tiebreak-list {
+            font-size: 0.8rem;
+            color: #d1d5db;
+            margin-left: 14px;
+            margin-top: 6px;
+            line-height: 1.45;
+        }
+
+        .tiebreak-list li {
+            margin-bottom: 4px;
+        }
+
+        .h2h-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 6px 0 8px;
+        }
+
+        select, button {
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.7);
+            background: rgba(15,23,42,0.9);
+            color: #e5e7eb;
+            font-size: 0.82rem;
+            padding: 5px 10px;
+        }
+
+        button {
+            cursor: pointer;
+            border-color: #38bdf8;
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        button:hover {
+            filter: brightness(1.05);
+        }
+
+        #h2h-result {
+            font-size: 0.82rem;
+            color: #e5e7eb;
+            min-height: 18px;
+        }
+
+        #h2h-note {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 4px;
             line-height: 1.35;
         }
 
@@ -257,7 +304,6 @@
             .grid {
                 grid-template-columns: 1fr;
             }
-
             header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -270,262 +316,374 @@
 <div class="page">
     <header>
         <div>
-            <h1>Fantasy League – Week Projection</h1>
+            <h1>Fantasy League – Projected Week Standings</h1>
             <div class="subtitle">
-                Standings and playoff bracket if all current projections hold.
+                If all current projections hold for this week.
             </div>
         </div>
         <span class="badge">Projected After This Week</span>
     </header>
 
     <div class="grid">
-        <!-- Left: Overall & by-division standings -->
+        <!-- LEFT: Standings -->
         <div class="card">
             <div class="card-header">
-                <h2>Projected League Standings</h2>
-                <span class="pill">Seeds & Wildcards</span>
+                <h2>Projected League Table</h2>
+                <span class="pill">Seeds · PF · PA</span>
             </div>
             <table>
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>Team</th>
-                    <th>Rec</th>
+                    <th>Seed</th>
                     <th>Div</th>
-                    <th>Seed / Status</th>
+                    <th>Record</th>
+                    <th>PF</th>
+                    <th>PA</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td class="team-name">James Teams Sucks</td>
-                    <td>7–4</td>
-                    <td>2</td>
-                    <td><span class="tag div">#1 Seed – Div Champ</span></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td class="team-name">Dart Party</td>
-                    <td>7–4</td>
-                    <td>1</td>
-                    <td><span class="tag div">#2 Seed – Div Champ</span></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td class="team-name">Crip Crip</td>
-                    <td>7–4</td>
-                    <td>1</td>
-                    <td><span class="tag wild">#3 Seed – Wildcard</span></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td class="team-name">HerpesDonator</td>
-                    <td>6–5</td>
-                    <td>2</td>
-                    <td><span class="tag wild">#4 Seed – Wildcard</span></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td class="team-name">Duloc InjuredBread Men-12</td>
-                    <td>6–5</td>
-                    <td>1</td>
-                    <td><span class="tag wild">#5 Seed – Wildcard</span></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td class="team-name">Our Lard and Savior</td>
-                    <td>5–6</td>
-                    <td>1</td>
-                    <td><span class="tag out">Outside Playoffs</span></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td class="team-name">Josh's Scary Team</td>
-                    <td>5–6</td>
-                    <td>1</td>
-                    <td><span class="tag out">Outside Playoffs</span></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td class="team-name">Indoctrinated Ravens</td>
-                    <td>5–6</td>
-                    <td>2</td>
-                    <td><span class="tag out">Outside Playoffs</span></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td class="team-name">Koolaid Jammer</td>
-                    <td>4–7</td>
-                    <td>2</td>
-                    <td><span class="tag out">Outside Playoffs</span></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td class="team-name">Don't Blink</td>
-                    <td>3–8</td>
-                    <td>2</td>
-                    <td><span class="tag out">Outside Playoffs</span></td>
-                </tr>
+                <tbody id="standings-body">
+                <!-- Filled by JS -->
                 </tbody>
             </table>
 
-            <div class="section-title">Projected Division Tables</div>
-            <div class="division-grid">
-                <div>
-                    <div class="division-name">Division 1</div>
-                    <table class="small-table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Team</th>
-                            <th>Rec</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="team-name">Dart Party</td>
-                            <td>7–4</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="team-name">Crip Crip</td>
-                            <td>7–4</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="team-name">Duloc InjuredBread Men-12</td>
-                            <td>6–5</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="team-name">Our Lard and Savior</td>
-                            <td>5–6</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="team-name">Josh's Scary Team</td>
-                            <td>5–6</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <div class="division-name">Division 2</div>
-                    <table class="small-table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Team</th>
-                            <th>Rec</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="team-name">James Teams Sucks</td>
-                            <td>7–4</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="team-name">HerpesDonator</td>
-                            <td>6–5</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="team-name">Indoctrinated Ravens</td>
-                            <td>5–6</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="team-name">Koolaid Jammer</td>
-                            <td>4–7</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="team-name">Don't Blink</td>
-                            <td>3–8</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <p class="section-title">Tie-breaker Summary</p>
+            <ul class="tiebreak-list">
+                <li><strong>Division winners</strong> take the top two seeds:
+                    <em>James Teams Sucks</em> (Div 2 champ) and <em>Dart Party</em> (Div 1 champ). Both finish 7–4.
+                </li>
+                <li><strong>Crip Crip</strong> is also 7–4, but not a division winner, so they become the
+                    top wildcard at seed #3.
+                </li>
+                <li><strong>HerpesDonator</strong> and <strong>Duloc InjuredBread Men-12</strong> both finish 6–5.
+                    HerpesDonator is projected above Duloc because they are already ahead in the
+                    ESPN standings (your league uses head-to-head as the actual tie-breaker).</li>
+                <li><strong>Our Lard and Savior</strong>, <strong>Josh's Scary Team</strong>, and
+                    <strong>Indoctrinated Ravens</strong> all land at 5–6 and miss the cut.
+                    Their internal order follows the current site ranking, which again is based on your league's
+                    head-to-head/secondary rules.</li>
+            </ul>
 
             <p class="note">
-                Notes: Division winners take the top two seeds. Remaining three playoff spots go to the next best
-                records across the league. For tied records, this projection keeps the same order as the current ESPN
-                table (true tiebreaker in your league is head-to-head).
+                Real tiebreakers in your league are head-to-head, then whatever secondary rules your settings use.
+                This page keeps the same ordering ESPN currently shows inside each tied record group and simply
+                applies your “top team in each division, then next 3 best records” playoff rule.
             </p>
         </div>
 
-        <!-- Right: Playoff bracket -->
-        <div class="card">
-            <div class="card-header">
-                <h2>Projected 5-Team Playoff Bracket</h2>
-                <span class="pill">If Projections Hold</span>
+        <!-- RIGHT: Bracket + H2H -->
+        <div class="side-stack">
+            <!-- Bracket Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Projected 5-Team Playoff Bracket</h2>
+                    <span class="pill">Bracket View</span>
+                </div>
+
+                <div class="bracket-wrapper">
+                    <!-- TOP PATH: Play-in -> #1 -->
+                    <div class="path-row">
+                        <div class="match-box small">
+                            <div class="match-title">Play-In · Match A</div>
+                            <div class="match-main">(4) HerpesDonator vs (5) Duloc InjuredBread Men-12</div>
+                            <div class="mini">Winner advances to face #1 seed.</div>
+                        </div>
+                        <div class="arrow">➜</div>
+                        <div class="match-box">
+                            <div class="match-title">Semi 1</div>
+                            <div class="match-main">(1) James Teams Sucks vs Winner of Match A</div>
+                            <div class="mini">Division 2 champ gets the play-in winner.</div>
+                        </div>
+                        <div class="arrow">➜</div>
+                    </div>
+
+                    <!-- BOTTOM PATH: #2 vs #3 -->
+                    <div class="path-row">
+                        <div class="match-box small">
+                            <div class="match-title">Semi 2</div>
+                            <div class="match-main">(2) Dart Party vs (3) Crip Crip</div>
+                            <div class="mini">Division 1 champ vs top wildcard.</div>
+                        </div>
+                        <div class="arrow">➜</div>
+                        <div class="match-box">
+                            <div class="match-title">Semi 2 Winner</div>
+                            <div class="match-main">Winner: Dart Party / Crip Crip</div>
+                            <div class="mini">Advances to the championship game.</div>
+                        </div>
+                        <div class="arrow">➜</div>
+                    </div>
+
+                    <!-- Championship -->
+                    <div class="championship-box">
+                        <div class="match-title">Championship</div>
+                        <div class="match-main">Winner Semi 1 vs Winner Semi 2</div>
+                        <div class="mini">
+                            Final bracket: Play-in winner must go through #1, while #2 and #3 battle on the lower path.
+                        </div>
+                    </div>
+                </div>
+
+                <p class="note">
+                    Layout: top path is Play-In → #1 seed → Championship. Bottom path is #2 vs #3 → Championship.
+                    This matches your sketch: two lines feeding into one final matchup.
+                </p>
             </div>
 
-            <div class="bracket">
-                <!-- Play-In -->
-                <div>
-                    <div class="round-title">Play-In</div>
-                    <div class="matchup">
-                        <div class="seed-line">
-                            <span class="seed-label">Match A</span>
-                            <span class="seed-label">1 game</span>
-                        </div>
-                        <div class="match-team">(4) HerpesDonator</div>
-                        <div class="match-team">(5) Duloc InjuredBread Men-12</div>
-                        <div class="meta">Winner advances to face #1 seed.</div>
-                    </div>
+            <!-- H2H Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Head-to-Head Lookup</h2>
+                    <span class="pill">Interactive</span>
                 </div>
-
-                <!-- Semifinals -->
-                <div>
-                    <div class="round-title">Semifinals</div>
-                    <div class="matchup">
-                        <div class="seed-line">
-                            <span class="seed-label">Semi 1</span>
-                            <span class="seed-label">Higher seed hosts</span>
-                        </div>
-                        <div class="match-team">(1) James Teams Sucks</div>
-                        <div class="match-team">Winner of Match A</div>
-                        <div class="meta">Division 2 champ vs Play-In winner.</div>
-                    </div>
-
-                    <div class="matchup">
-                        <div class="seed-line">
-                            <span class="seed-label">Semi 2</span>
-                            <span class="seed-label">Rivals</span>
-                        </div>
-                        <div class="match-team">(2) Dart Party</div>
-                        <div class="match-team">(3) Crip Crip</div>
-                        <div class="meta">Division 1 champ vs top wildcard.</div>
-                    </div>
+                <p style="font-size:0.84rem;color:#d1d5db;margin-bottom:4px;">
+                    Pick two teams to see their head-to-head record (once you fill it in).
+                </p>
+                <div class="h2h-controls">
+                    <select id="teamA"></select>
+                    <span style="align-self:center;font-size:0.8rem;color:#9ca3af;">vs</span>
+                    <select id="teamB"></select>
+                    <button onclick="showHeadToHead()">Show H2H</button>
                 </div>
-
-                <!-- Championship -->
-                <div>
-                    <div class="round-title">Championship</div>
-                    <div class="matchup champ-card">
-                        <div class="seed-line">
-                            <span class="seed-label">Title Game</span>
-                            <span class="seed-label">Week &amp; location: League settings</span>
-                        </div>
-                        <div class="match-team">Winner Semi 1</div>
-                        <div class="match-team">Winner Semi 2</div>
-                        <div class="meta">Projected championship matchup path.</div>
-                    </div>
+                <div id="h2h-result"></div>
+                <div id="h2h-note">
+                    To make this fully accurate, open the HTML file and edit the
+                    <code>headToHeadData</code> object in the script.  
+                    Use keys like <code>"Dart Party|Crip Crip": "1-0"</code> for each matchup.
+                    If a pair isn’t in the data, you’ll see a “no record stored yet” message.
                 </div>
             </div>
-
-            <p class="note">
-                Bracket format used here: #4 vs #5 in a Play-In, #1 faces that winner, and #2 vs #3 in the other
-                semifinal. Winners meet in the championship. If your league uses a slightly different 5-team layout,
-                you can edit the round labels while keeping the same seeds.
-            </p>
         </div>
     </div>
 </div>
+
+<script>
+    // === DATA ===
+    // Projected final records IF all this week's projections hold.
+    const teams = [
+        {
+            rank: 1,
+            seed: 1,
+            name: "James Teams Sucks",
+            division: 2,
+            record: "7–4",
+            pf: 1618.2,
+            pa: 1433.0,
+            status: "Division 2 Champ · #1 Seed",
+            tagType: "div"
+        },
+        {
+            rank: 2,
+            seed: 2,
+            name: "Dart Party",
+            division: 1,
+            record: "7–4",
+            pf: 1514.35,
+            pa: 1486.35,
+            status: "Division 1 Champ · #2 Seed",
+            tagType: "div"
+        },
+        {
+            rank: 3,
+            seed: 3,
+            name: "Crip Crip",
+            division: 1,
+            record: "7–4",
+            pf: 1626.45,
+            pa: 1491.05,
+            status: "Top Wildcard · #3 Seed",
+            tagType: "wild"
+        },
+        {
+            rank: 4,
+            seed: 4,
+            name: "HerpesDonator",
+            division: 2,
+            record: "6–5",
+            pf: 1607.8,
+            pa: 1538.55,
+            status: "Wildcard · #4 Seed",
+            tagType: "wild"
+        },
+        {
+            rank: 5,
+            seed: 5,
+            name: "Duloc InjuredBread Men-12",
+            division: 1,
+            record: "6–5",
+            pf: 1443.45,
+            pa: 1501.6,
+            status: "Wildcard · #5 Seed",
+            tagType: "wild"
+        },
+        {
+            rank: 6,
+            seed: "-",
+            name: "Our Lard and Savior",
+            division: 1,
+            record: "5–6",
+            pf: 1620.9,
+            pa: 1508.8,
+            status: "Outside Playoffs",
+            tagType: "out"
+        },
+        {
+            rank: 7,
+            seed: "-",
+            name: "Josh's Scary Team",
+            division: 1,
+            record: "5–6",
+            pf: 1572.0,
+            pa: 1594.2,
+            status: "Outside Playoffs",
+            tagType: "out"
+        },
+        {
+            rank: 8,
+            seed: "-",
+            name: "Indoctrinated Ravens",
+            division: 2,
+            record: "5–6",
+            pf: 1425.85,
+            pa: 1537.55,
+            status: "Outside Playoffs",
+            tagType: "out"
+        },
+        {
+            rank: 9,
+            seed: "-",
+            name: "Koolaid Jammer",
+            division: 2,
+            record: "4–7",
+            pf: 1455.55,
+            pa: 1530.95,
+            status: "Outside Playoffs",
+            tagType: "out"
+        },
+        {
+            rank: 10,
+            seed: "-",
+            name: "Don't Blink",
+            division: 2,
+            record: "3–8",
+            pf: 1336.65,
+            pa: 1599.15,
+            status: "Outside Playoffs",
+            tagType: "out"
+        }
+    ];
+
+    // Head-to-head data.
+    // FILL THIS IN with real records from your league.
+    // Key format: "Team A|Team B" (order doesn’t matter when looking it up)
+    const headToHeadData = {
+        // examples (replace with reality):
+        // "Dart Party|Crip Crip": "1–0",
+        // "Duloc InjuredBread Men-12|Dart Party": "0–1",
+    };
+
+    // === RENDER STANDINGS TABLE ===
+    function renderStandings() {
+        const tbody = document.getElementById("standings-body");
+        tbody.innerHTML = "";
+        teams.forEach(team => {
+            const tr = document.createElement("tr");
+
+            const rankTd = document.createElement("td");
+            rankTd.textContent = team.rank;
+
+            const nameTd = document.createElement("td");
+            nameTd.textContent = team.name;
+            nameTd.className = "team-name";
+
+            const seedTd = document.createElement("td");
+            seedTd.textContent = team.seed;
+
+            const divTd = document.createElement("td");
+            divTd.textContent = team.division;
+
+            const recTd = document.createElement("td");
+            recTd.textContent = team.record;
+
+            const pfTd = document.createElement("td");
+            pfTd.textContent = team.pf.toFixed(2);
+
+            const paTd = document.createElement("td");
+            paTd.textContent = team.pa.toFixed(2);
+
+            const statusTd = document.createElement("td");
+            const span = document.createElement("span");
+            span.className = "tag " + team.tagType;
+            span.textContent = team.status;
+            statusTd.appendChild(span);
+
+            tr.appendChild(rankTd);
+            tr.appendChild(nameTd);
+            tr.appendChild(seedTd);
+            tr.appendChild(divTd);
+            tr.appendChild(recTd);
+            tr.appendChild(pfTd);
+            tr.appendChild(paTd);
+            tr.appendChild(statusTd);
+
+            tbody.appendChild(tr);
+        });
+    }
+
+    // === H2H DROPDOWNS ===
+    function populateDropdowns() {
+        const selectA = document.getElementById("teamA");
+        const selectB = document.getElementById("teamB");
+        teams.forEach(t => {
+            const optA = document.createElement("option");
+            optA.value = t.name;
+            optA.textContent = t.name;
+            selectA.appendChild(optA);
+
+            const optB = document.createElement("option");
+            optB.value = t.name;
+            optB.textContent = t.name;
+            selectB.appendChild(optB);
+        });
+
+        // default different teams
+        if (teams.length >= 2) {
+            selectA.value = teams[0].name;
+            selectB.value = teams[1].name;
+        }
+    }
+
+    function canonicalKey(a, b) {
+        return a < b ? `${a}|${b}` : `${b}|${a}`;
+    }
+
+    // === SHOW H2H ===
+    function showHeadToHead() {
+        const teamA = document.getElementById("teamA").value;
+        const teamB = document.getElementById("teamB").value;
+        const resultDiv = document.getElementById("h2h-result");
+
+        if (teamA === teamB) {
+            resultDiv.textContent = "Pick two different teams to see a matchup.";
+            return;
+        }
+
+        const key = canonicalKey(teamA, teamB);
+        const rec = headToHeadData[key];
+
+        if (rec) {
+            resultDiv.textContent = `${teamA} vs ${teamB}: ${rec} (record listed from headToHeadData)`;
+        } else {
+            resultDiv.textContent =
+                `No head-to-head record stored yet for ${teamA} vs ${teamB}. ` +
+                `Edit headToHeadData in the script to add it.`;
+        }
+    }
+
+    // Init
+    renderStandings();
+    populateDropdowns();
+</script>
 </body>
 </html>
