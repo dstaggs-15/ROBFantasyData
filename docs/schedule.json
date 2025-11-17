@@ -1,0 +1,53 @@
+[
+  {
+    "week": 11,
+    "home": "Duloc InjuredBread Men-12",
+    "away": "Dart Party",
+    "homeScore": 169.05,
+    "awayScore": 108.0
+  },
+  {
+    "week": 11,
+    "home": "Don't Blink",
+    "away": "Josh's Scary Team",
+    "homeScore": 130.45,
+    "awayScore": 67.65
+  },
+  {
+    "week": 11,
+    "home": "Our Lard and Savior",
+    "away": "Crip Crip",
+    "homeScore": 111.9,
+    "awayScore": 151.05
+  },
+  {
+    "week": 11,
+    "home": "James Teams Sucks",
+    "away": "HerpesDonator",
+    "homeScore": 130.55,
+    "awayScore": 123.2
+  },
+  {
+    "week": 11,
+    "home": "Indoctrinated Ravens",
+    "away": "Koolaid Jammer",
+    "homeScore": 151.55,
+    "awayScore": 148.25
+  }
+
+  /*  IMPORTANT:
+      JSON does NOT allow comments. GitHub will ignore this block if you delete it,
+      so actually remove everything from this line down and then add the REST
+      of your schedule in the same format:
+
+      {
+        "week": 1,
+        "home": "Team A",
+        "away": "Team B",
+        "homeScore": 123.45,
+        "awayScore": 98.7
+      }
+
+      Separate each game with a comma, and keep the whole thing inside [ ... ].
+  */
+]
