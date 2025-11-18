@@ -59,10 +59,10 @@
   { "week": 10, "home": "HerpesDonator", "away": "Don't Blink", "homeScore": 148.20, "awayScore": 121.10 },
   { "week": 10, "home": "Dart Party", "away": "Our Lard and Savior", "homeScore": 152.00, "awayScore": 200.90 },
 
-  { "week": 11, "home": "Josh's Scary Team", "away": "Don't Blink", "homeScore": 67.65, "awayScore": 130.45 },
-  { "week": 11, "home": "Crip Crip", "away": "Our Lard and Savior", "homeScore": 151.05, "awayScore": 111.90 },
-  { "week": 11, "home": "HerpesDonator", "away": "James Teams Sucks", "homeScore": 123.20, "awayScore": 130.55 },
-  { "week": 11, "home": "Dart Party", "away": "Duloc InjuredBread Men- 12", "homeScore": 108.00, "awayScore": 169.05 },
+  { "week": 11, "home": "Josh's Scary Team", "away": "Don't Blink", "homeScore": 110.15, "awayScore": 139.45 },
+  { "week": 11, "home": "Crip Crip", "away": "Our Lard and Savior", "homeScore": 182.05, "awayScore": 128.10 },
+  { "week": 11, "home": "HerpesDonator", "away": "James Teams Sucks", "homeScore": 150.20, "awayScore": 130.55 },
+  { "week": 11, "home": "Dart Party", "away": "Duloc InjuredBread Men- 12", "homeScore": 141.40, "awayScore": 169.05 },
   { "week": 11, "home": "Koolaid Jammer", "away": "Indoctrinated Ravens", "homeScore": 148.25, "awayScore": 151.55 },
 
   { "week": 12, "home": "Crip Crip", "away": "HerpesDonator", "homeScore": null, "awayScore": null },
