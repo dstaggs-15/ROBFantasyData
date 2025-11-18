@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fantasy League – Projected Standings & Playoffs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -75,7 +76,14 @@
             text-transform: uppercase;
         }
 
-        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 4px; }
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 4px;
+        }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 
         thead { background: linear-gradient(to right, rgba(56,189,248,0.12), rgba(129,140,248,0.12)); }
 
@@ -169,13 +177,57 @@
             border: 1px solid rgba(148,163,184,0.35);
             background: radial-gradient(circle at top, rgba(15,23,42,0.98), rgba(15,23,42,0.9));
             padding: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .bracket-svg { width: 100%; height: auto; display: block; }
+        .bracket-svg { width: 100%; height: auto; min-width: 480px; display: block; }
 
         @media (max-width: 900px) {
             .grid { grid-template-columns: 1fr; }
-            header { flex-direction: column; align-items: flex-start; gap: 4px; }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 8px 24px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            header .subtitle {
+                font-size: 0.85rem;
+            }
+
+            .card {
+                padding: 14px 12px 14px;
+            }
+
+            th, td {
+                padding: 5px 5px;
+                font-size: 0.8rem;
+            }
+
+            .h2h-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .h2h-controls select,
+            .h2h-controls button {
+                width: 100%;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
         }
     </style>
 </head>
@@ -198,22 +250,25 @@
                 <h2>League Table</h2>
                 <span class="pill">Seeds · PF · PA · Playoff %</span>
             </div>
-            <table>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Team</th>
-                    <th>Seed</th>
-                    <th>Div</th>
-                    <th>Record</th>
-                    <th>PF</th>
-                    <th>PA</th>
-                    <th>PO%</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody id="standings-body"></tbody>
-            </table>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>Seed</th>
+                        <th>Div</th>
+                        <th>Record</th>
+                        <th>PF</th>
+                        <th>PA</th>
+                        <th>PO%</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody id="standings-body"></tbody>
+                </table>
+            </div>
 
             <!-- COLLAPSIBLE TIE-BREAKER SUMMARY -->
             <details class="tiebreaker-details">
