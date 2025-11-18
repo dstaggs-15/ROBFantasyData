@@ -171,17 +171,81 @@
 
         #h2h-note { font-size: 0.75rem; color: #9ca3af; margin-top: 6px; line-height: 1.35; }
 
-        .bracket-svg-wrapper {
-            margin-top: 10px;
-            border-radius: 14px;
-            border: 1px solid rgba(148,163,184,0.35);
-            background: radial-gradient(circle at top, rgba(15,23,42,0.98), rgba(15,23,42,0.9));
-            padding: 8px;
+        /* BRACKET LAYOUT (ESPN-STYLE CARDS) */
+        .bracket-scroll {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
         }
 
-        .bracket-svg { width: 100%; height: auto; min-width: 480px; display: block; }
+        .bracket-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            min-width: 680px;
+        }
+
+        .bracket-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .round-header {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: #9ca3af;
+            margin-bottom: 2px;
+        }
+
+        .match-card {
+            background: rgba(15,23,42,0.95);
+            border-radius: 14px;
+            border: 1px solid rgba(148,163,184,0.45);
+            padding: 9px 11px;
+            box-shadow: 0 10px 24px rgba(15,23,42,0.8);
+        }
+
+        .match-seed-line {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .match-meta {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .match-bye {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            margin-top: 6px;
+            color: #a5f3fc;
+            letter-spacing: 0.12em;
+        }
+
+        .match-vs-team {
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .match-vs-team span.seed {
+            font-weight: 600;
+        }
+
+        .champ-card {
+            border-color: rgba(250,204,21,0.7);
+        }
+
+        .champ-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: #facc15;
+            margin-bottom: 4px;
+        }
 
         @media (max-width: 900px) {
             .grid { grid-template-columns: 1fr; }
@@ -279,7 +343,7 @@
                         both at 7–4. James holds the #1 seed via tiebreak (head-to-head + current ESPN ordering).
                     </li>
                     <li><strong>Dart Party</strong> (7–4) is the best non-division-winner and takes
-                        the #3 seed. Under your updated rule, seeds <strong>#1–#3 all get a first-round bye</strong>.
+                        the #3 seed. Under your rule, seeds <strong>#1–#3 all get a first-round bye</strong>.
                     </li>
                     <li><strong>Duloc InjuredBread Men- 12</strong> and <strong>HerpesDonator</strong> (both 6–5)
                         fill seeds #4 and #5. Duloc is ahead of Herpes because the ESPN standings already have Duloc higher
@@ -304,70 +368,117 @@
             <!-- BRACKET CARD -->
             <div class="card">
                 <div class="card-header">
-                    <h2>Projected Playoff Bracket</h2>
-                    <span class="pill">Top 3 = First-Round Bye</span>
+                    <h2>Projected Playoff Matchups</h2>
+                    <span class="pill">Top 3 = Bye · 5-Team Bracket</span>
                 </div>
 
-                <div class="bracket-svg-wrapper">
-                    <svg viewBox="0 0 640 260" class="bracket-svg">
-                        <!-- Wildcard (4 vs 5) -->
-                        <line x1="20" y1="50" x2="180" y2="50" stroke="#38bdf8" stroke-width="2"/>
-                        <line x1="20" y1="90" x2="180" y2="90" stroke="#38bdf8" stroke-width="2"/>
-                        <line x1="180" y1="50" x2="180" y2="90" stroke="#38bdf8" stroke-width="2"/>
-                        <line x1="180" y1="70" x2="280" y2="70" stroke="#38bdf8" stroke-width="2"/>
+                <div class="bracket-scroll">
+                    <div class="bracket-grid">
+                        <!-- ROUND 1 -->
+                        <div class="bracket-column">
+                            <div class="round-header">Projected · Round 1</div>
 
-                        <!-- Semi A: #1 vs Winner 4/5 -->
-                        <line x1="280" y1="70" x2="280" y2="120" stroke="#38bdf8" stroke-width="2"/>
-                        <line x1="280" y1="120" x2="390" y2="120" stroke="#38bdf8" stroke-width="2"/>
+                            <!-- #1 BYE -->
+                            <div class="match-card">
+                                <div class="match-seed-line">
+                                    #1 James Teams Sucks <span style="font-weight:400;">(7–4–0, 1st in Fish)</span>
+                                </div>
+                                <div class="match-meta">Seed 1 · Division champ · Home field</div>
+                                <div class="match-bye">BYE</div>
+                            </div>
 
-                        <!-- Semi B: #2 vs #3 (both had byes) -->
-                        <line x1="20" y1="170" x2="180" y2="170" stroke="#22c55e" stroke-width="2"/>
-                        <line x1="20" y1="210" x2="180" y2="210" stroke="#22c55e" stroke-width="2"/>
-                        <line x1="180" y1="170" x2="180" y2="210" stroke="#22c55e" stroke-width="2"/>
-                        <line x1="180" y1="190" x2="280" y2="190" stroke="#22c55e" stroke-width="2"/>
-                        <line x1="280" y1="190" x2="390" y2="190" stroke="#22c55e" stroke-width="2"/>
+                            <!-- 5 vs 4 -->
+                            <div class="match-card">
+                                <div class="match-seed-line">
+                                    Wildcard: #5 HerpesDonator @ #4 Duloc InjuredBread Men- 12
+                                </div>
+                                <div class="match-vs-team">
+                                    <span class="seed">#5</span> HerpesDonator (6–5–0, Fish)
+                                </div>
+                                <div class="match-vs-team">
+                                    <span class="seed">#4</span> Duloc InjuredBread Men- 12 (6–5–0, Crabs)
+                                </div>
+                                <div class="match-meta" style="margin-top:4px;">
+                                    Winner advances to play #1 seed in Round 2.
+                                </div>
+                            </div>
 
-                        <!-- Championship -->
-                        <line x1="390" y1="120" x2="390" y2="190" stroke="#facc15" stroke-width="2"/>
-                        <line x1="390" y1="155" x2="580" y2="155" stroke="#facc15" stroke-width="3"/>
+                            <!-- #3 BYE -->
+                            <div class="match-card">
+                                <div class="match-seed-line">
+                                    #3 Dart Party <span style="font-weight:400;">(7–4–0, 2nd in Crabs)</span>
+                                </div>
+                                <div class="match-meta">Seed 3 · Top wildcard</div>
+                                <div class="match-bye">BYE</div>
+                            </div>
 
-                        <!-- Labels: Wildcard -->
-                        <text x="24" y="42" fill="#e5e7eb" font-size="11">(4) Duloc InjuredBread Men- 12</text>
-                        <text x="24" y="82" fill="#e5e7eb" font-size="11">(5) HerpesDonator</text>
-                        <text x="188" y="66" fill="#9ca3af" font-size="10">Winner 4 vs 5</text>
+                            <!-- #2 BYE -->
+                            <div class="match-card">
+                                <div class="match-seed-line">
+                                    #2 Crip Crip <span style="font-weight:400;">(7–4–0, 1st in Crabs)</span>
+                                </div>
+                                <div class="match-meta">Seed 2 · Division champ</div>
+                                <div class="match-bye">BYE</div>
+                            </div>
+                        </div>
 
-                        <!-- Labels: Semi A -->
-                        <text x="288" y="110" fill="#e5e7eb" font-size="11">Semi A:</text>
-                        <text x="288" y="125" fill="#e5e7eb" font-size="11">
-                            (1) James Teams Sucks vs Winner 4/5
-                        </text>
-                        <text x="288" y="140" fill="#9ca3af" font-size="9">
-                            #1 seed had first-round bye
-                        </text>
+                        <!-- ROUND 2 (SEMIS) -->
+                        <div class="bracket-column">
+                            <div class="round-header">Projected · Round 2 (Semifinals)</div>
 
-                        <!-- Labels: Semi B -->
-                        <text x="24" y="162" fill="#e5e7eb" font-size="11">(2) Crip Crip</text>
-                        <text x="24" y="202" fill="#e5e7eb" font-size="11">(3) Dart Party</text>
-                        <text x="188" y="186" fill="#e5e7eb" font-size="11">Semi B: (2) vs (3)</text>
-                        <text x="188" y="201" fill="#9ca3af" font-size="9">
-                            both were byes in Round 1
-                        </text>
+                            <!-- Semi 1 -->
+                            <div class="match-card">
+                                <div class="match-seed-line">Semifinal 1</div>
+                                <div class="match-vs-team">
+                                    Winner of <span class="seed">#5</span> HerpesDonator /
+                                    <span class="seed">#4</span> Duloc InjuredBread Men- 12
+                                </div>
+                                <div class="match-vs-team">
+                                    @ <span class="seed">#1</span> James Teams Sucks
+                                </div>
+                                <div class="match-meta" style="margin-top:4px;">
+                                    Reseeding: lowest remaining seed faces highest seed (#1).
+                                </div>
+                            </div>
 
-                        <!-- Labels: Championship -->
-                        <text x="486" y="149" fill="#facc15" font-size="12" font-weight="bold">Championship</text>
-                        <text x="486" y="167" fill="#e5e7eb" font-size="11">
-                            Highest remaining vs lowest remaining
-                        </text>
-                    </svg>
+                            <!-- Semi 2 -->
+                            <div class="match-card">
+                                <div class="match-seed-line">Semifinal 2</div>
+                                <div class="match-vs-team">
+                                    <span class="seed">#3</span> Dart Party
+                                </div>
+                                <div class="match-vs-team">
+                                    @ <span class="seed">#2</span> Crip Crip
+                                </div>
+                                <div class="match-meta" style="margin-top:4px;">
+                                    Both #2 and #3 had first-round byes and meet here.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHAMPIONSHIP -->
+                        <div class="bracket-column">
+                            <div class="round-header">Projected · Championship</div>
+                            <div class="match-card champ-card">
+                                <div class="champ-title">Title Game</div>
+                                <div class="match-vs-team">
+                                    Winner Semifinal 1
+                                </div>
+                                <div class="match-vs-team">
+                                    vs Winner Semifinal 2
+                                </div>
+                                <div class="match-meta" style="margin-top:4px;">
+                                    Highest remaining seed is the “home” team in your ESPN bracket.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p class="note">
                     Round 1: only <strong>(4) Duloc</strong> vs <strong>(5) HerpesDonator</strong> play.  
-                    Round 2 (semis): you <strong>reseed</strong> – the <strong>lowest remaining seed</strong>
-                    faces the <strong>highest remaining seed</strong>. In this 5-team setup, that always becomes:<br>
-                    • Semi A: <strong>#1 James Teams Sucks</strong> vs Winner of <strong>#4/#5</strong><br>
-                    • Semi B: <strong>#2 Crip Crip</strong> vs <strong>#3 Dart Party</strong><br>
-                    Winners meet in the title game.
+                    Round 2: bracket <strong>re-seeds</strong>; lowest remaining seed always plays the highest
+                    remaining seed. With 5 teams this becomes #1 vs winner of 4/5, and #2 vs #3.
                 </p>
             </div>
 
