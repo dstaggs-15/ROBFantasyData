@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fantasy League – Standings & Playoff Bracket</title>
+    <title>Fantasy League – Standings &amp; Playoff Bracket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+      This page powers the fantasy‑football standings and playoff bracket for
+      the ROBFantasyData GitHub Pages site. It reads game results from
+      schedule.json (placed alongside this file in the /docs folder) and
+      computes win/loss records, points for/against, division winners,
+      seeding and a simple estimate of playoff likelihood.  The bracket
+      respects a five‑team format: seeds 1–3 receive first‑round byes,
+      seeds 4 and 5 play in round 1, and the bracket reseeds before the
+      semifinals (lowest remaining seed faces #1, the other faces #2 or #3).
+
+      Styles largely mirror the prior version of the site but have been
+      consolidated here for ease of maintenance.  Responsiveness is handled
+      via CSS media queries so the table and bracket look good on mobile.
+    -->
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -179,6 +193,7 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        /* the svg itself will be generated dynamically via JS */
         .bracket-svg {
             width: 100%;
             height: auto;
@@ -247,10 +262,10 @@
         <div>
             <h1>Fantasy League – Projected Standings</h1>
             <div class="subtitle">
-                Top 3 seeds get a first-round bye. 5-team bracket, reseeds each round.
+                Top 3 seeds get a first‑round bye. 5‑team bracket, reseeds each round.
             </div>
         </div>
-        <span class="badge">Week 11 Snapshot</span>
+        <span class="badge" id="week-badge">Loading…</span>
     </header>
 
     <div class="grid">
@@ -280,21 +295,14 @@
                 </table>
             </div>
 
-            <details class="tiebreaker-details">
-                <summary> Tie-breaker & Seeding Notes (click) </summary>
-                <ul class="tiebreak-list">
-                    <li><strong>Division winners</strong> auto-lock top 2 seeds:
-                        <em>James Teams Sucks</em> (Fish) and <em>Crip Crip</em> (Crabs), both 7–4. ESPN ordering makes James the #1 seed.
-                    </li>
-                    <li><strong>Dart Party</strong> (7–4) is best non-division winner → #3 seed. Seeds <strong>1–3 all get byes</strong>.</li>
-                    <li><strong>Duloc InjuredBread Men- 12</strong> and <strong>HerpesDonator</strong> (6–5) are seeds #4 and #5.
-                        Duloc is above Herpes based on current ESPN tiebreakers (head-to-head / PF).
-                    </li>
-                    <li>Everyone 5–6 and below is chasing those top 5 spots. Current order for non-playoff teams matches ESPN’s table.</li>
+            <details class="tiebreaker-details" open>
+                <summary> Tie‑breaker &amp; Seeding Notes (click) </summary>
+                <ul class="tiebreak-list" id="tiebreak-list">
+                    <!-- will be populated dynamically -->
                 </ul>
                 <p class="note">
-                    Playoff % estimates mirror what you see in ESPN: mid-90s for virtual locks, 50–60 for bubble teams,
-                    and single digits for longshots.
+                    Playoff % estimates mirror what you see in ESPN: mid‑90s for virtual locks,
+                    around 50–60 for bubble teams, and single digits for longshots.
                 </p>
             </details>
         </div>
@@ -305,69 +313,28 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Projected Playoff Bracket</h2>
-                    <span class="pill">Lines View · 5-Team</span>
+                    <span class="pill">Lines View · 5‑Team</span>
                 </div>
 
                 <div class="bracket-svg-wrapper">
-                    <svg viewBox="0 0 900 260" class="bracket-svg">
-                        <!-- ROUND 1: (4) vs (5) -->
-                        <text x="15"  y="40"  class="svg-team">(4) Duloc InjuredBread Men- 12</text>
-                        <text x="15"  y="90"  class="svg-team">(5) HerpesDonator</text>
-
-                        <line x1="220" y1="30" x2="320" y2="30" class="svg-line"/>
-                        <line x1="220" y1="80" x2="320" y2="80" class="svg-line"/>
-                        <line x1="320" y1="30" x2="320" y2="80" class="svg-line"/>
-                        <line x1="320" y1="55" x2="450" y2="55" class="svg-line"/>
-
-                        <text x="330" y="48" class="svg-label">Winner 4 vs 5</text>
-
-                        <!-- SEMI A: #1 vs Winner 4/5 -->
-                        <text x="470" y="140" class="svg-team">(1) James Teams Sucks</text>
-
-                        <line x1="450" y1="55"  x2="450" y2="140" class="svg-line"/>
-                        <line x1="450" y1="140" x2="650" y2="140" class="svg-line"/>
-
-                        <text x="460" y="115" class="svg-label">Semi A: #1 vs Winner 4/5</text>
-                        <text x="460" y="129" class="svg-label">#1 seed had first round bye</text>
-
-                        <!-- SEMI B: #2 vs #3 -->
-                        <text x="15"  y="180" class="svg-team">(2) Crip Crip</text>
-                        <text x="15"  y="230" class="svg-team">(3) Dart Party</text>
-
-                        <line x1="220" y1="170" x2="360" y2="170" class="semi-line"/>
-                        <line x1="220" y1="220" x2="360" y2="220" class="semi-line"/>
-                        <line x1="360" y1="170" x2="360" y2="220" class="semi-line"/>
-                        <line x1="360" y1="195" x2="650" y2="195" class="semi-line"/>
-
-                        <text x="370" y="190" class="svg-label">Semi B: (2) vs (3)</text>
-                        <text x="370" y="204" class="svg-label">both were byes in Round 1</text>
-
-                        <!-- CHAMPIONSHIP -->
-                        <line x1="650" y1="140" x2="650" y2="195" class="champ-line"/>
-                        <line x1="650" y1="167" x2="880" y2="167" class="champ-line"/>
-
-                        <text x="720" y="160" class="champ-text">Championship</text>
-                        <text x="720" y="180" class="champ-subtext">
-                            Highest remaining vs lowest remaining seed
-                        </text>
-                    </svg>
+                    <div id="bracket-container"><!-- bracket SVG inserted here --></div>
                 </div>
 
                 <p class="note">
-                    Round 1: only <strong>(4) Duloc</strong> vs <strong>(5) HerpesDonator</strong> play.  
-                    Round 2: bracket <strong>re-seeds</strong>; lowest remaining seed plays highest (so #1 vs Winner 4/5, and #2 vs #3).  
-                    Winners of Semi A and Semi B meet in the Championship.
+                    Round 1: only the #4 and #5 seeds play.  Round 2: the bracket
+                    <strong>re‑seeds</strong>; lowest remaining seed faces highest (#1) and the
+                    next faces #2/#3.  Winners of each semifinal meet in the Championship.
                 </p>
             </div>
 
             <!-- H2H -->
             <div class="card">
                 <div class="card-header">
-                    <h2>Head-to-Head Lookup</h2>
+                    <h2>Head‑to‑Head Lookup</h2>
                     <span class="pill">From schedule.json</span>
                 </div>
                 <p style="font-size:0.84rem;color:#d1d5db;margin-bottom:4px;">
-                    Select two teams to see their head-to-head record based on games in <code>schedule.json</code>.
+                    Select two teams to see their head‑to‑head record based on games in <code>schedule.json</code>.
                 </p>
                 <div class="h2h-controls">
                     <select id="teamA"></select>
@@ -377,8 +344,8 @@
                 </div>
                 <div id="h2h-result"></div>
                 <div id="h2h-note">
-                    Only completed games (non-null scores) are counted.  
-                    Put this HTML next to <code>schedule.json</code> in your GitHub <code>/docs</code> folder.
+                    Only completed games (non‑null scores) are counted.  Make sure
+                    <code>schedule.json</code> is present in this folder.
                 </div>
             </div>
         </div>
@@ -386,61 +353,27 @@
 </div>
 
 <script>
-    // Standings snapshot
-    const teams = [
-        {
-            rank: 1, seed: 1, name: "James Teams Sucks", division: 2,
-            record: "7–4", pf: 1748.75, pa: 1583.20, playoffChance: 96,
-            status: "Fish Champ · #1 Seed · Bye", tagType: "div"
-        },
-        {
-            rank: 2, seed: 2, name: "Crip Crip", division: 1,
-            record: "7–4", pf: 1808.50, pa: 1619.15, playoffChance: 97,
-            status: "Crabs Champ · #2 Seed · Bye", tagType: "div"
-        },
-        {
-            rank: 3, seed: 3, name: "Dart Party", division: 1,
-            record: "7–4", pf: 1655.75, pa: 1655.40, playoffChance: 92,
-            status: "#3 Seed · Bye", tagType: "wild"
-        },
-        {
-            rank: 4, seed: 4, name: "Duloc InjuredBread Men- 12", division: 1,
-            record: "6–5", pf: 1612.50, pa: 1643.00, playoffChance: 55,
-            status: "#4 Seed · Plays #5", tagType: "wild"
-        },
-        {
-            rank: 5, seed: 5, name: "HerpesDonator", division: 2,
-            record: "6–5", pf: 1758.00, pa: 1669.10, playoffChance: 67,
-            status: "#5 Seed · Plays #4", tagType: "wild"
-        },
-        {
-            rank: 6, seed: "-", name: "Our Lard and Savior", division: 1,
-            record: "5–6", pf: 1749.00, pa: 1690.85, playoffChance: 41,
-            status: "Bubble", tagType: "out"
-        },
-        {
-            rank: 7, seed: "-", name: "Josh's Scary Team", division: 1,
-            record: "5–6", pf: 1682.15, pa: 1733.65, playoffChance: 33,
-            status: "Bubble", tagType: "out"
-        },
-        {
-            rank: 8, seed: "-", name: "Indoctrinated Ravens", division: 2,
-            record: "5–6", pf: 1577.40, pa: 1685.80, playoffChance: 11,
-            status: "Outside looking in", tagType: "out"
-        },
-        {
-            rank: 9, seed: "-", name: "Koolaid Jammer", division: 2,
-            record: "4–7", pf: 1603.80, pa: 1682.50, playoffChance: 8,
-            status: "Longshot", tagType: "out"
-        },
-        {
-            rank: 10, seed: "-", name: "Don't Blink", division: 2,
-            record: "3–8", pf: 1476.10, pa: 1709.30, playoffChance: 1,
-            status: "Needs miracle run", tagType: "out"
-        }
-    ];
+    // Division identifiers used throughout the code: 1 = Crabs, 2 = Fish.
+    const divisionMap = { 1: 'Crabs', 2: 'Fish' };
+
+    // Hard‑coded mapping of team names to divisions.  If divisions change
+    // in future seasons, update this object accordingly.  These were
+    // derived from the 2025 season summary provided by the commissioner.
+    const teamDivisions = {
+        'James Teams Sucks': 2,
+        'Crip Crip': 1,
+        'Dart Party': 1,
+        'Duloc InjuredBread Men- 12': 1,
+        'HerpesDonator': 2,
+        'Our Lard and Savior': 1,
+        "Josh's Scary Team": 1,
+        'Indoctrinated Ravens': 2,
+        'Koolaid Jammer': 2,
+        "Don't Blink": 2
+    };
 
     let scheduleData = [];
+    let teams = [];
 
     async function loadSchedule() {
         try {
@@ -456,30 +389,154 @@
         }
     }
 
-    function renderStandings() {
-        const tbody = document.getElementById("standings-body");
-        tbody.innerHTML = "";
-        teams.forEach(team => {
-            const tr = document.createElement("tr");
-            const cells = [
-                team.rank,
-                team.name,
-                team.seed,
-                team.division,
-                team.record,
-                team.pf.toFixed(2),
-                team.pa.toFixed(2),
-                team.playoffChance + "%"
-            ];
-            cells.forEach((val, idx) => {
-                const td = document.createElement("td");
+    /**
+     * Compute standings based on the loaded schedule.  Each team object
+     * returned includes wins, losses, ties, PF, PA, winPct, division,
+     * rank, seed, playoffChance, status and tagType.
+     */
+    function computeStandings() {
+        const tmp = {};
+        // ensure all teams from the schedule are represented
+        scheduleData.forEach(g => {
+            [g.home, g.away].forEach(name => {
+                if (!tmp[name]) {
+                    const divId = teamDivisions[name] || 1;
+                    tmp[name] = {
+                        name: name,
+                        div: divId,
+                        wins: 0,
+                        losses: 0,
+                        ties: 0,
+                        pf: 0,
+                        pa: 0
+                    };
+                }
+            });
+            // only accumulate stats for completed games
+            if (g.homeScore != null && g.awayScore != null) {
+                // Points for and against
+                tmp[g.home].pf += g.homeScore;
+                tmp[g.home].pa += g.awayScore;
+                tmp[g.away].pf += g.awayScore;
+                tmp[g.away].pa += g.homeScore;
+                // Win/loss/tie
+                if (g.homeScore > g.awayScore) {
+                    tmp[g.home].wins++;
+                    tmp[g.away].losses++;
+                } else if (g.homeScore < g.awayScore) {
+                    tmp[g.away].wins++;
+                    tmp[g.home].losses++;
+                } else {
+                    tmp[g.home].ties++;
+                    tmp[g.away].ties++;
+                }
+            }
+        });
+
+        // convert to array and compute derived metrics
+        let list = Object.values(tmp);
+        list.forEach(t => {
+            const games = t.wins + t.losses + t.ties;
+            const wpct = games ? (t.wins + 0.5 * t.ties) / games : 0;
+            t.games = games;
+            t.winPct = wpct;
+            t.record = `${t.wins}\u2013${t.losses}` + (t.ties ? `\u2013${t.ties}` : '');
+        });
+
+        // determine division winners: highest winPct then PF
+        const divisionWinners = {};
+        list.forEach(t => {
+            const d = t.div;
+            if (!divisionWinners[d] || divisionWinners[d].winPct < t.winPct ||
+                (divisionWinners[d].winPct === t.winPct && divisionWinners[d].pf < t.pf)) {
+                divisionWinners[d] = t;
+            }
+        });
+        // assign seeds to division winners (#1 and #2)
+        const champs = Object.values(divisionWinners).sort((a, b) => {
+            if (b.winPct !== a.winPct) return b.winPct - a.winPct;
+            return b.pf - a.pf;
+        });
+        champs.forEach((t, idx) => {
+            t.seed = idx + 1;
+        });
+        // remove winners from pool
+        const remaining = list.filter(t => !champs.includes(t));
+        // sort remaining by winPct then PF
+        remaining.sort((a, b) => {
+            if (b.winPct !== a.winPct) return b.winPct - a.winPct;
+            return b.pf - a.pf;
+        });
+        // assign seeds 3–5
+        if (remaining[0]) remaining[0].seed = 3;
+        if (remaining[1]) remaining[1].seed = 4;
+        if (remaining[2]) remaining[2].seed = 5;
+        // compute rank ordering by winPct then PF
+        const sortedAll = list.slice().sort((a, b) => {
+            if (b.winPct !== a.winPct) return b.winPct - a.winPct;
+            return b.pf - a.pf;
+        });
+        sortedAll.forEach((t, idx) => {
+            t.rank = idx + 1;
+        });
+        // playoff chances and statuses
+        list.forEach(t => {
+            if (t.seed) {
+                if (t.seed <= 3) {
+                    // division champ if top seeds matches division winner
+                    const isChamp = champs.includes(t);
+                    t.status = `${isChamp ? divisionMap[t.div] + ' Champ · ' : ''}#${t.seed} Seed · Bye`;
+                    t.tagType = isChamp ? 'div' : 'wild';
+                    // high probability for bye teams: 95, 85, 75
+                    const base = 95 - (t.seed - 1) * 10;
+                    t.playoffChance = Math.max(50, Math.min(99, Math.round(base)));
+                } else if (t.seed === 4) {
+                    t.status = `#4 Seed · Plays #5`;
+                    t.tagType = 'wild';
+                    t.playoffChance = 55;
+                } else if (t.seed === 5) {
+                    t.status = `#5 Seed · Plays #4`;
+                    t.tagType = 'wild';
+                    t.playoffChance = 50;
+                }
+            } else {
+                // non‑playoff teams: assign bubble, longshot etc.  Use winPct for rough probability.
+                if (t.winPct >= 0.55) {
+                    t.status = 'Bubble';
+                    t.playoffChance = Math.round(40 + t.winPct * 20); // 50–60%
+                } else if (t.winPct >= 0.4) {
+                    t.status = 'Longshot';
+                    t.playoffChance = Math.round(10 + t.winPct * 20); // ~20–30%
+                } else {
+                    t.status = 'Needs miracle run';
+                    t.playoffChance = Math.round(5 + t.winPct * 15); // <15%
+                }
+                t.tagType = 'out';
+                t.seed = '-';
+            }
+        });
+        return list;
+    }
+
+    /** Render the standings table into the DOM. */
+    function renderStandings(list) {
+        // sort by rank
+        list.sort((a, b) => a.rank - b.rank);
+        const tbody = document.getElementById('standings-body');
+        tbody.innerHTML = '';
+        list.forEach(team => {
+            const tr = document.createElement('tr');
+            const values = [team.rank, team.name, team.seed, divisionMap[team.div], team.record,
+                team.pf.toFixed(2), team.pa.toFixed(2), team.playoffChance + '%'];
+            values.forEach((val, idx) => {
+                const td = document.createElement('td');
                 td.textContent = val;
-                if (idx === 1) td.className = "team-name";
+                if (idx === 1) td.className = 'team-name';
                 tr.appendChild(td);
             });
-            const statusTd = document.createElement("td");
-            const span = document.createElement("span");
-            span.className = "tag " + team.tagType;
+            const statusTd = document.createElement('td');
+            const span = document.createElement('span');
+            span.className = 'tag ' + team.tagType;
             span.textContent = team.status;
             statusTd.appendChild(span);
             tr.appendChild(statusTd);
@@ -487,84 +544,187 @@
         });
     }
 
-    function populateDropdowns() {
-        const selectA = document.getElementById("teamA");
-        const selectB = document.getElementById("teamB");
-        teams.forEach(t => {
-            const optA = document.createElement("option");
+    /** Populate the head‑to‑head lookup dropdowns with all team names. */
+    function populateDropdowns(list) {
+        const selectA = document.getElementById('teamA');
+        const selectB = document.getElementById('teamB');
+        // clear existing options
+        selectA.innerHTML = '';
+        selectB.innerHTML = '';
+        list.forEach(t => {
+            const optA = document.createElement('option');
             optA.value = t.name;
             optA.textContent = t.name;
             selectA.appendChild(optA);
-
-            const optB = document.createElement("option");
+            const optB = document.createElement('option');
             optB.value = t.name;
             optB.textContent = t.name;
             selectB.appendChild(optB);
         });
-        if (teams.length >= 2) {
-            selectA.value = "Crip Crip";
-            selectB.value = "Dart Party";
+        if (list.length >= 2) {
+            selectA.value = list[0].name;
+            selectB.value = list[1].name;
         }
     }
 
+    /** Show the head‑to‑head results for the selected pair of teams. */
     function showHeadToHead() {
-        const teamA = document.getElementById("teamA").value;
-        const teamB = document.getElementById("teamB").value;
-        const resultDiv = document.getElementById("h2h-result");
-
+        const teamA = document.getElementById('teamA').value;
+        const teamB = document.getElementById('teamB').value;
+        const resultDiv = document.getElementById('h2h-result');
         if (!scheduleData || scheduleData.length === 0) {
-            resultDiv.textContent = "Schedule data not loaded yet. Make sure schedule.json exists and reload.";
+            resultDiv.textContent = 'Schedule data not loaded yet. Make sure schedule.json exists and reload.';
             return;
         }
-
         if (teamA === teamB) {
-            resultDiv.textContent = "Pick two different teams to see a matchup.";
+            resultDiv.textContent = 'Pick two different teams to see a matchup.';
             return;
         }
-
         const games = scheduleData.filter(g => {
-            const involves =
-                (g.home === teamA && g.away === teamB) ||
-                (g.home === teamB && g.away === teamA);
+            const involves = (g.home === teamA && g.away === teamB) || (g.home === teamB && g.away === teamA);
             const finished = g.homeScore !== null && g.awayScore !== null;
             return involves && finished;
         });
-
         if (games.length === 0) {
             resultDiv.textContent = `${teamA} and ${teamB} have no completed games in schedule.json.`;
             return;
         }
-
         let aWins = 0, aLosses = 0, aTies = 0;
         const breakdown = [];
-
         games.forEach(g => {
             const aIsHome = g.home === teamA;
             const aScore = aIsHome ? g.homeScore : g.awayScore;
             const bScore = aIsHome ? g.awayScore : g.homeScore;
-
             let outcome;
             if (aScore > bScore) {
-                aWins++; outcome = `${teamA} W`;
+                aWins++;
+                outcome = `${teamA} W`;
             } else if (aScore < bScore) {
-                aLosses++; outcome = `${teamA} L`;
+                aLosses++;
+                outcome = `${teamA} L`;
             } else {
-                aTies++; outcome = "T";
+                aTies++;
+                outcome = 'T';
             }
-
             breakdown.push(
                 `Week ${g.week}: ${g.away} ${g.awayScore.toFixed(2)} @ ${g.home} ${g.homeScore.toFixed(2)} – ${outcome}`
             );
         });
-
-        const recordStr = `${teamA} vs ${teamB}: ${aWins}-${aLosses}` + (aTies ? `-${aTies}` : "");
-        resultDiv.innerHTML = recordStr + "<br>" + breakdown.join("<br>");
+        const recordStr = `${teamA} vs ${teamB}: ${aWins}-${aLosses}` + (aTies ? `-${aTies}` : '');
+        resultDiv.innerHTML = recordStr + '<br>' + breakdown.join('<br>');
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        renderStandings();
-        populateDropdowns();
-        loadSchedule();
+    /** Generate explanatory bullet points for how the seeds were determined. */
+    function renderTiebreakerNotes(list) {
+        const ul = document.getElementById('tiebreak-list');
+        ul.innerHTML = '';
+        // pick out seeds 1–5
+        const seeds = {};
+        list.forEach(t => { if (t.seed && t.seed !== '-') seeds[t.seed] = t; });
+        const s1 = seeds[1], s2 = seeds[2], s3 = seeds[3], s4 = seeds[4], s5 = seeds[5];
+        // Division winners line
+        if (s1 && s2) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>Division winners</strong> auto‑lock top 2 seeds: <em>${s1.name}</em> (${divisionMap[s1.div]}) and <em>${s2.name}</em> (${divisionMap[s2.div]}). ${s1.name} is the #1 seed based on record/tie‑breakers.`;
+            ul.appendChild(li);
+        }
+        // #3 seed
+        if (s3) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${s3.name}</strong> (${s3.record}) is the best non‑division winner → #3 seed. Seeds <strong>1–3 all get byes</strong>.`;
+            ul.appendChild(li);
+        }
+        // #4 and #5
+        if (s4 && s5) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${s4.name}</strong> and <strong>${s5.name}</strong> (${s4.record} &amp; ${s5.record}) are seeds #4 and #5. ${s4.name} is above ${s5.name} based on tie‑breakers (PF).`;
+            ul.appendChild(li);
+        }
+        // remainder
+        const li = document.createElement('li');
+        li.textContent = 'Everyone else is chasing those top 5 spots.';
+        ul.appendChild(li);
+    }
+
+    /** Render the bracket SVG based on the seeded teams.  This uses
+     * absolute line segments to draw a simple bracket with pure lines.
+     */
+    function renderBracket(list) {
+        const container = document.getElementById('bracket-container');
+        // identify seeds 1–5
+        const seeds = {};
+        list.forEach(t => {
+            if (t.seed && t.seed !== '-') seeds[t.seed] = t;
+        });
+        // If fewer than 5 seeds exist (e.g., early in season), fill with placeholders
+        function nameOrBlank(s) {
+            return s && s.name ? `(${s.seed}) ${s.name}` : '(?) TBD';
+        }
+        const s1 = seeds[1], s2 = seeds[2], s3 = seeds[3], s4 = seeds[4], s5 = seeds[5];
+        // Build SVG markup.  The y‑coordinates mirror the static example and work well on mobile as well.
+        const svg = `
+<svg viewBox="0 0 900 260" class="bracket-svg">
+    <!-- ROUND 1: #4 vs #5 -->
+    <text x="15"  y="40"  class="svg-team">${nameOrBlank(s4)}</text>
+    <text x="15"  y="90"  class="svg-team">${nameOrBlank(s5)}</text>
+    <line x1="220" y1="30" x2="320" y2="30" class="svg-line"/>
+    <line x1="220" y1="80" x2="320" y2="80" class="svg-line"/>
+    <line x1="320" y1="30" x2="320" y2="80" class="svg-line"/>
+    <line x1="320" y1="55" x2="450" y2="55" class="svg-line"/>
+    <text x="330" y="48" class="svg-label">Winner 4 vs 5</text>
+    <!-- SEMI A: #1 vs Winner 4/5 -->
+    <text x="470" y="140" class="svg-team">${nameOrBlank(s1)}</text>
+    <line x1="450" y1="55"  x2="450" y2="140" class="svg-line"/>
+    <line x1="450" y1="140" x2="650" y2="140" class="svg-line"/>
+    <text x="460" y="115" class="svg-label">Semi A: #1 vs Winner 4/5</text>
+    <text x="460" y="129" class="svg-label">#1 seed had first round bye</text>
+    <!-- SEMI B: #2 vs #3 -->
+    <text x="15"  y="180" class="svg-team">${nameOrBlank(s2)}</text>
+    <text x="15"  y="230" class="svg-team">${nameOrBlank(s3)}</text>
+    <line x1="220" y1="170" x2="360" y2="170" class="semi-line"/>
+    <line x1="220" y1="220" x2="360" y2="220" class="semi-line"/>
+    <line x1="360" y1="170" x2="360" y2="220" class="semi-line"/>
+    <line x1="360" y1="195" x2="650" y2="195" class="semi-line"/>
+    <text x="370" y="190" class="svg-label">Semi B: (2) vs (3)</text>
+    <text x="370" y="204" class="svg-label">both were byes in Round 1</text>
+    <!-- CHAMPIONSHIP -->
+    <line x1="650" y1="140" x2="650" y2="195" class="champ-line"/>
+    <line x1="650" y1="167" x2="880" y2="167" class="champ-line"/>
+    <text x="720" y="160" class="champ-text">Championship</text>
+    <text x="720" y="180" class="champ-subtext">Highest remaining vs lowest remaining seed</text>
+</svg>`;
+        container.innerHTML = svg;
+    }
+
+    /** Compute the latest week with completed games and update the badge. */
+    function updateWeekBadge() {
+        const badge = document.getElementById('week-badge');
+        if (!scheduleData || scheduleData.length === 0) {
+            badge.textContent = 'No data';
+            return;
+        }
+        let maxWeek = 0;
+        scheduleData.forEach(g => {
+            if (g.homeScore != null && g.awayScore != null) {
+                if (g.week > maxWeek) maxWeek = g.week;
+            }
+        });
+        if (maxWeek === 0) {
+            badge.textContent = 'Preseason';
+        } else {
+            badge.textContent = `Week ${maxWeek} Snapshot`;
+        }
+    }
+
+    // Entry point
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadSchedule();
+        teams = computeStandings();
+        renderStandings(teams);
+        populateDropdowns(teams);
+        renderTiebreakerNotes(teams);
+        renderBracket(teams);
+        updateWeekBadge();
     });
 </script>
 </body>
