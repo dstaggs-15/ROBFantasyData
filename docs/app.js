@@ -3,10 +3,9 @@
 
   const app = document.querySelector('#app');
   const navButtons = [...document.querySelectorAll('[data-route]')];
-  const validRoutes = new Set(['home', 'history', 'managers', 'rivalries', 'trophies', 'drafts', 'records']);
+  const validRoutes = new Set(['home', 'history', 'managers', 'rivalries', 'trophies', 'drafts', 'records', 'rules']);
   let league;
   let schedule;
-  let standings;
 
   const fmt = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 2 });
 
@@ -85,47 +84,52 @@
     </header>`;
   }
 
-  function standingsTable(limit = standings.length) {
+  function finalStandingsTable(year, limit) {
+    const rows = league.seasonStandings[String(year)] || [];
+    const shown = Number.isFinite(limit) ? rows.slice(0, limit) : rows;
     return `<div class="card table-wrap">
       <table>
-        <thead><tr><th>#</th><th>Manager</th><th>Division</th><th>Record</th><th>PF</th><th>PA</th></tr></thead>
-        <tbody>${standings.slice(0, limit).map((row, index) => `<tr>
-          <td class="rank">${index + 1}</td>
-          <td><div class="name-cell">${avatar(row.manager)}<strong>${escapeHtml(row.manager.shortName)}</strong></div></td>
-          <td>${division(row.manager.division)}</td>
-          <td class="record">${row.wins}-${row.losses}${row.ties ? `-${row.ties}` : ''}</td>
+        <thead><tr><th>Finish</th><th>Manager</th><th>Record</th><th>PF</th><th>PA</th><th>Diff/G</th><th>Moves</th></tr></thead>
+        <tbody>${shown.map(row => {
+          const person = row.managerId ? manager(row.managerId) : null;
+          const name = person?.name || row.name || 'Unknown';
+          return `<tr>
+          <td class="rank">${row.rank}</td>
+          <td><div class="name-cell">${avatar({ name })}<strong>${escapeHtml(name)}</strong>${row.rank === 1 ? '<span class="mini-trophy" title="Champion">🏆</span>' : ''}</div></td>
+          <td class="record">${escapeHtml(row.record)}</td>
           <td>${fmt.format(row.pf)}</td><td>${fmt.format(row.pa)}</td>
-        </tr>`).join('')}</tbody>
+          <td class="${row.diff >= 0 ? 'positive' : 'negative'}">${row.diff >= 0 ? '+' : ''}${row.diff.toFixed(1)}</td>
+          <td>${row.moves}</td>
+        </tr>`;
+        }).join('')}</tbody>
       </table>
     </div>`;
   }
 
   function homeView() {
-    const leader = standings[0];
-    const pointsLeader = [...standings].sort((a, b) => b.pf - a.pf)[0];
     return `<section class="view">
       <div class="hero">
         <div class="hero-copy">
-          <span class="eyebrow">The official ROB archive</span>
-          <h1>Six years of <span>history.</span><br>One place to settle it.</h1>
-          <p class="dek">Championships, rivalries, manager profiles, draft tendencies, and the stories behind the standings. Every number says exactly how far the available records go.</p>
+          <span class="eyebrow">2026 season · The official ROB archive</span>
+          <h1>The history is settled.<br><span>2026 is not.</span></h1>
+          <p class="dek">Championships, final standings, rivalries, draft tendencies, and the stories the box scores cannot explain.</p>
         </div>
         <div class="hero-side">
-          <article class="stat-feature"><span class="metric-label">Known title seasons</span><div><strong>4</strong><p>James ×2 · Eli · Tucker</p></div></article>
-          <article class="stat-feature"><span class="metric-label">Fish title streak</span><div><strong>3–0</strong><p>Every tracked championship, 2022–24</p></div></article>
+          <article class="stat-feature champion-feature"><span class="metric-label">Reigning champion</span><div><span class="hero-trophy">🏆</span><strong>Mark</strong><p>2025 champion · won from 7–7</p></div></article>
+          <article class="stat-feature"><span class="metric-label">Known title seasons</span><div><strong>5</strong><p>James ×2 · Eli · Tucker · Mark</p></div></article>
         </div>
       </div>
 
       <section class="section">
-        <div class="section-head"><div><span class="eyebrow">2025 snapshot</span><h2>Where the archive left off</h2></div><p>Calculated from ${escapeHtml(league.league.snapshot)}. These are not final 2025 standings.</p></div>
+        <div class="section-head"><div><span class="eyebrow">2025 final standings</span><h2>The season Mark survived</h2></div><p>Five managers finished 7–7. Mark came out of the tiebreaker pile and won the whole thing.</p></div>
         <div class="snapshot">
-          ${standingsTable()}
+          ${finalStandingsTable(2025)}
           <aside class="card card-pad">
-            <h3>Snapshot leaders</h3>
+            <h3>2025 in three facts</h3>
             <ul class="story-list">
-              <li><strong>${escapeHtml(leader.manager.shortName)} leads the table</strong><span>${leader.wins}-${leader.losses} through ${leader.games} recorded games.</span></li>
-              <li><strong>${escapeHtml(pointsLeader.manager.shortName)} leads scoring</strong><span>${fmt.format(pointsLeader.pf)} points in the available snapshot.</span></li>
-              <li><strong>Manager-first records</strong><span>Team-name changes never split a person's history.</span></li>
+              <li><strong>Mark won at 7–7</strong><span>He beat Dalton 185.00–146.05 in the championship.</span></li>
+              <li><strong>Five teams tied at 7–7</strong><span>Fish alone had a three-way tie fighting for position.</span></li>
+              <li><strong>Eli scored 2,417.35</strong><span>The top point total and a +27.1 average scoring margin.</span></li>
             </ul>
           </aside>
         </div>
@@ -148,14 +152,26 @@
         return `<article class="card season-card">
           <div class="season-year">${season.year}</div>
           <div><h3>${escapeHtml(season.label)}</h3><p>${escapeHtml(season.story)}</p></div>
-          <div class="season-result">${champ ? `<strong>${escapeHtml(championName)}</strong><span>Champion${runner ? ` · over ${escapeHtml(runner.shortName)}` : ''}</span>` : '<strong>Unknown champion</strong><span>No surviving record</span>'}<br>${statusTag(season.status)}</div>
+          <div class="season-result">${champ ? `<strong>${escapeHtml(championName)} 🏆</strong><span>Champion${runner ? ` · over ${escapeHtml(runner.shortName)}` : ''}</span>` : season.status === 'current' ? '<strong>In progress</strong><span>2026 season</span>' : '<strong>Unknown champion</strong><span>No surviving record</span>'}<br>${statusTag(season.status)}</div>
         </article>`;
       }).join('')}</div>
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Final standings</span><h2>Season-by-season records</h2></div><label class="season-picker">Season<select id="history-season"><option>2025</option><option>2024</option><option>2023</option><option>2022</option></select></label></div>
+        <div id="history-standings">${finalStandingsTable(2025)}</div>
+      </section>
       <section class="section"><article class="card lore-card">
         <span class="eyebrow">League lore · 2022</span>
-        <h2>14–2. One attainable Burrow total.<br>Then football stopped.</h2>
-        <p>Cameron dominated the regular season and posted the best record in league history. His playoff result still depended on Joe Burrow during the Bills–Bengals Monday night game. After Damar Hamlin suffered cardiac arrest, the game was suspended and later canceled. Burrow's remaining points were never played, and Cameron's historic season ended in one of the strangest fantasy finishes imaginable.</p>
-        <span class="tag reported">Commissioner-confirmed lore</span>
+        <h2>14–2. The win was sitting there.<br>Then football stopped.</h2>
+        <p>Cameron dominated the regular season and posted the best record in league history. He reached the playoffs needing Joe Burrow to hit a very doable number on Monday night.</p>
+        <blockquote>“Damar Hamlin died on the field, the game got canceled, and Cameron got screwed.”</blockquote>
+        <p class="lore-footnote">That is the league's intentionally over-the-top retelling. For the record, Hamlin suffered cardiac arrest and survived; the Bills–Bengals game was suspended and later canceled, Burrow's remaining points were never played, and Cameron lost.</p>
+        <span class="tag reported">Official ROB lore</span>
+      </article></section>
+      <section class="section"><article class="card lore-card tie-lore">
+        <span class="eyebrow">League lore · 2025</span>
+        <h2>Five teams at 7–7.<br>Mark won the trophy.</h2>
+        <p>Mark, Jacob, Noah, Daniel, and Cameron all finished at .500. Fish alone had Mark, Jacob, and Cameron locked in a three-way tie. Mark survived the tiebreakers, reached the championship, and beat Dalton 185.00–146.05.</p>
+        <span class="tag verified">Verified by final standings</span>
       </article></section>
     </section>`;
   }
@@ -168,9 +184,9 @@
         const drafts = league.drafts.filter(draft => draft.managerId === person.id);
         const avgValue = drafts.length ? drafts.reduce((sum, draft) => sum + draft.value, 0) / drafts.length : null;
         return `<article class="card manager-card">
-          <div class="manager-top">${avatar(person, true)}<div><h3>${escapeHtml(person.name)}</h3><div class="manager-meta">Active ${escapeHtml(person.active)}</div></div></div>
+          <div class="manager-top">${avatar(person, true)}<div><h3>${escapeHtml(person.name)}${titles ? ` <span class="title-trophies" title="${titles} championship${titles === 1 ? '' : 's'}">${'🏆'.repeat(titles)}</span>` : ''}</h3><div class="manager-meta">Active ${escapeHtml(person.active)}</div></div></div>
           <p>${escapeHtml(person.note)}</p>
-          <div class="manager-footer">${division(person.division)}<span>${titles} title${titles === 1 ? '' : 's'}${avgValue === null ? '' : ` · ${avgValue >= 0 ? '+' : ''}${avgValue.toFixed(1)} draft value`}</span></div>
+          <div class="manager-footer">${division(person.division)}<span>${titles ? `${titles} championship${titles === 1 ? '' : 's'}` : 'No titles yet'}${avgValue === null ? '' : ` · ${avgValue >= 0 ? '+' : ''}${avgValue.toFixed(1)} draft value`}</span></div>
         </article>`;
       }).join('')}</div>
     </section>`;
@@ -237,14 +253,21 @@
 
   function trophiesView() {
     return `<section class="view">
-      ${viewHeader('Trophy room', 'The champions’ wall.', 'Three tracked seasons. Three different champions. One division has owned every trophy so far.', 'Titles verified 2022–24')}
+      ${viewHeader('Trophy room', 'The champions’ wall.', 'Five recognized titles, four straight Fish Division championships, and one regular-season record nobody has touched.', 'Champions 2021–25')}
       <div class="trophy-case">${league.champions.map(champ => {
         const winner = manager(champ.managerId);
         const runner = champ.runnerUpId ? manager(champ.runnerUpId) : null;
+        const third = champ.thirdId ? manager(champ.thirdId) : null;
         const winnerName = champ.winnerName || winner.name;
-        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span>${avatar({ name: winnerName }, true)}<h3>${escapeHtml(winnerName)}</h3><p>${escapeHtml(champ.note)}${runner ? ` Runner-up: ${escapeHtml(runner.shortName)}.` : ''}</p>${champ.division ? division(champ.division) : '<span class="tag reconstructed">Early-era record</span>'}</article>`;
+        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span><span class="trophy-icon" aria-hidden="true">🏆</span>${avatar({ name: winnerName }, true)}<h3>${escapeHtml(winnerName)}</h3><p>${escapeHtml(champ.note)}</p>${champ.championshipScore ? `<div class="champ-score">${escapeHtml(champ.championshipScore)}</div>` : ''}<div class="podium-note">${runner ? `2nd: ${escapeHtml(runner.shortName)}` : 'Full podium unavailable'}${third ? ` · 3rd: ${escapeHtml(third.shortName)}` : ''}</div>${champ.division ? division(champ.division) : '<span class="tag reconstructed">Early-era record</span>'}</article>`;
       }).join('')}</div>
-      <section class="section"><div class="card card-pad"><span class="eyebrow">Division dynasty</span><h2>Fish: 3 championships.<br>Everyone else: 0.</h2><p class="dek">The Fish Division won the 2022, 2023, and 2024 titles. This streak is commissioner-confirmed; fuller division-by-division records will appear as historical schedules are normalized.</p></div></section>
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Record honors</span><h2>More than championships</h2></div></div>
+        <div class="grid grid-2">
+          <article class="card honor-card"><span class="honor-icon">🏅</span><div><span class="eyebrow">Best regular season ever</span><h2>Cameron · 14–2</h2><p>The 2022 record still stands as the best regular-season mark in ROB history.</p></div></article>
+          <article class="card honor-card"><span class="honor-icon">🐟</span><div><span class="eyebrow">Division dynasty</span><h2>Fish · four straight</h2><p>Eli, James, Tucker, and Mark kept every championship from 2022 through 2025 in the Fish Division.</p></div></article>
+        </div>
+      </section>
     </section>`;
   }
 
@@ -280,16 +303,31 @@
     </section>`;
   }
 
+  function rulesView() {
+    return `<section class="view rules-view">
+      ${viewHeader('League governance', 'Rules & regulations', 'The official rulebook will live here so future arguments can be settled with one link.', '2026 rulebook')}
+      <article class="card coming-soon">
+        <span class="coming-icon" aria-hidden="true">📘</span>
+        <h2>League rules and regulations<br>for fair play coming soon.</h2>
+      </article>
+    </section>`;
+  }
+
   function render() {
     const active = route();
     setNavigation(active);
-    const views = { home: homeView, history: historyView, managers: managersView, rivalries: rivalryView, trophies: trophiesView, drafts: draftsView, records: recordsView };
+    const views = { home: homeView, history: historyView, managers: managersView, rivalries: rivalryView, trophies: trophiesView, drafts: draftsView, records: recordsView, rules: rulesView };
     app.innerHTML = views[active]();
     document.title = `${navButtons.find(button => button.dataset.route === active)?.textContent || 'League History'} — Rock or Bust`;
     window.scrollTo({ top: 0, behavior: 'auto' });
     if (active === 'rivalries') {
       document.querySelector('#compare-rivalry').addEventListener('click', compareRivalry);
       compareRivalry();
+    }
+    if (active === 'history') {
+      document.querySelector('#history-season').addEventListener('change', event => {
+        document.querySelector('#history-standings').innerHTML = finalStandingsTable(Number(event.target.value));
+      });
     }
     document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => { location.hash = button.dataset.go; }));
   }
@@ -303,7 +341,6 @@
   ]).then(([leagueData, scheduleData]) => {
     league = leagueData;
     schedule = scheduleData;
-    standings = computeStandings();
     render();
   }).catch(error => {
     console.error(error);
