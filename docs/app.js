@@ -3,9 +3,9 @@
 
   const app = document.querySelector('#app');
   const navButtons = [...document.querySelectorAll('[data-route]')];
-  const validRoutes = new Set(['home', 'history', 'managers', 'rivalries', 'trophies', 'drafts', 'records', 'rules']);
+  const validRoutes = new Set(['home', 'history', 'managers', 'rivalries', 'trophies', 'drafts', 'statistics', 'records', 'rules']);
   let league;
-  let schedule;
+  let matchups;
 
   const fmt = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 2 });
 
@@ -17,10 +17,6 @@
 
   function manager(id) {
     return league.managers.find(item => item.id === id);
-  }
-
-  function managerByScheduleTeam(team) {
-    return league.managers.find(item => item.scheduleTeam === team);
   }
 
   function initials(name) {
@@ -40,29 +36,19 @@
     return `<span class="tag ${escapeHtml(status)}">${escapeHtml(status)}</span>`;
   }
 
-  function computeStandings() {
-    const rows = new Map();
-    league.managers.forEach(person => rows.set(person.scheduleTeam, {
-      manager: person, wins: 0, losses: 0, ties: 0, pf: 0, pa: 0, games: 0
-    }));
+  function allGames() {
+    return Object.values(matchups.seasons).flat();
+  }
 
-    schedule.filter(game => Number.isFinite(game.homeScore) && Number.isFinite(game.awayScore)).forEach(game => {
-      const home = rows.get(game.home);
-      const away = rows.get(game.away);
-      if (!home || !away) return;
-      home.games += 1; away.games += 1;
-      home.pf += game.homeScore; home.pa += game.awayScore;
-      away.pf += game.awayScore; away.pa += game.homeScore;
-      if (game.homeScore > game.awayScore) { home.wins += 1; away.losses += 1; }
-      else if (game.homeScore < game.awayScore) { away.wins += 1; home.losses += 1; }
-      else { home.ties += 1; away.ties += 1; }
+  function careerStats(id) {
+    let wins = 0; let losses = 0; let ties = 0; let points = 0; let seasons = 0;
+    Object.values(league.seasonStandings).forEach(rows => {
+      const row = rows.find(item => item.managerId === id);
+      if (!row) return;
+      const [w = 0, l = 0, t = 0] = row.record.split('-').map(Number);
+      wins += w; losses += l; ties += t; points += row.pf; seasons += 1;
     });
-
-    return [...rows.values()].filter(row => row.games).sort((a, b) => {
-      const aPct = (a.wins + a.ties * .5) / a.games;
-      const bPct = (b.wins + b.ties * .5) / b.games;
-      return bPct - aPct || b.pf - a.pf;
-    });
+    return { wins, losses, ties, points, seasons };
   }
 
   function route() {
@@ -111,7 +97,7 @@
       <div class="hero">
         <div class="hero-copy">
           <span class="eyebrow">2026 season · The official ROB archive</span>
-          <h1>The history is settled.<br><span>2026 is not.</span></h1>
+          <h1>ROB Fantasy League.<br><span>Founded 2020.</span></h1>
           <p class="dek">Championships, final standings, rivalries, draft tendencies, and the stories the box scores cannot explain.</p>
         </div>
         <div class="hero-side">
@@ -178,30 +164,31 @@
 
   function managersView() {
     return `<section class="view">
-      ${viewHeader('The league', 'People over<br>team names.', 'A manager keeps one permanent record across every rename, rebrand, and season. Initials are used throughout the archive so the people remain the identity.')}
+      ${viewHeader('The league', 'Managers', 'Career totals use every complete regular-season standings record available from 2022 through 2025.')}
       <div class="grid grid-3">${league.managers.map(person => {
         const titles = league.champions.filter(champ => champ.managerId === person.id).length;
-        const drafts = league.drafts.filter(draft => draft.managerId === person.id);
-        const avgValue = drafts.length ? drafts.reduce((sum, draft) => sum + draft.value, 0) / drafts.length : null;
+        const career = careerStats(person.id);
         return `<article class="card manager-card">
           <div class="manager-top">${avatar(person, true)}<div><h3>${escapeHtml(person.name)}${titles ? ` <span class="title-trophies" title="${titles} championship${titles === 1 ? '' : 's'}">${'🏆'.repeat(titles)}</span>` : ''}</h3><div class="manager-meta">Active ${escapeHtml(person.active)}</div></div></div>
+          <div class="career-line"><strong>${career.wins}-${career.losses}${career.ties ? `-${career.ties}` : ''}</strong><span>tracked regular-season record</span><strong>${fmt.format(career.points)}</strong><span>career points · ${career.seasons} season${career.seasons === 1 ? '' : 's'}</span></div>
           <p>${escapeHtml(person.note)}</p>
-          <div class="manager-footer">${division(person.division)}<span>${titles ? `${titles} championship${titles === 1 ? '' : 's'}` : 'No titles yet'}${avgValue === null ? '' : ` · ${avgValue >= 0 ? '+' : ''}${avgValue.toFixed(1)} draft value`}</span></div>
+          <div class="manager-footer">${division(person.division)}<span>${titles ? `${titles} championship${titles === 1 ? '' : 's'}` : 'No titles yet'}</span></div>
         </article>`;
       }).join('')}</div>
     </section>`;
   }
 
   function rivalryView() {
-    const options = league.managers.filter(person => schedule.some(game => game.home === person.scheduleTeam || game.away === person.scheduleTeam));
+    const games = allGames();
+    const options = league.managers.filter(person => games.some(game => game.home === person.id || game.away === person.id));
     return `<section class="view">
-      ${viewHeader('Head-to-head', 'Who owns who?', 'Choose two managers to compare every completed game in the current weekly-score dataset.', '2025 Weeks 1–11')}
+      ${viewHeader('Head-to-head', 'Who owns who?', 'Choose two managers to compare every verified regular-season and playoff meeting in the archive.', '2022–2026 W1')}
       <div class="rivalry-layout">
         <aside class="card card-pad controls">
           <label>First manager<select id="rival-a">${options.map((person, index) => `<option value="${person.id}"${index === 0 ? ' selected' : ''}>${escapeHtml(person.name)}</option>`).join('')}</select></label>
           <label>Second manager<select id="rival-b">${options.map((person, index) => `<option value="${person.id}"${index === 1 ? ' selected' : ''}>${escapeHtml(person.name)}</option>`).join('')}</select></label>
           <button class="button" id="compare-rivalry">Compare rivalry</button>
-          <p class="metric-note">The comparison expands automatically as more verified weekly schedules are added.</p>
+          <p class="metric-note">Coverage: complete 2022–24 schedules, 2025 Weeks 1–11, and 2026 Week 1. Missing weeks are never guessed.</p>
         </aside>
         <article class="card card-pad rivalry-result" id="rivalry-result"><p class="empty-state">Select two managers to open the matchup file.</p></article>
       </div>
@@ -217,18 +204,18 @@
       return;
     }
 
-    const games = schedule.filter(game => Number.isFinite(game.homeScore) && Number.isFinite(game.awayScore) &&
-      [game.home, game.away].includes(first.scheduleTeam) && [game.home, game.away].includes(second.scheduleTeam));
+    const games = allGames().filter(game => Number.isFinite(game.homeScore) && Number.isFinite(game.awayScore) &&
+      [game.home, game.away].includes(first.id) && [game.home, game.away].includes(second.id));
     if (!games.length) {
-      result.innerHTML = `<div class="versus"><div class="combatant">${avatar(first, true)}<strong>${escapeHtml(first.shortName)}</strong></div><span class="vs">VS</span><div class="combatant">${avatar(second, true)}<strong>${escapeHtml(second.shortName)}</strong></div></div><p class="insight">No completed meeting appears in the available 2025 schedule snapshot.</p>`;
+      result.innerHTML = `<div class="versus"><div class="combatant">${avatar(first, true)}<strong>${escapeHtml(first.shortName)}</strong></div><span class="vs">VS</span><div class="combatant">${avatar(second, true)}<strong>${escapeHtml(second.shortName)}</strong></div></div><p class="insight">No completed meeting appears in the available multi-season archive.</p>`;
       return;
     }
 
     let firstWins = 0; let secondWins = 0; let ties = 0; let firstPoints = 0; let secondPoints = 0;
     const margins = [];
     games.forEach(game => {
-      const firstScore = game.home === first.scheduleTeam ? game.homeScore : game.awayScore;
-      const secondScore = game.home === second.scheduleTeam ? game.homeScore : game.awayScore;
+      const firstScore = game.home === first.id ? game.homeScore : game.awayScore;
+      const secondScore = game.home === second.id ? game.homeScore : game.awayScore;
       firstPoints += firstScore; secondPoints += secondScore;
       margins.push(Math.abs(firstScore - secondScore));
       if (firstScore > secondScore) firstWins += 1;
@@ -248,24 +235,29 @@
       <div class="combatant">${avatar(second, true)}<strong>${escapeHtml(second.shortName)}</strong><span>${fmt.format(secondPoints)} total points</span></div>
     </div>
     <div class="series-score"><div><strong>${firstWins}-${secondWins}${ties ? `-${ties}` : ''}</strong><span>Series</span></div><div><strong>${games.length}</strong><span>Meetings</span></div><div><strong>${fmt.format(pointEdge)}</strong><span>Point edge</span></div></div>
-    <p class="insight">${escapeHtml(sentence)}</p>`;
+    <p class="insight">${escapeHtml(sentence)}</p>
+    <div class="meeting-list"><strong>Most recent meetings</strong>${games.slice().sort((a, b) => b.season - a.season || b.week - a.week).slice(0, 5).map(game => {
+      const firstScore = game.home === first.id ? game.homeScore : game.awayScore;
+      const secondScore = game.home === second.id ? game.homeScore : game.awayScore;
+      return `<span>${game.season} · W${game.week}${game.stage === 'playoffs' ? ' playoff' : ''}<b>${escapeHtml(first.shortName)} ${fmt.format(firstScore)} — ${fmt.format(secondScore)} ${escapeHtml(second.shortName)}</b></span>`;
+    }).join('')}</div>`;
   }
 
   function trophiesView() {
     return `<section class="view">
-      ${viewHeader('Trophy room', 'The champions’ wall.', 'Five recognized titles, four straight Fish Division championships, and one regular-season record nobody has touched.', 'Champions 2021–25')}
+      ${viewHeader('Trophy room', 'The champions’ wall.', 'Five recognized titles and one regular-season record nobody has touched.', 'Champions 2021–25')}
       <div class="trophy-case">${league.champions.map(champ => {
         const winner = manager(champ.managerId);
         const runner = champ.runnerUpId ? manager(champ.runnerUpId) : null;
         const third = champ.thirdId ? manager(champ.thirdId) : null;
         const winnerName = champ.winnerName || winner.name;
-        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span><span class="trophy-icon" aria-hidden="true">🏆</span>${avatar({ name: winnerName }, true)}<h3>${escapeHtml(winnerName)}</h3><p>${escapeHtml(champ.note)}</p>${champ.championshipScore ? `<div class="champ-score">${escapeHtml(champ.championshipScore)}</div>` : ''}<div class="podium-note">${runner ? `2nd: ${escapeHtml(runner.shortName)}` : 'Full podium unavailable'}${third ? ` · 3rd: ${escapeHtml(third.shortName)}` : ''}</div>${champ.division ? division(champ.division) : '<span class="tag reconstructed">Early-era record</span>'}</article>`;
+        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span><span class="trophy-icon" aria-hidden="true">🏆</span>${avatar({ name: winnerName }, true)}<h3>${escapeHtml(winnerName)}</h3><p>${escapeHtml(champ.note)}</p>${champ.championshipScore ? `<div class="champ-score">${escapeHtml(champ.championshipScore)}</div>` : ''}<div class="podium-note">${runner ? `2nd: ${escapeHtml(runner.shortName)}` : 'Full podium unavailable'}${third ? ` · 3rd: ${escapeHtml(third.shortName)}` : ''}</div>${champ.division ? division(champ.division) : '<span class="tag verified">Champion verified</span>'}</article>`;
       }).join('')}</div>
       <section class="section">
         <div class="section-head"><div><span class="eyebrow">Record honors</span><h2>More than championships</h2></div></div>
         <div class="grid grid-2">
           <article class="card honor-card"><span class="honor-icon">🏅</span><div><span class="eyebrow">Best regular season ever</span><h2>Cameron · 14–2</h2><p>The 2022 record still stands as the best regular-season mark in ROB history.</p></div></article>
-          <article class="card honor-card"><span class="honor-icon">🐟</span><div><span class="eyebrow">Division dynasty</span><h2>Fish · four straight</h2><p>Eli, James, Tucker, and Mark kept every championship from 2022 through 2025 in the Fish Division.</p></div></article>
+          <article class="card honor-card"><span class="honor-icon">🦀</span><div><span class="eyebrow">Division fact check</span><h2>Tucker · Crabs</h2><p>The saved 2025 standings and current 2026 ESPN standings both place Tucker in Crabs. The old four-straight Fish claim was removed because it projected current divisions backward.</p></div></article>
         </div>
       </section>
     </section>`;
@@ -274,18 +266,21 @@
   function draftsView() {
     const totals = league.managers.map(person => {
       const drafts = league.drafts.filter(draft => draft.managerId === person.id);
-      return { person, drafts, total: drafts.reduce((sum, draft) => sum + draft.value, 0) };
+      const valued = drafts.filter(draft => Number.isFinite(draft.value));
+      return { person, drafts, valued, total: valued.reduce((sum, draft) => sum + draft.value, 0) };
     }).filter(row => row.drafts.length).sort((a, b) => b.total - a.total);
     const max = Math.max(...totals.map(row => Math.abs(row.total)), 1);
     return `<section class="view">
-      ${viewHeader('Draft lab', 'Three rounds.<br>Three years of tells.', 'Draft value compares draft slot with final finish: positive means a manager finished better than where they drafted.', 'Complete 2022–24')}
+      ${viewHeader('Draft lab', 'Five drafts.<br>Plenty of receipts.', 'Draft recaps now run through the completed 2026 draft. Draft value can only be calculated after final standings exist.', 'Drafts 2022–26')}
+      <article class="card explainer"><div><span class="eyebrow">What draft value means</span><h2>Draft slot minus final finish.</h2></div><p>If you drafted 8th and finished 3rd, your value is <strong>+5</strong>. If you drafted 2nd and finished 7th, it is <strong>−5</strong>. Positive means the team beat its draft position; negative means it finished lower. It measures finish versus slot—not whether every pick was good. The 2026 values are pending.</p></article>
       <div class="card table-wrap"><table><thead><tr><th>Manager</th><th>Draft value</th><th>Tracked seasons</th><th>Pattern</th></tr></thead><tbody>${totals.map(row => `<tr>
         <td><div class="name-cell">${avatar(row.person)}<strong>${escapeHtml(row.person.shortName)}</strong></div></td>
         <td><div class="draft-bar"><strong class="record">${row.total >= 0 ? '+' : ''}${row.total}</strong><span class="draft-bar-track"><span class="draft-bar-fill ${row.total < 0 ? 'negative' : ''}" style="width:${Math.max(8, Math.abs(row.total) / max * 100)}%"></span></span></div></td>
-        <td>${row.drafts.map(draft => draft.season).join(' · ')}</td>
+        <td>${row.drafts.map(draft => `${draft.season}${Number.isFinite(draft.value) ? '' : '*'}`).join(' · ')}</td>
         <td class="pick-list">${escapeHtml(row.person.note)}</td>
       </tr>`).join('')}</tbody></table></div>
-      <section class="section"><div class="section-head"><div><span class="eyebrow">Draft receipts</span><h2>First-round history</h2></div></div><div class="grid grid-3">${totals.map(row => `<article class="card card-pad"><div class="manager-top">${avatar(row.person)}<h3>${escapeHtml(row.person.shortName)}</h3></div><ul class="story-list">${row.drafts.map(draft => `<li><strong>${draft.season} · ${escapeHtml(draft.round1)}</strong><span>Drafted ${draft.slot}${ordinal(draft.slot)} · Finished ${draft.finish}${ordinal(draft.finish)}</span></li>`).join('')}</ul></article>`).join('')}</div></section>
+      <p class="data-note">* 2026 draft value is pending. James drafted the 2025 team later finished by Dalton, so that season's value follows the drafted team and is labeled in the receipt.</p>
+      <section class="section"><div class="section-head"><div><span class="eyebrow">Draft receipts</span><h2>First-round history</h2></div></div><div class="grid grid-3">${totals.map(row => `<article class="card card-pad"><div class="manager-top">${avatar(row.person)}<h3>${escapeHtml(row.person.shortName)}</h3></div><ul class="story-list">${row.drafts.slice().sort((a,b) => b.season-a.season).map(draft => `<li><strong>${draft.season} · ${escapeHtml(draft.round1)}</strong><span>Drafted ${draft.slot}${ordinal(draft.slot)} · ${Number.isFinite(draft.finish) ? `Finished ${draft.finish}${ordinal(draft.finish)} · Value ${draft.value >= 0 ? '+' : ''}${draft.value}` : 'Finish TBD · Value pending'}${draft.note ? `<br>${escapeHtml(draft.note)}` : ''}</span></li>`).join('')}</ul></article>`).join('')}</div></section>
     </section>`;
   }
 
@@ -293,6 +288,52 @@
     const mod100 = number % 100;
     if (mod100 >= 11 && mod100 <= 13) return 'th';
     return ({ 1: 'st', 2: 'nd', 3: 'rd' })[number % 10] || 'th';
+  }
+
+  function statisticsView() {
+    const games = allGames();
+    const observations = games.flatMap(game => [
+      { id: game.away, score: game.awayScore, opponent: game.home, opponentScore: game.homeScore, game },
+      { id: game.home, score: game.homeScore, opponent: game.away, opponentScore: game.awayScore, game }
+    ]);
+    const thresholds = [100, 125, 150, 175, 200].map(threshold => {
+      const sample = observations.filter(row => row.score >= threshold);
+      const wins = sample.filter(row => row.score > row.opponentScore).length;
+      return { threshold, games: sample.length, wins, rate: sample.length ? wins / sample.length * 100 : 0 };
+    });
+    const career = league.managers.map(person => ({ person, ...careerStats(person.id) })).filter(row => row.seasons).sort((a, b) => b.points - a.points);
+    const maxPoints = Math.max(...career.map(row => row.points), 1);
+    const highest = observations.slice().sort((a, b) => b.score - a.score)[0];
+    const closest = games.slice().sort((a, b) => Math.abs(a.awayScore - a.homeScore) - Math.abs(b.awayScore - b.homeScore))[0];
+    const blowout = games.slice().sort((a, b) => Math.abs(b.awayScore - b.homeScore) - Math.abs(a.awayScore - a.homeScore))[0];
+    const pairMap = new Map();
+    games.forEach(game => {
+      const ids = [game.away, game.home].sort(); const key = ids.join('|');
+      if (!pairMap.has(key)) pairMap.set(key, { ids, wins: { [ids[0]]: 0, [ids[1]]: 0 }, games: 0 });
+      const pair = pairMap.get(key); pair.games += 1;
+      if (game.awayScore > game.homeScore) pair.wins[game.away] += 1;
+      if (game.homeScore > game.awayScore) pair.wins[game.home] += 1;
+    });
+    const rivalries = [...pairMap.values()].filter(pair => pair.games >= 3).map(pair => {
+      const [a, b] = pair.ids; const leader = pair.wins[a] >= pair.wins[b] ? a : b; const other = leader === a ? b : a;
+      return { leader, other, wins: pair.wins[leader], losses: pair.wins[other], games: pair.games, gap: Math.abs(pair.wins[a] - pair.wins[b]) };
+    }).sort((a, b) => b.gap - a.gap || b.games - a.games).slice(0, 4);
+    const gameLabel = row => `${row.game.season} W${row.game.week}${row.game.stage === 'playoffs' ? ' playoff' : ''}`;
+    const resultCard = (label, row, subline) => `<article class="card metric"><span class="metric-label">${label}</span><strong class="metric-value">${escapeHtml(subline)}</strong><span class="metric-note">${escapeHtml(gameLabel(row))}</span></article>`;
+    return `<section class="view">
+      ${viewHeader('Data analysis', 'Statistics', 'Patterns computed from 271 verified ESPN matchups plus complete regular-season standings from 2022 through 2025.', 'Updated through 2026 W1')}
+      <div class="grid grid-3 stat-callouts">
+        ${resultCard('Highest verified weekly score', highest, `${manager(highest.id).shortName} · ${fmt.format(highest.score)}`)}
+        ${resultCard('Closest verified game', { ...closest, game: closest }, `${fmt.format(Math.abs(closest.awayScore - closest.homeScore))} pts`)}
+        ${resultCard('Biggest verified blowout', { ...blowout, game: blowout }, `${fmt.format(Math.abs(blowout.awayScore - blowout.homeScore))} pts`)}
+      </div>
+      <section class="section analytics-grid">
+        <article class="card card-pad"><span class="eyebrow">Score threshold</span><h2>How often does it win?</h2><p class="chart-intro">Every team-week in the matchup archive, including playoffs.</p><div class="bar-chart">${thresholds.map(row => `<div class="bar-row"><span>${row.threshold}+ points</span><div class="bar-track"><i style="width:${row.rate}%"></i></div><strong>${row.rate.toFixed(0)}%</strong><small>${row.wins}/${row.games}</small></div>`).join('')}</div></article>
+        <article class="card card-pad"><span class="eyebrow">Career scoring</span><h2>All-time points leaders</h2><p class="chart-intro">Regular-season points from complete 2022–2025 final standings.</p><div class="bar-chart career-chart">${career.slice(0, 8).map(row => `<div class="bar-row"><span>${escapeHtml(row.person.shortName)}</span><div class="bar-track"><i style="width:${row.points / maxPoints * 100}%"></i></div><strong>${fmt.format(row.points)}</strong></div>`).join('')}</div></article>
+      </section>
+      <section class="section"><div class="section-head"><div><span class="eyebrow">Matchup trouble</span><h2>The most lopsided rivalries</h2></div><p>Minimum three verified meetings. These change as more archived weeks are added.</p></div><div class="grid grid-4">${rivalries.map(row => `<article class="card record-card"><div><span class="metric-label">${row.games} meetings</span><strong>${row.wins}-${row.losses}</strong><h3>${escapeHtml(manager(row.leader).shortName)} over ${escapeHtml(manager(row.other).shortName)}</h3><p>Available matchup archive</p></div><span class="tag computed">Computed</span></article>`).join('')}</div></section>
+      <p class="data-note">Coverage note: 2022–2024 schedules are complete. The matchup archive has 2025 through Week 11 and 2026 Week 1; career totals use complete 2022–2025 final standings.</p>
+    </section>`;
   }
 
   function recordsView() {
@@ -316,7 +357,7 @@
   function render() {
     const active = route();
     setNavigation(active);
-    const views = { home: homeView, history: historyView, managers: managersView, rivalries: rivalryView, trophies: trophiesView, drafts: draftsView, records: recordsView, rules: rulesView };
+    const views = { home: homeView, history: historyView, managers: managersView, rivalries: rivalryView, trophies: trophiesView, drafts: draftsView, statistics: statisticsView, records: recordsView, rules: rulesView };
     app.innerHTML = views[active]();
     document.title = `${navButtons.find(button => button.dataset.route === active)?.textContent || 'League History'} — Rock or Bust`;
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -337,10 +378,10 @@
 
   Promise.all([
     fetch('data/league.json').then(response => response.ok ? response.json() : Promise.reject(new Error('league data'))),
-    fetch('schedule.json').then(response => response.ok ? response.json() : Promise.reject(new Error('schedule data')))
-  ]).then(([leagueData, scheduleData]) => {
+    fetch('data/matchups.json').then(response => response.ok ? response.json() : Promise.reject(new Error('matchup data')))
+  ]).then(([leagueData, matchupData]) => {
     league = leagueData;
-    schedule = scheduleData;
+    matchups = matchupData;
     render();
   }).catch(error => {
     console.error(error);

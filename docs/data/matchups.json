@@ -1,0 +1,2455 @@
+{
+  "source": "Saved ESPN League Schedule exports",
+  "coverage": "Complete saved ESPN schedules for 2022\u20132024, completed games through Week 11 of 2025, and verified Week 1 of 2026.",
+  "seasons": {
+    "2022": [
+      {
+        "season": 2022,
+        "week": 1,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 144.96,
+        "home": "daniel",
+        "homeScore": 89.1
+      },
+      {
+        "season": 2022,
+        "week": 1,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 127.52,
+        "home": "noah",
+        "homeScore": 126.68
+      },
+      {
+        "season": 2022,
+        "week": 1,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 139.2,
+        "home": "eli",
+        "homeScore": 113.32
+      },
+      {
+        "season": 2022,
+        "week": 1,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 150.6,
+        "home": "colin",
+        "homeScore": 111.86
+      },
+      {
+        "season": 2022,
+        "week": 2,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 184.36,
+        "home": "eli",
+        "homeScore": 168.72
+      },
+      {
+        "season": 2022,
+        "week": 2,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 121.88,
+        "home": "noah",
+        "homeScore": 110.78
+      },
+      {
+        "season": 2022,
+        "week": 2,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 94.74,
+        "home": "james",
+        "homeScore": 173.92
+      },
+      {
+        "season": 2022,
+        "week": 2,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 99.66,
+        "home": "marissa",
+        "homeScore": 71.6
+      },
+      {
+        "season": 2022,
+        "week": 3,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 108.2,
+        "home": "cameron",
+        "homeScore": 111.8
+      },
+      {
+        "season": 2022,
+        "week": 3,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 97.5,
+        "home": "daniel",
+        "homeScore": 71.96
+      },
+      {
+        "season": 2022,
+        "week": 3,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 113.4,
+        "home": "tucker",
+        "homeScore": 111.76
+      },
+      {
+        "season": 2022,
+        "week": 3,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 112.98,
+        "home": "eli",
+        "homeScore": 130.92
+      },
+      {
+        "season": 2022,
+        "week": 4,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 89.12,
+        "home": "cameron",
+        "homeScore": 90.88
+      },
+      {
+        "season": 2022,
+        "week": 4,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 129.26,
+        "home": "eli",
+        "homeScore": 187.26
+      },
+      {
+        "season": 2022,
+        "week": 4,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 127.0,
+        "home": "tucker",
+        "homeScore": 155.88
+      },
+      {
+        "season": 2022,
+        "week": 4,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 110.16,
+        "home": "noah",
+        "homeScore": 112.22
+      },
+      {
+        "season": 2022,
+        "week": 5,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 135.78,
+        "home": "cameron",
+        "homeScore": 142.62
+      },
+      {
+        "season": 2022,
+        "week": 5,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 137.16,
+        "home": "colin",
+        "homeScore": 136.74
+      },
+      {
+        "season": 2022,
+        "week": 5,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 89.48,
+        "home": "daniel",
+        "homeScore": 134.9
+      },
+      {
+        "season": 2022,
+        "week": 5,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 109.46,
+        "home": "eli",
+        "homeScore": 134.76
+      },
+      {
+        "season": 2022,
+        "week": 6,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 148.6,
+        "home": "marissa",
+        "homeScore": 142.32
+      },
+      {
+        "season": 2022,
+        "week": 6,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 88.1,
+        "home": "james",
+        "homeScore": 117.8
+      },
+      {
+        "season": 2022,
+        "week": 6,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 140.3,
+        "home": "eli",
+        "homeScore": 98.8
+      },
+      {
+        "season": 2022,
+        "week": 6,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 99.42,
+        "home": "noah",
+        "homeScore": 110.86
+      },
+      {
+        "season": 2022,
+        "week": 7,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 67.3,
+        "home": "cameron",
+        "homeScore": 134.04
+      },
+      {
+        "season": 2022,
+        "week": 7,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 90.4,
+        "home": "marissa",
+        "homeScore": 167.52
+      },
+      {
+        "season": 2022,
+        "week": 7,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 68.04,
+        "home": "colin",
+        "homeScore": 88.58
+      },
+      {
+        "season": 2022,
+        "week": 7,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 99.08,
+        "home": "eli",
+        "homeScore": 106.6
+      },
+      {
+        "season": 2022,
+        "week": 8,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 108.28,
+        "home": "cameron",
+        "homeScore": 117.08
+      },
+      {
+        "season": 2022,
+        "week": 8,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 143.22,
+        "home": "james",
+        "homeScore": 158.9
+      },
+      {
+        "season": 2022,
+        "week": 8,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 147.46,
+        "home": "marissa",
+        "homeScore": 120.14
+      },
+      {
+        "season": 2022,
+        "week": 8,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 103.42,
+        "home": "tucker",
+        "homeScore": 152.2
+      },
+      {
+        "season": 2022,
+        "week": 9,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 144.42,
+        "home": "cameron",
+        "homeScore": 105.44
+      },
+      {
+        "season": 2022,
+        "week": 9,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 165.32,
+        "home": "daniel",
+        "homeScore": 108.78
+      },
+      {
+        "season": 2022,
+        "week": 9,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 87.5,
+        "home": "colin",
+        "homeScore": 61.0
+      },
+      {
+        "season": 2022,
+        "week": 9,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 156.84,
+        "home": "tucker",
+        "homeScore": 104.46
+      },
+      {
+        "season": 2022,
+        "week": 10,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 145.48,
+        "home": "james",
+        "homeScore": 97.9
+      },
+      {
+        "season": 2022,
+        "week": 10,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 146.5,
+        "home": "colin",
+        "homeScore": 90.9
+      },
+      {
+        "season": 2022,
+        "week": 10,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 52.5,
+        "home": "noah",
+        "homeScore": 111.2
+      },
+      {
+        "season": 2022,
+        "week": 10,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 100.9,
+        "home": "marissa",
+        "homeScore": 143.94
+      },
+      {
+        "season": 2022,
+        "week": 11,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 120.82,
+        "home": "colin",
+        "homeScore": 115.74
+      },
+      {
+        "season": 2022,
+        "week": 11,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 162.06,
+        "home": "james",
+        "homeScore": 96.2
+      },
+      {
+        "season": 2022,
+        "week": 11,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 103.5,
+        "home": "daniel",
+        "homeScore": 137.38
+      },
+      {
+        "season": 2022,
+        "week": 11,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 107.08,
+        "home": "marissa",
+        "homeScore": 99.16
+      },
+      {
+        "season": 2022,
+        "week": 12,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 124.64,
+        "home": "tucker",
+        "homeScore": 97.56
+      },
+      {
+        "season": 2022,
+        "week": 12,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 146.32,
+        "home": "daniel",
+        "homeScore": 119.66
+      },
+      {
+        "season": 2022,
+        "week": 12,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 117.22,
+        "home": "eli",
+        "homeScore": 178.12
+      },
+      {
+        "season": 2022,
+        "week": 12,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 92.74,
+        "home": "marissa",
+        "homeScore": 111.9
+      },
+      {
+        "season": 2022,
+        "week": 13,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 103.1,
+        "home": "eli",
+        "homeScore": 169.44
+      },
+      {
+        "season": 2022,
+        "week": 13,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 109.32,
+        "home": "daniel",
+        "homeScore": 141.1
+      },
+      {
+        "season": 2022,
+        "week": 13,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 64.9,
+        "home": "colin",
+        "homeScore": 122.2
+      },
+      {
+        "season": 2022,
+        "week": 13,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 107.52,
+        "home": "cameron",
+        "homeScore": 122.04
+      },
+      {
+        "season": 2022,
+        "week": 14,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 137.86,
+        "home": "daniel",
+        "homeScore": 106.0
+      },
+      {
+        "season": 2022,
+        "week": 14,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 108.18,
+        "home": "james",
+        "homeScore": 117.58
+      },
+      {
+        "season": 2022,
+        "week": 14,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 132.06,
+        "home": "noah",
+        "homeScore": 128.88
+      },
+      {
+        "season": 2022,
+        "week": 14,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 64.56,
+        "home": "tucker",
+        "homeScore": 45.18
+      },
+      {
+        "season": 2022,
+        "week": 15,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 131.24,
+        "home": "james",
+        "homeScore": 115.2
+      },
+      {
+        "season": 2022,
+        "week": 15,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 152.64,
+        "home": "daniel",
+        "homeScore": 119.36
+      },
+      {
+        "season": 2022,
+        "week": 15,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 146.86,
+        "home": "tucker",
+        "homeScore": 87.32
+      },
+      {
+        "season": 2022,
+        "week": 15,
+        "stage": "regular",
+        "away": "colin",
+        "awayScore": 140.64,
+        "home": "cameron",
+        "homeScore": 112.9
+      },
+      {
+        "season": 2022,
+        "week": 16,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 111.4,
+        "home": "cameron",
+        "homeScore": 127.9
+      },
+      {
+        "season": 2022,
+        "week": 16,
+        "stage": "regular",
+        "away": "marissa",
+        "awayScore": 126.26,
+        "home": "colin",
+        "homeScore": 132.68
+      },
+      {
+        "season": 2022,
+        "week": 16,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 113.1,
+        "home": "daniel",
+        "homeScore": 124.1
+      },
+      {
+        "season": 2022,
+        "week": 16,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 141.78,
+        "home": "tucker",
+        "homeScore": 79.1
+      },
+      {
+        "season": 2022,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "noah",
+        "awayScore": 68.98,
+        "home": "cameron",
+        "homeScore": 52.62
+      },
+      {
+        "season": 2022,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "james",
+        "awayScore": 41.0,
+        "home": "eli",
+        "homeScore": 137.5
+      },
+      {
+        "season": 2022,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "marissa",
+        "awayScore": 86.72,
+        "home": "colin",
+        "homeScore": 93.88
+      },
+      {
+        "season": 2022,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "tucker",
+        "awayScore": 74.48,
+        "home": "daniel",
+        "homeScore": 151.06
+      },
+      {
+        "season": 2022,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "noah",
+        "awayScore": 107.16,
+        "home": "eli",
+        "homeScore": 108.62
+      },
+      {
+        "season": 2022,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "james",
+        "awayScore": 72.46,
+        "home": "cameron",
+        "homeScore": 96.3
+      },
+      {
+        "season": 2022,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "daniel",
+        "awayScore": 94.6,
+        "home": "colin",
+        "homeScore": 76.72
+      },
+      {
+        "season": 2022,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "tucker",
+        "awayScore": 70.02,
+        "home": "marissa",
+        "homeScore": 65.58
+      }
+    ],
+    "2023": [
+      {
+        "season": 2023,
+        "week": 1,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 165.85,
+        "home": "daniel",
+        "homeScore": 174.1
+      },
+      {
+        "season": 2023,
+        "week": 1,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 126.1,
+        "home": "james",
+        "homeScore": 151.3
+      },
+      {
+        "season": 2023,
+        "week": 1,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 148.5,
+        "home": "cameron",
+        "homeScore": 108.9
+      },
+      {
+        "season": 2023,
+        "week": 1,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 96.4,
+        "home": "tucker",
+        "homeScore": 101.9
+      },
+      {
+        "season": 2023,
+        "week": 2,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 132.45,
+        "home": "noah",
+        "homeScore": 172.45
+      },
+      {
+        "season": 2023,
+        "week": 2,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 153.85,
+        "home": "jacob",
+        "homeScore": 167.25
+      },
+      {
+        "season": 2023,
+        "week": 2,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 206.3,
+        "home": "cameron",
+        "homeScore": 144.7
+      },
+      {
+        "season": 2023,
+        "week": 2,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 142.25,
+        "home": "tucker",
+        "homeScore": 136.95
+      },
+      {
+        "season": 2023,
+        "week": 3,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 182.65,
+        "home": "noah",
+        "homeScore": 154.6
+      },
+      {
+        "season": 2023,
+        "week": 3,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 166.55,
+        "home": "mark",
+        "homeScore": 174.25
+      },
+      {
+        "season": 2023,
+        "week": 3,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 167.8,
+        "home": "daniel",
+        "homeScore": 196.1
+      },
+      {
+        "season": 2023,
+        "week": 3,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 161.4,
+        "home": "eli",
+        "homeScore": 138.25
+      },
+      {
+        "season": 2023,
+        "week": 4,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 160.6,
+        "home": "cameron",
+        "homeScore": 153.75
+      },
+      {
+        "season": 2023,
+        "week": 4,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 115.95,
+        "home": "james",
+        "homeScore": 169.4
+      },
+      {
+        "season": 2023,
+        "week": 4,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 129.85,
+        "home": "austin",
+        "homeScore": 148.95
+      },
+      {
+        "season": 2023,
+        "week": 4,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 107.15,
+        "home": "daniel",
+        "homeScore": 122.3
+      },
+      {
+        "season": 2023,
+        "week": 5,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 131.1,
+        "home": "james",
+        "homeScore": 123.55
+      },
+      {
+        "season": 2023,
+        "week": 5,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 174.8,
+        "home": "cameron",
+        "homeScore": 184.0
+      },
+      {
+        "season": 2023,
+        "week": 5,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 97.2,
+        "home": "tucker",
+        "homeScore": 203.05
+      },
+      {
+        "season": 2023,
+        "week": 5,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 140.35,
+        "home": "noah",
+        "homeScore": 120.95
+      },
+      {
+        "season": 2023,
+        "week": 6,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 113.3,
+        "home": "eli",
+        "homeScore": 147.05
+      },
+      {
+        "season": 2023,
+        "week": 6,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 193.85,
+        "home": "jacob",
+        "homeScore": 173.0
+      },
+      {
+        "season": 2023,
+        "week": 6,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 123.65,
+        "home": "tucker",
+        "homeScore": 134.25
+      },
+      {
+        "season": 2023,
+        "week": 6,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 171.4,
+        "home": "austin",
+        "homeScore": 130.55
+      },
+      {
+        "season": 2023,
+        "week": 7,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 186.25,
+        "home": "noah",
+        "homeScore": 155.3
+      },
+      {
+        "season": 2023,
+        "week": 7,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 98.55,
+        "home": "james",
+        "homeScore": 133.05
+      },
+      {
+        "season": 2023,
+        "week": 7,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 156.25,
+        "home": "daniel",
+        "homeScore": 141.1
+      },
+      {
+        "season": 2023,
+        "week": 7,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 136.5,
+        "home": "mark",
+        "homeScore": 170.65
+      },
+      {
+        "season": 2023,
+        "week": 8,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 186.05,
+        "home": "eli",
+        "homeScore": 196.6
+      },
+      {
+        "season": 2023,
+        "week": 8,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 185.0,
+        "home": "jacob",
+        "homeScore": 143.2
+      },
+      {
+        "season": 2023,
+        "week": 8,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 147.85,
+        "home": "tucker",
+        "homeScore": 177.1
+      },
+      {
+        "season": 2023,
+        "week": 8,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 111.0,
+        "home": "austin",
+        "homeScore": 125.45
+      },
+      {
+        "season": 2023,
+        "week": 9,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 131.0,
+        "home": "james",
+        "homeScore": 147.8
+      },
+      {
+        "season": 2023,
+        "week": 9,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 143.6,
+        "home": "daniel",
+        "homeScore": 115.85
+      },
+      {
+        "season": 2023,
+        "week": 9,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 166.95,
+        "home": "mark",
+        "homeScore": 164.75
+      },
+      {
+        "season": 2023,
+        "week": 9,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 196.35,
+        "home": "jacob",
+        "homeScore": 113.45
+      },
+      {
+        "season": 2023,
+        "week": 10,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 131.05,
+        "home": "mark",
+        "homeScore": 150.6
+      },
+      {
+        "season": 2023,
+        "week": 10,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 100.9,
+        "home": "eli",
+        "homeScore": 184.75
+      },
+      {
+        "season": 2023,
+        "week": 10,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 157.35,
+        "home": "noah",
+        "homeScore": 176.0
+      },
+      {
+        "season": 2023,
+        "week": 10,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 120.9,
+        "home": "austin",
+        "homeScore": 159.2
+      },
+      {
+        "season": 2023,
+        "week": 11,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 105.2,
+        "home": "mark",
+        "homeScore": 158.3
+      },
+      {
+        "season": 2023,
+        "week": 11,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 138.05,
+        "home": "daniel",
+        "homeScore": 182.85
+      },
+      {
+        "season": 2023,
+        "week": 11,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 100.15,
+        "home": "james",
+        "homeScore": 150.35
+      },
+      {
+        "season": 2023,
+        "week": 11,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 167.9,
+        "home": "austin",
+        "homeScore": 127.15
+      },
+      {
+        "season": 2023,
+        "week": 12,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 176.0,
+        "home": "noah",
+        "homeScore": 187.35
+      },
+      {
+        "season": 2023,
+        "week": 12,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 212.4,
+        "home": "cameron",
+        "homeScore": 91.65
+      },
+      {
+        "season": 2023,
+        "week": 12,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 172.25,
+        "home": "jacob",
+        "homeScore": 142.1
+      },
+      {
+        "season": 2023,
+        "week": 12,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 179.4,
+        "home": "james",
+        "homeScore": 187.85
+      },
+      {
+        "season": 2023,
+        "week": 13,
+        "stage": "regular",
+        "away": "austin",
+        "awayScore": 179.2,
+        "home": "cameron",
+        "homeScore": 135.35
+      },
+      {
+        "season": 2023,
+        "week": 13,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 148.15,
+        "home": "noah",
+        "homeScore": 148.85
+      },
+      {
+        "season": 2023,
+        "week": 13,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 180.4,
+        "home": "eli",
+        "homeScore": 112.3
+      },
+      {
+        "season": 2023,
+        "week": 13,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 231.1,
+        "home": "mark",
+        "homeScore": 183.2
+      },
+      {
+        "season": 2023,
+        "week": 14,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 152.2,
+        "home": "cameron",
+        "homeScore": 151.65
+      },
+      {
+        "season": 2023,
+        "week": 14,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 184.85,
+        "home": "austin",
+        "homeScore": 136.6
+      },
+      {
+        "season": 2023,
+        "week": 14,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 147.55,
+        "home": "mark",
+        "homeScore": 166.45
+      },
+      {
+        "season": 2023,
+        "week": 14,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 122.25,
+        "home": "eli",
+        "homeScore": 181.1
+      },
+      {
+        "season": 2023,
+        "week": 15,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 136.65,
+        "home": "noah",
+        "homeScore": 140.7
+      },
+      {
+        "season": 2023,
+        "week": 15,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 132.9,
+        "home": "tucker",
+        "homeScore": 127.75
+      },
+      {
+        "season": 2023,
+        "week": 15,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 221.65,
+        "home": "austin",
+        "homeScore": 148.5
+      },
+      {
+        "season": 2023,
+        "week": 15,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 125.1,
+        "home": "jacob",
+        "homeScore": 140.3
+      },
+      {
+        "season": 2023,
+        "week": 16,
+        "stage": "playoffs",
+        "away": "noah",
+        "awayScore": 124.05,
+        "home": "eli",
+        "homeScore": 170.55
+      },
+      {
+        "season": 2023,
+        "week": 16,
+        "stage": "playoffs",
+        "away": "tucker",
+        "awayScore": 150.9,
+        "home": "mark",
+        "homeScore": 154.05
+      },
+      {
+        "season": 2023,
+        "week": 16,
+        "stage": "playoffs",
+        "away": "cameron",
+        "awayScore": 177.6,
+        "home": "jacob",
+        "homeScore": 87.0
+      },
+      {
+        "season": 2023,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "eli",
+        "awayScore": 160.2,
+        "home": "james",
+        "homeScore": 170.45
+      },
+      {
+        "season": 2023,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "mark",
+        "awayScore": 238.35,
+        "home": "daniel",
+        "homeScore": 153.05
+      },
+      {
+        "season": 2023,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "tucker",
+        "awayScore": 95.65,
+        "home": "noah",
+        "homeScore": 129.75
+      },
+      {
+        "season": 2023,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "cameron",
+        "awayScore": 162.8,
+        "home": "austin",
+        "homeScore": 109.2
+      },
+      {
+        "season": 2023,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "mark",
+        "awayScore": 159.85,
+        "home": "james",
+        "homeScore": 227.95
+      },
+      {
+        "season": 2023,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "eli",
+        "awayScore": 172.6,
+        "home": "daniel",
+        "homeScore": 131.45
+      },
+      {
+        "season": 2023,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "tucker",
+        "awayScore": 79.4,
+        "home": "noah",
+        "homeScore": 135.25
+      },
+      {
+        "season": 2023,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "jacob",
+        "awayScore": 108.85,
+        "home": "austin",
+        "homeScore": 110.8
+      }
+    ],
+    "2024": [
+      {
+        "season": 2024,
+        "week": 1,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 144.7,
+        "home": "james",
+        "homeScore": 188.35
+      },
+      {
+        "season": 2024,
+        "week": 1,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 136.7,
+        "home": "tucker",
+        "homeScore": 167.6
+      },
+      {
+        "season": 2024,
+        "week": 1,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 186.3,
+        "home": "noah",
+        "homeScore": 187.1
+      },
+      {
+        "season": 2024,
+        "week": 1,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 153.4,
+        "home": "cameron",
+        "homeScore": 142.65
+      },
+      {
+        "season": 2024,
+        "week": 2,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 161.5,
+        "home": "noah",
+        "homeScore": 163.25
+      },
+      {
+        "season": 2024,
+        "week": 2,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 194.35,
+        "home": "eli",
+        "homeScore": 170.45
+      },
+      {
+        "season": 2024,
+        "week": 2,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 170.1,
+        "home": "tucker",
+        "homeScore": 151.55
+      },
+      {
+        "season": 2024,
+        "week": 2,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 147.65,
+        "home": "mark",
+        "homeScore": 173.35
+      },
+      {
+        "season": 2024,
+        "week": 3,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 176.65,
+        "home": "jacob",
+        "homeScore": 140.8
+      },
+      {
+        "season": 2024,
+        "week": 3,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 187.85,
+        "home": "james",
+        "homeScore": 155.3
+      },
+      {
+        "season": 2024,
+        "week": 3,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 137.2,
+        "home": "noah",
+        "homeScore": 171.35
+      },
+      {
+        "season": 2024,
+        "week": 3,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 121.7,
+        "home": "daniel",
+        "homeScore": 145.95
+      },
+      {
+        "season": 2024,
+        "week": 4,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 136.35,
+        "home": "eli",
+        "homeScore": 183.65
+      },
+      {
+        "season": 2024,
+        "week": 4,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 98.5,
+        "home": "tucker",
+        "homeScore": 165.05
+      },
+      {
+        "season": 2024,
+        "week": 4,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 177.95,
+        "home": "daniel",
+        "homeScore": 125.4
+      },
+      {
+        "season": 2024,
+        "week": 4,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 148.3,
+        "home": "noah",
+        "homeScore": 209.1
+      },
+      {
+        "season": 2024,
+        "week": 5,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 188.15,
+        "home": "mark",
+        "homeScore": 129.2
+      },
+      {
+        "season": 2024,
+        "week": 5,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 127.45,
+        "home": "eli",
+        "homeScore": 178.05
+      },
+      {
+        "season": 2024,
+        "week": 5,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 159.4,
+        "home": "jacob",
+        "homeScore": 156.6
+      },
+      {
+        "season": 2024,
+        "week": 5,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 167.4,
+        "home": "james",
+        "homeScore": 171.0
+      },
+      {
+        "season": 2024,
+        "week": 6,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 143.9,
+        "home": "daniel",
+        "homeScore": 123.95
+      },
+      {
+        "season": 2024,
+        "week": 6,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 181.0,
+        "home": "noah",
+        "homeScore": 161.5
+      },
+      {
+        "season": 2024,
+        "week": 6,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 157.55,
+        "home": "eli",
+        "homeScore": 135.05
+      },
+      {
+        "season": 2024,
+        "week": 6,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 202.25,
+        "home": "tucker",
+        "homeScore": 130.25
+      },
+      {
+        "season": 2024,
+        "week": 7,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 199.2,
+        "home": "mark",
+        "homeScore": 158.8
+      },
+      {
+        "season": 2024,
+        "week": 7,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 184.15,
+        "home": "cameron",
+        "homeScore": 119.35
+      },
+      {
+        "season": 2024,
+        "week": 7,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 168.65,
+        "home": "jacob",
+        "homeScore": 122.0
+      },
+      {
+        "season": 2024,
+        "week": 7,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 112.05,
+        "home": "james",
+        "homeScore": 133.95
+      },
+      {
+        "season": 2024,
+        "week": 8,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 167.8,
+        "home": "eli",
+        "homeScore": 164.05
+      },
+      {
+        "season": 2024,
+        "week": 8,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 187.3,
+        "home": "daniel",
+        "homeScore": 140.15
+      },
+      {
+        "season": 2024,
+        "week": 8,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 106.1,
+        "home": "mark",
+        "homeScore": 156.1
+      },
+      {
+        "season": 2024,
+        "week": 8,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 197.4,
+        "home": "jacob",
+        "homeScore": 167.05
+      },
+      {
+        "season": 2024,
+        "week": 9,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 162.35,
+        "home": "daniel",
+        "homeScore": 119.8
+      },
+      {
+        "season": 2024,
+        "week": 9,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 208.7,
+        "home": "tucker",
+        "homeScore": 135.55
+      },
+      {
+        "season": 2024,
+        "week": 9,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 176.25,
+        "home": "jacob",
+        "homeScore": 197.45
+      },
+      {
+        "season": 2024,
+        "week": 9,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 116.7,
+        "home": "cameron",
+        "homeScore": 176.85
+      },
+      {
+        "season": 2024,
+        "week": 10,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 181.4,
+        "home": "eli",
+        "homeScore": 156.9
+      },
+      {
+        "season": 2024,
+        "week": 10,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 123.15,
+        "home": "tucker",
+        "homeScore": 224.55
+      },
+      {
+        "season": 2024,
+        "week": 10,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 125.2,
+        "home": "mark",
+        "homeScore": 141.45
+      },
+      {
+        "season": 2024,
+        "week": 10,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 90.0,
+        "home": "cameron",
+        "homeScore": 159.3
+      },
+      {
+        "season": 2024,
+        "week": 11,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 226.5,
+        "home": "mark",
+        "homeScore": 185.95
+      },
+      {
+        "season": 2024,
+        "week": 11,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 153.25,
+        "home": "cameron",
+        "homeScore": 164.0
+      },
+      {
+        "season": 2024,
+        "week": 11,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 160.1,
+        "home": "jacob",
+        "homeScore": 210.25
+      },
+      {
+        "season": 2024,
+        "week": 11,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 101.65,
+        "home": "james",
+        "homeScore": 158.05
+      },
+      {
+        "season": 2024,
+        "week": 12,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 189.05,
+        "home": "tucker",
+        "homeScore": 156.25
+      },
+      {
+        "season": 2024,
+        "week": 12,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 154.0,
+        "home": "daniel",
+        "homeScore": 126.95
+      },
+      {
+        "season": 2024,
+        "week": 12,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 179.95,
+        "home": "noah",
+        "homeScore": 142.95
+      },
+      {
+        "season": 2024,
+        "week": 12,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 126.25,
+        "home": "eli",
+        "homeScore": 150.45
+      },
+      {
+        "season": 2024,
+        "week": 13,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 155.15,
+        "home": "mark",
+        "homeScore": 151.3
+      },
+      {
+        "season": 2024,
+        "week": 13,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 156.3,
+        "home": "cameron",
+        "homeScore": 167.85
+      },
+      {
+        "season": 2024,
+        "week": 13,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 129.3,
+        "home": "tucker",
+        "homeScore": 179.9
+      },
+      {
+        "season": 2024,
+        "week": 13,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 170.85,
+        "home": "jacob",
+        "homeScore": 202.7
+      },
+      {
+        "season": 2024,
+        "week": 14,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 226.85,
+        "home": "noah",
+        "homeScore": 153.1
+      },
+      {
+        "season": 2024,
+        "week": 14,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 122.85,
+        "home": "eli",
+        "homeScore": 251.6
+      },
+      {
+        "season": 2024,
+        "week": 14,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 164.15,
+        "home": "tucker",
+        "homeScore": 170.7
+      },
+      {
+        "season": 2024,
+        "week": 14,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 116.85,
+        "home": "daniel",
+        "homeScore": 182.65
+      },
+      {
+        "season": 2024,
+        "week": 15,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 106.1,
+        "home": "daniel",
+        "homeScore": 143.15
+      },
+      {
+        "season": 2024,
+        "week": 15,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 153.95,
+        "home": "tucker",
+        "homeScore": 180.4
+      },
+      {
+        "season": 2024,
+        "week": 15,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 168.0,
+        "home": "eli",
+        "homeScore": 230.5
+      },
+      {
+        "season": 2024,
+        "week": 15,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 204.3,
+        "home": "noah",
+        "homeScore": 183.6
+      },
+      {
+        "season": 2024,
+        "week": 16,
+        "stage": "playoffs",
+        "away": "james",
+        "awayScore": 155.05,
+        "home": "eli",
+        "homeScore": 179.3
+      },
+      {
+        "season": 2024,
+        "week": 16,
+        "stage": "playoffs",
+        "away": "cameron",
+        "awayScore": 168.5,
+        "home": "mark",
+        "homeScore": 223.05
+      },
+      {
+        "season": 2024,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "eli",
+        "awayScore": 166.3,
+        "home": "tucker",
+        "homeScore": 180.85
+      },
+      {
+        "season": 2024,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "noah",
+        "awayScore": 175.45,
+        "home": "jacob",
+        "homeScore": 182.65
+      },
+      {
+        "season": 2024,
+        "week": 17,
+        "stage": "playoffs",
+        "away": "daniel",
+        "awayScore": 158.35,
+        "home": "mark",
+        "homeScore": 201.75
+      },
+      {
+        "season": 2024,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "jacob",
+        "awayScore": 136.0,
+        "home": "tucker",
+        "homeScore": 205.75
+      },
+      {
+        "season": 2024,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "eli",
+        "awayScore": 126.7,
+        "home": "noah",
+        "homeScore": 203.2
+      },
+      {
+        "season": 2024,
+        "week": 18,
+        "stage": "playoffs",
+        "away": "cameron",
+        "awayScore": 154.75,
+        "home": "mark",
+        "homeScore": 98.3
+      }
+    ],
+    "2025": [
+      {
+        "season": 2025,
+        "week": 1,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 116.25,
+        "home": "tucker",
+        "homeScore": 121.95
+      },
+      {
+        "season": 2025,
+        "week": 1,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 123.6,
+        "home": "josh",
+        "homeScore": 142.55
+      },
+      {
+        "season": 2025,
+        "week": 1,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 151.05,
+        "home": "mark",
+        "homeScore": 131.4
+      },
+      {
+        "season": 2025,
+        "week": 1,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 155.3,
+        "home": "daniel",
+        "homeScore": 131.0
+      },
+      {
+        "season": 2025,
+        "week": 1,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 176.15,
+        "home": "jacob",
+        "homeScore": 154.55
+      },
+      {
+        "season": 2025,
+        "week": 2,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 198.4,
+        "home": "noah",
+        "homeScore": 138.05
+      },
+      {
+        "season": 2025,
+        "week": 2,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 126.9,
+        "home": "eli",
+        "homeScore": 108.9
+      },
+      {
+        "season": 2025,
+        "week": 2,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 144.9,
+        "home": "jake",
+        "homeScore": 112.95
+      },
+      {
+        "season": 2025,
+        "week": 2,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 146.8,
+        "home": "daniel",
+        "homeScore": 160.55
+      },
+      {
+        "season": 2025,
+        "week": 2,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 149.15,
+        "home": "jacob",
+        "homeScore": 170.5
+      },
+      {
+        "season": 2025,
+        "week": 3,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 135.1,
+        "home": "eli",
+        "homeScore": 180.15
+      },
+      {
+        "season": 2025,
+        "week": 3,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 126.85,
+        "home": "noah",
+        "homeScore": 198.6
+      },
+      {
+        "season": 2025,
+        "week": 3,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 142.55,
+        "home": "dalton",
+        "homeScore": 194.3
+      },
+      {
+        "season": 2025,
+        "week": 3,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 132.4,
+        "home": "tucker",
+        "homeScore": 134.1
+      },
+      {
+        "season": 2025,
+        "week": 3,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 128.6,
+        "home": "cameron",
+        "homeScore": 160.0
+      },
+      {
+        "season": 2025,
+        "week": 4,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 157.85,
+        "home": "daniel",
+        "homeScore": 167.75
+      },
+      {
+        "season": 2025,
+        "week": 4,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 178.75,
+        "home": "josh",
+        "homeScore": 139.2
+      },
+      {
+        "season": 2025,
+        "week": 4,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 95.75,
+        "home": "mark",
+        "homeScore": 173.9
+      },
+      {
+        "season": 2025,
+        "week": 4,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 154.0,
+        "home": "cameron",
+        "homeScore": 127.45
+      },
+      {
+        "season": 2025,
+        "week": 4,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 169.6,
+        "home": "tucker",
+        "homeScore": 197.7
+      },
+      {
+        "season": 2025,
+        "week": 5,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 157.1,
+        "home": "josh",
+        "homeScore": 158.1
+      },
+      {
+        "season": 2025,
+        "week": 5,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 135.4,
+        "home": "daniel",
+        "homeScore": 134.15
+      },
+      {
+        "season": 2025,
+        "week": 5,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 126.1,
+        "home": "jacob",
+        "homeScore": 224.7
+      },
+      {
+        "season": 2025,
+        "week": 5,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 194.25,
+        "home": "eli",
+        "homeScore": 158.75
+      },
+      {
+        "season": 2025,
+        "week": 5,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 152.8,
+        "home": "jake",
+        "homeScore": 132.7
+      },
+      {
+        "season": 2025,
+        "week": 6,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 157.65,
+        "home": "jake",
+        "homeScore": 164.05
+      },
+      {
+        "season": 2025,
+        "week": 6,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 102.4,
+        "home": "dalton",
+        "homeScore": 119.7
+      },
+      {
+        "season": 2025,
+        "week": 6,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 203.05,
+        "home": "mark",
+        "homeScore": 103.25
+      },
+      {
+        "season": 2025,
+        "week": 6,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 187.8,
+        "home": "jacob",
+        "homeScore": 200.05
+      },
+      {
+        "season": 2025,
+        "week": 6,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 176.6,
+        "home": "cameron",
+        "homeScore": 150.8
+      },
+      {
+        "season": 2025,
+        "week": 7,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 152.7,
+        "home": "eli",
+        "homeScore": 209.4
+      },
+      {
+        "season": 2025,
+        "week": 7,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 162.7,
+        "home": "daniel",
+        "homeScore": 104.9
+      },
+      {
+        "season": 2025,
+        "week": 7,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 128.05,
+        "home": "josh",
+        "homeScore": 149.3
+      },
+      {
+        "season": 2025,
+        "week": 7,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 149.3,
+        "home": "tucker",
+        "homeScore": 174.65
+      },
+      {
+        "season": 2025,
+        "week": 7,
+        "stage": "regular",
+        "away": "mark",
+        "awayScore": 159.0,
+        "home": "noah",
+        "homeScore": 143.7
+      },
+      {
+        "season": 2025,
+        "week": 8,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 140.1,
+        "home": "jake",
+        "homeScore": 136.7
+      },
+      {
+        "season": 2025,
+        "week": 8,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 125.75,
+        "home": "dalton",
+        "homeScore": 187.1
+      },
+      {
+        "season": 2025,
+        "week": 8,
+        "stage": "regular",
+        "away": "tucker",
+        "awayScore": 118.85,
+        "home": "noah",
+        "homeScore": 204.45
+      },
+      {
+        "season": 2025,
+        "week": 8,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 135.85,
+        "home": "jacob",
+        "homeScore": 99.2
+      },
+      {
+        "season": 2025,
+        "week": 8,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 191.85,
+        "home": "mark",
+        "homeScore": 158.25
+      },
+      {
+        "season": 2025,
+        "week": 9,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 167.15,
+        "home": "tucker",
+        "homeScore": 149.75
+      },
+      {
+        "season": 2025,
+        "week": 9,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 125.5,
+        "home": "mark",
+        "homeScore": 143.25
+      },
+      {
+        "season": 2025,
+        "week": 9,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 205.9,
+        "home": "dalton",
+        "homeScore": 151.1
+      },
+      {
+        "season": 2025,
+        "week": 9,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 197.6,
+        "home": "jake",
+        "homeScore": 134.1
+      },
+      {
+        "season": 2025,
+        "week": 9,
+        "stage": "regular",
+        "away": "jacob",
+        "awayScore": 160.9,
+        "home": "noah",
+        "homeScore": 105.7
+      },
+      {
+        "season": 2025,
+        "week": 10,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 131.45,
+        "home": "mark",
+        "homeScore": 151.65
+      },
+      {
+        "season": 2025,
+        "week": 10,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 173.8,
+        "home": "josh",
+        "homeScore": 184.2
+      },
+      {
+        "season": 2025,
+        "week": 10,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 176.05,
+        "home": "cameron",
+        "homeScore": 114.2
+      },
+      {
+        "season": 2025,
+        "week": 10,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 121.1,
+        "home": "jacob",
+        "homeScore": 148.2
+      },
+      {
+        "season": 2025,
+        "week": 10,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 200.9,
+        "home": "tucker",
+        "homeScore": 152.0
+      },
+      {
+        "season": 2025,
+        "week": 11,
+        "stage": "regular",
+        "away": "jake",
+        "awayScore": 139.45,
+        "home": "josh",
+        "homeScore": 110.15
+      },
+      {
+        "season": 2025,
+        "week": 11,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 128.1,
+        "home": "eli",
+        "homeScore": 182.05
+      },
+      {
+        "season": 2025,
+        "week": 11,
+        "stage": "regular",
+        "away": "dalton",
+        "awayScore": 130.55,
+        "home": "jacob",
+        "homeScore": 150.2
+      },
+      {
+        "season": 2025,
+        "week": 11,
+        "stage": "regular",
+        "away": "daniel",
+        "awayScore": 169.05,
+        "home": "tucker",
+        "homeScore": 141.4
+      },
+      {
+        "season": 2025,
+        "week": 11,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 151.55,
+        "home": "mark",
+        "homeScore": 148.25
+      }
+    ],
+    "2026": [
+      {
+        "season": 2026,
+        "week": 1,
+        "stage": "regular",
+        "away": "eli",
+        "awayScore": 216.55,
+        "home": "tucker",
+        "homeScore": 109.15
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "stage": "regular",
+        "away": "james",
+        "awayScore": 126.8,
+        "home": "mark",
+        "homeScore": 198.6
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "stage": "regular",
+        "away": "noah",
+        "awayScore": 189.2,
+        "home": "jacob",
+        "homeScore": 146.05
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "stage": "regular",
+        "away": "cameron",
+        "awayScore": 142.7,
+        "home": "daniel",
+        "homeScore": 217.25
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "stage": "regular",
+        "away": "josh",
+        "awayScore": 153.45,
+        "home": "jake",
+        "homeScore": 136.6
+      }
+    ]
+  }
+}

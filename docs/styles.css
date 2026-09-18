@@ -395,6 +395,18 @@ select:focus, button:focus-visible { outline: 3px solid rgba(86,180,255,.38); ou
 .manager-top { display: flex; align-items: center; gap: 14px; }
 .manager-meta { margin-top: 4px; color: var(--muted-dim); font-size: .78rem; }
 .manager-card p { min-height: 46px; margin: 17px 0 0; color: var(--muted); font-size: .84rem; }
+.career-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+}
+.career-line strong { color: #fff; font-family: "SFMono-Regular", Consolas, ui-monospace, monospace; font-size: .95rem; }
+.career-line span { align-self: center; color: var(--muted-dim); font-size: .72rem; }
 .manager-footer {
   display: flex;
   justify-content: space-between;
@@ -433,6 +445,10 @@ label { display: grid; gap: 7px; color: var(--muted); font-size: .79rem; font-we
 .series-score span { color: var(--muted-dim); font-size: .69rem; font-weight: 800; text-transform: uppercase; }
 .insight { margin: 24px 0 0; padding-left: 15px; border-left: 3px solid var(--blue); color: var(--muted); }
 .empty-state { color: var(--muted); text-align: center; }
+.meeting-list { display: grid; gap: 6px; margin-top: 21px; padding-top: 18px; border-top: 1px solid var(--line-soft); }
+.meeting-list > strong { margin-bottom: 3px; color: var(--muted-dim); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.meeting-list span { display: flex; justify-content: space-between; gap: 14px; color: var(--muted-dim); font-size: .75rem; }
+.meeting-list b { color: var(--muted); font-weight: 700; text-align: right; }
 
 .trophy-case { display: grid; grid-template-columns: repeat(auto-fit,minmax(215px,1fr)); gap: 16px; }
 .trophy {
@@ -469,6 +485,25 @@ label { display: grid; gap: 7px; color: var(--muted); font-size: .79rem; font-we
 .draft-bar-fill { display: block; height: 100%; background: var(--blue); }
 .draft-bar-fill.negative { margin-left: auto; background: var(--red); }
 .pick-list { color: var(--muted); font-size: .78rem; }
+.explainer { display: grid; grid-template-columns: minmax(220px,.7fr) minmax(0,1.3fr); gap: 28px; align-items: center; margin-bottom: 18px; padding: 26px; background: linear-gradient(130deg, rgba(86,180,255,.13), transparent 65%), var(--surface); }
+.explainer h2 { margin-top: 6px; }
+.explainer p, .chart-intro, .data-note { margin: 0; color: var(--muted); font-size: .86rem; }
+.explainer p strong { color: #fff; }
+.data-note { margin-top: 14px; }
+
+.stat-callouts { margin-bottom: 4px; }
+.analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.analytics-grid h2 { margin-top: 7px; }
+.chart-intro { margin-top: 9px; }
+.bar-chart { display: grid; gap: 14px; margin-top: 24px; }
+.bar-row { display: grid; grid-template-columns: 92px 1fr 52px 42px; gap: 10px; align-items: center; }
+.bar-row > span { color: var(--muted); font-size: .75rem; }
+.bar-row > strong { font-family: "SFMono-Regular", Consolas, ui-monospace, monospace; font-size: .78rem; text-align: right; }
+.bar-row > small { color: var(--muted-dim); font-size: .68rem; text-align: right; }
+.bar-track { height: 10px; overflow: hidden; border-radius: 999px; background: #08111f; }
+.bar-track i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #2f83cc, var(--blue)); }
+.career-chart .bar-row { grid-template-columns: 78px 1fr 76px; }
+.career-chart .bar-row > strong { color: var(--muted); }
 
 .coverage-row { display: grid; grid-template-columns: 1.2fr .75fr 2fr auto; gap: 16px; align-items: center; padding: 18px 20px; }
 .coverage-row + .coverage-row { border-top: 1px solid var(--line-soft); }
@@ -491,6 +526,7 @@ label { display: grid; gap: 7px; color: var(--muted); font-size: .79rem; font-we
   .masthead-inner { align-items: flex-start; flex-direction: column; gap: 12px; padding: 16px 0 12px; }
   .nav { width: 100%; margin: 0; }
   .hero, .snapshot, .rivalry-layout { grid-template-columns: 1fr; }
+  .analytics-grid { grid-template-columns: 1fr; }
   .hero-side { grid-template-columns: 1fr 1fr; }
   .grid-4 { grid-template-columns: repeat(2,1fr); }
   .grid-3 { grid-template-columns: repeat(2,1fr); }
@@ -517,6 +553,10 @@ label { display: grid; gap: 7px; color: var(--muted); font-size: .79rem; font-we
   .manager-footer { align-items: flex-start; flex-direction: column; }
   .manager-footer span { text-align: left; }
   .honor-card { align-items: flex-start; flex-direction: column; }
+  .explainer { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 78px 1fr 45px; }
+  .bar-row > small { display: none; }
+  .career-chart .bar-row { grid-template-columns: 66px 1fr 70px; }
   .lore-card blockquote { padding: 15px 17px; }
   .footer-inner { flex-direction: column; }
   th, td { padding: 12px 10px; }

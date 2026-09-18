@@ -12,14 +12,14 @@
   "coverage": [
     { "label": "Recognized champions", "range": "2021-2025", "status": "verified", "note": "The 2020 champion remains unknown." },
     { "label": "Final standings and scoring", "range": "2022-2025", "status": "verified", "note": "Transcribed from ESPN final-standings records supplied by the commissioner." },
-    { "label": "Draft results", "range": "2022-2024", "status": "verified", "note": "Normalized from the league spreadsheet and saved ESPN draft exports." },
-    { "label": "Weekly matchup scores", "range": "2025 Weeks 1-11", "status": "partial", "note": "The rivalry lookup currently uses the saved weekly schedule snapshot; final standings use the complete season record." }
+    { "label": "Draft results", "range": "2022-2026", "status": "verified", "note": "Saved ESPN draft exports through 2025 plus ESPN's live 2026 draft recap. Draft value is pending for 2026 until the season finishes." },
+    { "label": "Weekly matchup scores", "range": "2022-2026 W1", "status": "partial", "note": "Complete saved schedules for 2022-2024, completed games through Week 11 of 2025, and verified Week 1 of 2026." }
   ],
   "champions": [
     { "year": 2021, "managerId": "james", "winnerName": "James Jones", "runnerUpId": null, "thirdId": null, "division": null, "note": "Recognized champion from the early ROB era; detailed standings and weekly results are unavailable." },
-    { "year": 2022, "managerId": "eli", "runnerUpId": "noah", "thirdId": "cameron", "division": "Fish", "note": "Eli won the title; Cameron finished third after the most dominant regular season in league history." },
-    { "year": 2023, "managerId": "james", "runnerUpId": "mark", "thirdId": "eli", "division": "Fish", "note": "James won his second recognized ROB championship." },
-    { "year": 2024, "managerId": "tucker", "runnerUpId": "jacob", "thirdId": "noah", "division": "Fish", "note": "Tucker completed the Fish Division three-peat." },
+    { "year": 2022, "managerId": "eli", "runnerUpId": "noah", "thirdId": "cameron", "division": null, "note": "Eli won the title; Cameron finished third after the most dominant regular season in league history." },
+    { "year": 2023, "managerId": "james", "runnerUpId": "mark", "thirdId": "eli", "division": null, "note": "James won his second recognized ROB championship." },
+    { "year": 2024, "managerId": "tucker", "runnerUpId": "jacob", "thirdId": "noah", "division": null, "note": "Tucker won the 2024 championship after a 10-5 season." },
     { "year": 2025, "managerId": "mark", "runnerUpId": "dalton", "thirdId": "eli", "division": "Fish", "championshipScore": "185.00–146.05", "note": "Mark emerged from a five-team 7–7 logjam and beat Dalton for the championship." }
   ],
   "seasons": [
@@ -27,22 +27,22 @@
     { "year": 2021, "label": "James' First Crown", "status": "reconstructed", "champion": "james", "championName": "James Jones", "runnerUp": null, "story": "James Jones is the recognized 2021 ROB champion. Detailed standings, schedules, and the championship matchup are unavailable." },
     { "year": 2022, "label": "The Night Football Stopped", "status": "verified", "champion": "eli", "runnerUp": "noah", "third": "cameron", "story": "Eli won the title. Cameron finished third after going 14-2, still the best regular-season record in league history, and the strangest playoff ending the league has ever seen." },
     { "year": 2023, "label": "James Does It Again", "status": "verified", "champion": "james", "runnerUp": "mark", "third": "eli", "story": "James won his second recognized title after finishing the regular season 10-5." },
-    { "year": 2024, "label": "The Fish Three-Peat", "status": "verified", "champion": "tucker", "runnerUp": "jacob", "third": "noah", "story": "Tucker finished 10-5 and extended the Fish Division championship streak." },
+    { "year": 2024, "label": "Tucker Takes the Crown", "status": "verified", "champion": "tucker", "runnerUp": "jacob", "third": "noah", "story": "Tucker finished 10-5 and won the 2024 championship. He is a Crabs Division manager in the verified 2025 and 2026 records." },
     { "year": 2025, "label": "The 7-7 Traffic Jam", "status": "verified", "champion": "mark", "runnerUp": "dalton", "third": "eli", "story": "Five managers finished 7-7, including a three-way tie in the Fish Division. Mark escaped the chaos and defeated Dalton 185.00-146.05 for the championship." },
     { "year": 2026, "label": "The Next Chapter", "status": "current", "champion": null, "story": "The 2026 season is the current ROB season. Standings and weekly results will appear when new verified data is added." }
   ],
   "managers": [
-    { "id": "cameron", "name": "Cameron Wheeless II", "shortName": "Cameron", "scheduleTeam": "Indoctrinated Ravens", "division": "Fish", "active": "2022-present", "note": "Posted the league-record 14-2 regular season in 2022." },
-    { "id": "daniel", "name": "Daniel Staggs", "shortName": "Daniel", "scheduleTeam": "Duloc InjuredBread Men- 12", "division": "Crabs", "active": "2022-present", "note": "Drafted Tyreek Hill in the first two rounds three tracked years in a row." },
+    { "id": "cameron", "name": "Cameron Wheeless II", "shortName": "Cameron", "scheduleTeam": "Zencho's Omens", "division": "Fish", "active": "2022-present", "note": "Posted the league-record 14-2 regular season in 2022." },
+    { "id": "daniel", "name": "Daniel Staggs", "shortName": "Daniel", "scheduleTeam": "Duloc GingerBread Men", "division": "Crabs", "active": "2022-present", "note": "Drafted Tyreek Hill in the first two rounds three tracked years in a row." },
     { "id": "eli", "name": "Eli Sockwell", "shortName": "Eli", "scheduleTeam": "Crip Crip", "division": "Crabs", "active": "2022-present", "note": "2022 champion and third-place finisher in 2023 and 2025." },
     { "id": "jacob", "name": "Jacob Sockwell", "shortName": "Jacob", "scheduleTeam": "HerpesDonator", "division": "Fish", "active": "2023-present", "note": "Improved from 10th in 2023 to runner-up in 2024." },
-    { "id": "james", "name": "James Jones", "shortName": "James", "scheduleTeam": null, "division": "Fish", "active": "2021-2024", "note": "Two-time champion: 2021 and 2023." },
-    { "id": "dalton", "name": "Dalton Hanback", "shortName": "Dalton", "scheduleTeam": "James Teams Sucks", "division": "Fish", "active": "2025-present", "note": "Finished second in his first fully recorded ROB season." },
+    { "id": "james", "name": "James Jones", "shortName": "James", "scheduleTeam": "James's Finest Team", "division": "Fish", "active": "2021-present", "note": "Two-time champion: 2021 and 2023. Returned for the 2026 season." },
+    { "id": "dalton", "name": "Dalton Hanback", "shortName": "Dalton", "scheduleTeam": null, "division": "Fish", "active": "2025", "note": "Finished second in his recorded ROB season." },
     { "id": "mark", "name": "Mark Angel", "shortName": "Mark", "scheduleTeam": "Koolaid Jammer", "division": "Fish", "active": "2023-present", "note": "2025 champion after surviving the five-team 7-7 tie." },
     { "id": "noah", "name": "Noah Walton", "shortName": "Noah", "scheduleTeam": "Our Lard and Savior", "division": "Crabs", "active": "2022-present", "note": "2022 runner-up and 2024 third-place finisher." },
-    { "id": "tucker", "name": "Tucker McAfee", "shortName": "Tucker", "scheduleTeam": "Dart Party", "division": "Crabs", "active": "2022-present", "note": "2024 champion after finishing seventh, sixth, then first." },
-    { "id": "josh", "name": "Josh Bradley", "shortName": "Josh", "scheduleTeam": "Josh's Scary Team", "division": "Crabs", "active": "2025-present", "note": "Joined the league's complete final-standings record in 2025." },
-    { "id": "jake", "name": "Jake McCabe", "shortName": "Jake", "scheduleTeam": "Don't Blink", "division": "Fish", "active": "2025-present", "note": "Joined the league's complete final-standings record in 2025." },
+    { "id": "tucker", "name": "Tucker McAfee", "shortName": "Tucker", "scheduleTeam": "Its Bo Time!", "division": "Crabs", "active": "2022-present", "note": "2024 champion and a verified Crabs Division manager in 2025 and 2026." },
+    { "id": "josh", "name": "Josh Bradley", "shortName": "Josh", "scheduleTeam": "Bijan Mustard", "division": "Crabs", "active": "2025-present", "note": "Joined the league's complete final-standings record in 2025." },
+    { "id": "jake", "name": "Jake McCabe", "shortName": "Jake", "scheduleTeam": "Easy Pickens", "division": "Fish", "active": "2025-present", "note": "Joined the league's complete final-standings record in 2025." },
     { "id": "colin", "name": "Colin Scheele", "shortName": "Colin", "scheduleTeam": null, "division": "Crabs", "active": "2022", "note": "ROB alumnus from the first complete standings season." },
     { "id": "marissa", "name": "Marissa Conte", "shortName": "Marissa", "scheduleTeam": null, "division": "Fish", "active": "2022", "note": "ROB alumna from the first complete standings season." },
     { "id": "austin", "name": "Austin Wesley", "shortName": "Austin", "scheduleTeam": null, "division": "Crabs", "active": "2023", "note": "ROB alumnus from the 2023 season." }
@@ -69,7 +69,29 @@
     { "managerId": "noah", "season": 2024, "slot": 1, "finish": 3, "value": -2, "round1": "Christian McCaffrey", "round2": "Jalen Hurts", "round3": "Jonathan Taylor" },
     { "managerId": "tucker", "season": 2022, "slot": 5, "finish": 7, "value": -2, "round1": "Derrick Henry", "round2": "Justin Jefferson", "round3": "Davante Adams" },
     { "managerId": "tucker", "season": 2023, "slot": 9, "finish": 6, "value": 3, "round1": "Derrick Henry", "round2": "Josh Jacobs", "round3": "Calvin Ridley" },
-    { "managerId": "tucker", "season": 2024, "slot": 5, "finish": 1, "value": 4, "round1": "Ja'Marr Chase", "round2": "Saquon Barkley", "round3": "Marvin Harrison Jr." }
+    { "managerId": "tucker", "season": 2024, "slot": 5, "finish": 1, "value": 4, "round1": "Ja'Marr Chase", "round2": "Saquon Barkley", "round3": "Marvin Harrison Jr." },
+
+    { "managerId": "mark", "season": 2025, "slot": 1, "finish": 1, "value": 0, "round1": "Ja'Marr Chase", "round2": "Ladd McConkey", "round3": "Chase Brown" },
+    { "managerId": "tucker", "season": 2025, "slot": 2, "finish": 4, "value": -2, "round1": "Bijan Robinson", "round2": "Nico Collins", "round3": "De'Von Achane" },
+    { "managerId": "eli", "season": 2025, "slot": 3, "finish": 3, "value": 0, "round1": "Jahmyr Gibbs", "round2": "Brock Bowers", "round3": "Tee Higgins" },
+    { "managerId": "noah", "season": 2025, "slot": 4, "finish": 7, "value": -3, "round1": "Saquon Barkley", "round2": "Jonathan Taylor", "round3": "Davante Adams" },
+    { "managerId": "daniel", "season": 2025, "slot": 5, "finish": 9, "value": -4, "round1": "Justin Jefferson", "round2": "Bucky Irving", "round3": "Kyren Williams" },
+    { "managerId": "jacob", "season": 2025, "slot": 6, "finish": 5, "value": 1, "round1": "Malik Nabers", "round2": "Josh Jacobs", "round3": "Jayden Daniels" },
+    { "managerId": "josh", "season": 2025, "slot": 7, "finish": 6, "value": 1, "round1": "CeeDee Lamb", "round2": "Drake London", "round3": "Ashton Jeanty" },
+    { "managerId": "jake", "season": 2025, "slot": 8, "finish": 8, "value": 0, "round1": "A.J. Brown", "round2": "Derrick Henry", "round3": "Lamar Jackson" },
+    { "managerId": "cameron", "season": 2025, "slot": 9, "finish": 10, "value": -1, "round1": "Christian McCaffrey", "round2": "Brian Thomas Jr.", "round3": "Mike Evans" },
+    { "managerId": "james", "season": 2025, "slot": 10, "finish": 2, "value": 8, "round1": "Amon-Ra St. Brown", "round2": "Puka Nacua", "round3": "James Cook", "note": "Drafted under More plates more dates; Dalton Hanback finished the season with the team." },
+
+    { "managerId": "noah", "season": 2026, "slot": 1, "finish": null, "value": null, "round1": "Jahmyr Gibbs", "round2": "Trey McBride", "round3": "Nico Collins" },
+    { "managerId": "josh", "season": 2026, "slot": 2, "finish": null, "value": null, "round1": "Bijan Robinson", "round2": "Ashton Jeanty", "round3": "Brock Bowers" },
+    { "managerId": "jake", "season": 2026, "slot": 3, "finish": null, "value": null, "round1": "Christian McCaffrey", "round2": "Drake London", "round3": "George Pickens" },
+    { "managerId": "daniel", "season": 2026, "slot": 4, "finish": null, "value": null, "round1": "Jonathan Taylor", "round2": "Derrick Henry", "round3": "Chris Olave" },
+    { "managerId": "eli", "season": 2026, "slot": 5, "finish": null, "value": null, "round1": "Ja'Marr Chase", "round2": "Chase Brown", "round3": "Kenneth Walker III" },
+    { "managerId": "cameron", "season": 2026, "slot": 6, "finish": null, "value": null, "round1": "Jaxon Smith-Njigba", "round2": "Omarion Hampton", "round3": "Garrett Wilson" },
+    { "managerId": "jacob", "season": 2026, "slot": 7, "finish": null, "value": null, "round1": "Puka Nacua", "round2": "A.J. Brown", "round3": "Kyren Williams" },
+    { "managerId": "mark", "season": 2026, "slot": 8, "finish": null, "value": null, "round1": "Amon-Ra St. Brown", "round2": "Saquon Barkley", "round3": "Javonte Williams" },
+    { "managerId": "james", "season": 2026, "slot": 9, "finish": null, "value": null, "round1": "James Cook III", "round2": "CeeDee Lamb", "round3": "Rashee Rice" },
+    { "managerId": "tucker", "season": 2026, "slot": 10, "finish": null, "value": null, "round1": "Justin Jefferson", "round2": "De'Von Achane", "round3": "Malik Nabers" }
   ],
   "seasonStandings": {
     "2022": [
