@@ -8,7 +8,7 @@ history. GitHub Pages deploys the contents of `docs/` whenever `main` changes.
 
 ## Data coverage
 
-- Recognized league history: 2020-present (early seasons are partial)
+- Recognized champions: 2021-present (the 2020 champion is unknown)
 - Complete final ranks and draft results: 2022-2024
 - Weekly matchup scores: 2025 Weeks 1-11 in the current snapshot
 - Current manager identities and divisions: 2025

@@ -15,14 +15,15 @@
     { "label": "Current team identities", "range": "2025", "status": "verified", "note": "Names, managers, divisions, and available logos come from saved ESPN pages." }
   ],
   "champions": [
+    { "year": 2021, "managerId": "james", "winnerName": "James Jones", "runnerUpId": null, "division": null, "note": "Recognized champion from the early ROB era; detailed standings and weekly results are unavailable." },
     { "year": 2022, "managerId": "eli", "runnerUpId": "noah", "division": "Fish", "note": "League's top offense overcame the second-hardest reported schedule." },
     { "year": 2023, "managerId": "james", "runnerUpId": "mark", "division": "Fish", "note": "James converted a fourth-ranked offense and favorable schedule into a title." },
     { "year": 2024, "managerId": "tucker", "runnerUpId": "jacob", "division": "Fish", "note": "A top-three offense completed the Fish Division three-peat." }
   ],
   "seasons": [
     { "year": 2020, "label": "Early ROB Era", "status": "reconstructed", "champion": null, "story": "Championship recognized when commissioner evidence is added; weekly schedules are unavailable." },
-    { "year": 2021, "label": "Early ROB Era", "status": "reconstructed", "champion": null, "story": "Championship recognized when commissioner evidence is added; weekly schedules are unavailable." },
-    { "year": 2022, "label": "The Skill Title", "status": "verified", "champion": "eli", "runnerUp": "noah", "story": "Eli paired the league's top reported offense with a championship. Cameron's 14-2 regular season remains the best record in the tracked data." },
+    { "year": 2021, "label": "James' First Crown", "status": "reconstructed", "champion": "james", "championName": "James Jones", "runnerUp": null, "story": "James Jones is the recognized 2021 ROB champion. Detailed standings, schedules, and the championship matchup are unavailable." },
+    { "year": 2022, "label": "The Night Football Stopped", "status": "verified", "champion": "eli", "runnerUp": "noah", "story": "Eli won the title, but Cameron's 14-2 run produced the league's wildest playoff lore. Cameron had the best record in league history and needed a very attainable total from Joe Burrow on Monday night. Damar Hamlin suffered cardiac arrest during the game, play was suspended and later canceled, and Burrow's remaining points were never played. Cameron's season ended there." },
     { "year": 2023, "label": "The Open Door", "status": "verified", "champion": "james", "runnerUp": "mark", "story": "James took advantage of the league's easiest reported schedule and became the second champion in two tracked seasons." },
     { "year": 2024, "label": "The Fish Three-Peat", "status": "verified", "champion": "tucker", "runnerUp": "jacob", "story": "Tucker became the third different champion in three years while extending the Fish Division championship streak." },
     { "year": 2025, "label": "Snapshot Season", "status": "partial", "champion": null, "story": "The repository contains complete results through Week 11. Standings on this site are computed from that snapshot, not presented as final." }

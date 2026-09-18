@@ -111,7 +111,7 @@
           <p class="dek">Championships, rivalries, manager profiles, draft tendencies, and the stories behind the standings. Every number says exactly how far the available records go.</p>
         </div>
         <div class="hero-side">
-          <article class="stat-feature"><span class="metric-label">Recorded champions</span><div><strong>3</strong><p>Eli · James · Tucker</p></div></article>
+          <article class="stat-feature"><span class="metric-label">Known title seasons</span><div><strong>4</strong><p>James ×2 · Eli · Tucker</p></div></article>
           <article class="stat-feature"><span class="metric-label">Fish title streak</span><div><strong>3–0</strong><p>Every tracked championship, 2022–24</p></div></article>
         </div>
       </div>
@@ -144,12 +144,19 @@
       <div class="timeline">${league.seasons.slice().reverse().map(season => {
         const champ = season.champion ? manager(season.champion) : null;
         const runner = season.runnerUp ? manager(season.runnerUp) : null;
+        const championName = season.championName || champ?.shortName;
         return `<article class="card season-card">
           <div class="season-year">${season.year}</div>
           <div><h3>${escapeHtml(season.label)}</h3><p>${escapeHtml(season.story)}</p></div>
-          <div class="season-result">${champ ? `<strong>${escapeHtml(champ.shortName)}</strong><span>Champion${runner ? ` · over ${escapeHtml(runner.shortName)}` : ''}</span>` : '<strong>Record pending</strong><span>Commissioner evidence needed</span>'}<br>${statusTag(season.status)}</div>
+          <div class="season-result">${champ ? `<strong>${escapeHtml(championName)}</strong><span>Champion${runner ? ` · over ${escapeHtml(runner.shortName)}` : ''}</span>` : '<strong>Unknown champion</strong><span>No surviving record</span>'}<br>${statusTag(season.status)}</div>
         </article>`;
       }).join('')}</div>
+      <section class="section"><article class="card lore-card">
+        <span class="eyebrow">League lore · 2022</span>
+        <h2>14–2. One attainable Burrow total.<br>Then football stopped.</h2>
+        <p>Cameron dominated the regular season and posted the best record in league history. His playoff result still depended on Joe Burrow during the Bills–Bengals Monday night game. After Damar Hamlin suffered cardiac arrest, the game was suspended and later canceled. Burrow's remaining points were never played, and Cameron's historic season ended in one of the strangest fantasy finishes imaginable.</p>
+        <span class="tag reported">Commissioner-confirmed lore</span>
+      </article></section>
     </section>`;
   }
 
@@ -233,8 +240,9 @@
       ${viewHeader('Trophy room', 'The champions’ wall.', 'Three tracked seasons. Three different champions. One division has owned every trophy so far.', 'Titles verified 2022–24')}
       <div class="trophy-case">${league.champions.map(champ => {
         const winner = manager(champ.managerId);
-        const runner = manager(champ.runnerUpId);
-        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span>${avatar(winner, true)}<h3>${escapeHtml(winner.name)}</h3><p>${escapeHtml(champ.note)} Runner-up: ${escapeHtml(runner.shortName)}.</p>${division(champ.division)}</article>`;
+        const runner = champ.runnerUpId ? manager(champ.runnerUpId) : null;
+        const winnerName = champ.winnerName || winner.name;
+        return `<article class="card trophy" data-year="${champ.year}"><span class="trophy-year">ROB CHAMPION · ${champ.year}</span>${avatar({ name: winnerName }, true)}<h3>${escapeHtml(winnerName)}</h3><p>${escapeHtml(champ.note)}${runner ? ` Runner-up: ${escapeHtml(runner.shortName)}.` : ''}</p>${champ.division ? division(champ.division) : '<span class="tag reconstructed">Early-era record</span>'}</article>`;
       }).join('')}</div>
       <section class="section"><div class="card card-pad"><span class="eyebrow">Division dynasty</span><h2>Fish: 3 championships.<br>Everyone else: 0.</h2><p class="dek">The Fish Division won the 2022, 2023, and 2024 titles. This streak is commissioner-confirmed; fuller division-by-division records will appear as historical schedules are normalized.</p></div></section>
     </section>`;

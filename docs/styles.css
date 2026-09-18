@@ -142,13 +142,19 @@ select:focus, button:focus-visible { outline: 2px solid var(--red); outline-offs
 .insight { margin: 22px 0 0; padding-left: 14px; border-left: 3px solid var(--red); color: var(--muted); }
 .empty-state { color: var(--muted); text-align: center; }
 
-.trophy-case { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.trophy-case { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .trophy { position: relative; min-height: 320px; overflow: hidden; padding: 24px; background: linear-gradient(145deg, rgba(239,62,62,.16), transparent 55%), var(--card); }
 .trophy::after { content: attr(data-year); position: absolute; right: -6px; bottom: -29px; color: rgba(255,255,255,.035); font-family: Impact, sans-serif; font-size: 8rem; line-height: 1; }
 .trophy-year { color: var(--red); font-family: "Roboto Mono", ui-monospace, monospace; font-size: .8rem; }
 .trophy .avatar { margin-top: 58px; }
 .trophy h3 { margin-top: 14px; font-size: 1.55rem; }
 .trophy p { color: var(--muted); max-width: 270px; font-size: .82rem; }
+
+.lore-card { position: relative; overflow: hidden; padding: clamp(24px, 5vw, 52px); background: linear-gradient(130deg, rgba(239,62,62,.18), transparent 58%), var(--card); }
+.lore-card::after { content: "14–2"; position: absolute; right: -8px; bottom: -38px; z-index: 0; color: rgba(255,255,255,.035); font-family: Impact, sans-serif; font-size: clamp(7rem, 18vw, 13rem); line-height: 1; }
+.lore-card > * { position: relative; z-index: 1; }
+.lore-card h2 { max-width: 790px; margin-top: 12px; font-size: clamp(2rem, 5vw, 4.4rem); }
+.lore-card p { max-width: 790px; color: var(--muted); font-size: .96rem; }
 
 .record-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; padding: 20px; }
 .record-card strong { font-family: Oswald, Impact, sans-serif; font-size: 2.3rem; line-height: 1; }
@@ -181,7 +187,6 @@ select:focus, button:focus-visible { outline: 2px solid var(--red); outline-offs
   .hero-side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3, .trophy-case { grid-template-columns: repeat(2, 1fr); }
-  .trophy:last-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 620px) {
@@ -190,7 +195,6 @@ select:focus, button:focus-visible { outline: 2px solid var(--red); outline-offs
   .hero { padding-top: 18px; }
   .hero-copy { min-height: 315px; padding: 24px; }
   .hero-side, .grid-2, .grid-3, .grid-4, .trophy-case { grid-template-columns: 1fr; }
-  .trophy:last-child { grid-column: auto; }
   .view-head, .section-head { align-items: flex-start; flex-direction: column; }
   .season-card { grid-template-columns: 70px 1fr; }
   .season-result { grid-column: 2; text-align: left; }
