@@ -257,7 +257,7 @@
         <div class="section-head"><div><span class="eyebrow">Record honors</span><h2>More than championships</h2></div></div>
         <div class="grid grid-2">
           <article class="card honor-card"><span class="honor-icon">🏅</span><div><span class="eyebrow">Best regular season ever</span><h2>Cameron · 14–2</h2><p>The 2022 record still stands as the best regular-season mark in ROB history.</p></div></article>
-          <article class="card honor-card"><span class="honor-icon">🦀</span><div><span class="eyebrow">Division fact check</span><h2>Tucker · Crabs</h2><p>The saved 2025 standings and current 2026 ESPN standings both place Tucker in Crabs. The old four-straight Fish claim was removed because it projected current divisions backward.</p></div></article>
+          <article class="card honor-card"><span class="honor-icon">🦀🐟</span><div><span class="eyebrow">Regular season vs. trophy</span><h2>Crabs won the table.<br>Fish won the title.</h2><p>In 2025, Crabs finished a combined 37–33 (.529) while Fish went 33–37 (.471). But Mark came out of Fish and won the championship—proof that the stronger regular-season division does not always take home the trophy.</p></div></article>
         </div>
       </section>
     </section>`;
