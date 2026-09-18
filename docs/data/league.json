@@ -1,0 +1,72 @@
+{
+  "league": {
+    "name": "Rock or Bust",
+    "shortName": "ROB",
+    "leagueId": "508419792",
+    "founded": 2020,
+    "trackedSince": 2022,
+    "snapshot": "2025 Week 11",
+    "espnUrl": "https://fantasy.espn.com/football/league?leagueId=508419792"
+  },
+  "coverage": [
+    { "label": "Recognized champions", "range": "2020-present", "status": "partial", "note": "Early champions can be added from commissioner records and screenshots." },
+    { "label": "Final ranks and draft results", "range": "2022-2024", "status": "verified", "note": "Normalized from the league spreadsheet and saved ESPN exports." },
+    { "label": "Weekly matchup scores", "range": "2025 Weeks 1-11", "status": "verified", "note": "Computed from the repository schedule snapshot." },
+    { "label": "Current team identities", "range": "2025", "status": "verified", "note": "Names, managers, divisions, and available logos come from saved ESPN pages." }
+  ],
+  "champions": [
+    { "year": 2022, "managerId": "eli", "runnerUpId": "noah", "division": "Fish", "note": "League's top offense overcame the second-hardest reported schedule." },
+    { "year": 2023, "managerId": "james", "runnerUpId": "mark", "division": "Fish", "note": "James converted a fourth-ranked offense and favorable schedule into a title." },
+    { "year": 2024, "managerId": "tucker", "runnerUpId": "jacob", "division": "Fish", "note": "A top-three offense completed the Fish Division three-peat." }
+  ],
+  "seasons": [
+    { "year": 2020, "label": "Early ROB Era", "status": "reconstructed", "champion": null, "story": "Championship recognized when commissioner evidence is added; weekly schedules are unavailable." },
+    { "year": 2021, "label": "Early ROB Era", "status": "reconstructed", "champion": null, "story": "Championship recognized when commissioner evidence is added; weekly schedules are unavailable." },
+    { "year": 2022, "label": "The Skill Title", "status": "verified", "champion": "eli", "runnerUp": "noah", "story": "Eli paired the league's top reported offense with a championship. Cameron's 14-2 regular season remains the best record in the tracked data." },
+    { "year": 2023, "label": "The Open Door", "status": "verified", "champion": "james", "runnerUp": "mark", "story": "James took advantage of the league's easiest reported schedule and became the second champion in two tracked seasons." },
+    { "year": 2024, "label": "The Fish Three-Peat", "status": "verified", "champion": "tucker", "runnerUp": "jacob", "story": "Tucker became the third different champion in three years while extending the Fish Division championship streak." },
+    { "year": 2025, "label": "Snapshot Season", "status": "partial", "champion": null, "story": "The repository contains complete results through Week 11. Standings on this site are computed from that snapshot, not presented as final." }
+  ],
+  "managers": [
+    { "id": "cameron", "name": "Cameron Wheeless", "shortName": "Cameron", "team": "Indoctrinated Ravens", "scheduleTeam": "Indoctrinated Ravens", "division": "Fish", "active": "2022-present", "logo": null, "aliases": ["Ridley Me Softly"], "note": "Posted a tracked-record 14-2 regular season in 2022." },
+    { "id": "daniel", "name": "Daniel Staggs", "shortName": "Daniel", "team": "Duloc Gingerbread Men", "scheduleTeam": "Duloc InjuredBread Men- 12", "division": "Crabs", "active": "2022-present", "logo": null, "aliases": ["Duloc InjuredBread Men- 12"], "note": "Drafted Tyreek Hill in the first two rounds three tracked years in a row." },
+    { "id": "eli", "name": "Eli Sockwell", "shortName": "Eli", "team": "Crip Crip", "scheduleTeam": "Crip Crip", "division": "Crabs", "active": "2022-present", "logo": null, "aliases": [], "note": "2022 champion and the strongest average tracked draft return." },
+    { "id": "jacob", "name": "Jacob Sockwell", "shortName": "Jacob", "team": "HerpesDonator", "scheduleTeam": "HerpesDonator", "division": "Fish", "active": "2023-present", "logo": null, "aliases": [], "note": "Improved from 10th in 2023 to runner-up in 2024." },
+    { "id": "james", "name": "James Jones / Dalton", "shortName": "James / Dalton", "team": "James Teams Sucks", "scheduleTeam": "James Teams Sucks", "division": "Fish", "active": "2022-present", "logo": null, "aliases": [], "note": "2023 champion; shares the current team identity with Dalton." },
+    { "id": "mark", "name": "Mark Angel", "shortName": "Mark", "team": "Koolaid Jammer", "scheduleTeam": "Koolaid Jammer", "division": "Fish", "active": "2023-present", "logo": null, "aliases": [], "note": "Runner-up in his first tracked season." },
+    { "id": "noah", "name": "Noah Walton", "shortName": "Noah", "team": "Our Lard and Savior", "scheduleTeam": "Our Lard and Savior", "division": "Crabs", "active": "2022-present", "logo": null, "aliases": [], "note": "Three straight tracked drafts featured an early quarterback investment." },
+    { "id": "tucker", "name": "Tucker McAfee", "shortName": "Tucker", "team": "Dart Party", "scheduleTeam": "Dart Party", "division": "Crabs", "active": "2022-present", "logo": null, "aliases": ["More plates more dates"], "note": "2024 champion after finishing seventh, sixth, then first." },
+    { "id": "josh", "name": "Josh", "shortName": "Josh", "team": "Josh's Scary Team", "scheduleTeam": "Josh's Scary Team", "division": "Crabs", "active": "2025-present", "logo": null, "aliases": [], "note": "Joined the fully tracked weekly matchup era in 2025." },
+    { "id": "jake", "name": "Jake McCabe", "shortName": "Jake", "team": "Don't Blink", "scheduleTeam": "Don't Blink", "division": "Fish", "active": "2025-present", "logo": null, "aliases": [], "note": "Joined the fully tracked weekly matchup era in 2025." }
+  ],
+  "drafts": [
+    { "managerId": "cameron", "season": 2022, "slot": 1, "finish": 3, "value": -2, "round1": "Jonathan Taylor", "round2": "Justin Herbert", "round3": "Stefon Diggs" },
+    { "managerId": "cameron", "season": 2023, "slot": 3, "finish": 7, "value": -4, "round1": "Ja'Marr Chase", "round2": "Joe Burrow", "round3": "Garrett Wilson" },
+    { "managerId": "cameron", "season": 2024, "slot": 2, "finish": 6, "value": -4, "round1": "Breece Hall", "round2": "Michael Pittman Jr.", "round3": "Travis Etienne Jr." },
+    { "managerId": "daniel", "season": 2022, "slot": 2, "finish": 5, "value": -3, "round1": "Tyreek Hill", "round2": "Alvin Kamara", "round3": "Jerry Jeudy" },
+    { "managerId": "daniel", "season": 2023, "slot": 2, "finish": 4, "value": -2, "round1": "Tyreek Hill", "round2": "Tua Tagovailoa", "round3": "Jahmyr Gibbs" },
+    { "managerId": "daniel", "season": 2024, "slot": 3, "finish": 8, "value": -5, "round1": "Tyreek Hill", "round2": "Chris Olave", "round3": "Travis Kelce" },
+    { "managerId": "eli", "season": 2022, "slot": 7, "finish": 1, "value": 6, "round1": "Austin Ekeler", "round2": "Lamar Jackson", "round3": "Travis Kelce" },
+    { "managerId": "eli", "season": 2023, "slot": 4, "finish": 3, "value": 1, "round1": "Austin Ekeler", "round2": "Amon-Ra St. Brown", "round3": "CeeDee Lamb" },
+    { "managerId": "eli", "season": 2024, "slot": 4, "finish": 4, "value": 0, "round1": "Amon-Ra St. Brown", "round2": "Kyren Williams", "round3": "Joe Mixon" },
+    { "managerId": "jacob", "season": 2023, "slot": 10, "finish": 10, "value": 0, "round1": "Travis Kelce", "round2": "Cooper Kupp", "round3": "Tee Higgins" },
+    { "managerId": "jacob", "season": 2024, "slot": 6, "finish": 2, "value": 4, "round1": "Justin Jefferson", "round2": "Jahmyr Gibbs", "round3": "Isiah Pacheco" },
+    { "managerId": "james", "season": 2022, "slot": 6, "finish": 4, "value": 2, "round1": "Cooper Kupp", "round2": "Jalen Hurts", "round3": "Joe Mixon" },
+    { "managerId": "james", "season": 2023, "slot": 5, "finish": 1, "value": 4, "round1": "Saquon Barkley", "round2": "Stefon Diggs", "round3": "Josh Allen" },
+    { "managerId": "james", "season": 2024, "slot": 7, "finish": 5, "value": 2, "round1": "A.J. Brown", "round2": "CeeDee Lamb", "round3": "Drake London" },
+    { "managerId": "mark", "season": 2023, "slot": 6, "finish": 2, "value": 4, "round1": "Davante Adams", "round2": "Jalen Hurts", "round3": "Jaylen Waddle" },
+    { "managerId": "mark", "season": 2024, "slot": 8, "finish": 7, "value": 1, "round1": "Garrett Wilson", "round2": "Bijan Robinson", "round3": "Davante Adams" },
+    { "managerId": "noah", "season": 2022, "slot": 3, "finish": 2, "value": 1, "round1": "Josh Allen", "round2": "Najee Harris", "round3": "Dalvin Cook" },
+    { "managerId": "noah", "season": 2023, "slot": 7, "finish": 5, "value": 2, "round1": "Patrick Mahomes", "round2": "Tony Pollard", "round3": "DK Metcalf" },
+    { "managerId": "noah", "season": 2024, "slot": 1, "finish": 3, "value": -2, "round1": "Christian McCaffrey", "round2": "Jalen Hurts", "round3": "Jonathan Taylor" },
+    { "managerId": "tucker", "season": 2022, "slot": 5, "finish": 7, "value": -2, "round1": "Derrick Henry", "round2": "Justin Jefferson", "round3": "Davante Adams" },
+    { "managerId": "tucker", "season": 2023, "slot": 9, "finish": 6, "value": 3, "round1": "Derrick Henry", "round2": "Josh Jacobs", "round3": "Calvin Ridley" },
+    { "managerId": "tucker", "season": 2024, "slot": 5, "finish": 1, "value": 4, "round1": "Ja'Marr Chase", "round2": "Saquon Barkley", "round3": "Marvin Harrison Jr." }
+  ],
+  "recordBook": [
+    { "label": "Best tracked regular season", "value": "14-2", "holder": "Cameron", "season": "2022", "status": "reported" },
+    { "label": "Best three-year draft return", "value": "+7", "holder": "Eli", "season": "2022-24", "status": "computed" },
+    { "label": "Biggest year-to-year leap", "value": "8 places", "holder": "Jacob", "season": "2023-24", "status": "computed" },
+    { "label": "Championship parity", "value": "3 in 3", "holder": "Different champions", "season": "2022-24", "status": "verified" }
+  ]
+}
